@@ -1,3 +1,7 @@
+## log4j
+> log4j 2.17.1 이상 버전을 사용해야 함(보안이슈)
+> spring-boot-starter-web에 내장 logging 모듈이 있기 때문에 의존성 제거를 해야함.
+
 ## 지양해야 할 Annotations
 > @AllArgsConstructor
 > * 두 개의 같은 타입 인스턴스 멤버를 선언한 상황에서 개발자가 선언된 인스턴스 멤버의 순서를 바꾸면, 개발자도 인식하지 못하는 사이에 lombok이 생성자의 파라미터 순서를 필드 선언 순서에 따라 변경하게 된다. 이때, IDE가 제공해주는 리팩토링은 전혀 동작하지 않고, 두 필드가 동일 타입이기 때문에 기존 소스에서도 오류가 발생하지 않아 아무런 문제없이 동작하는 것으로 보이지만, 실제로 입력된 값이 바뀌어 들어가는 상황이 발생한다.
@@ -11,3 +15,7 @@
 > * 필드들이 final로 생성되어 있는 경우에는 필드를 초기화할 수 없기 때문에 생성자를 만들 수 없고 에러가 발생한다. → @NoArgsConstructor(force=true) 옵션을 이용해 final 필드를 강제 초기화 시켜 생성자를 만들 수 있다.
 > * @Nonnull 같이 필드에 제약조건이 설정되어 있는 경우, 추후 초기화를 진행하기 전까지 생성자 내 null-check 로직이 생성되지 않는다.
 
+## JPA
+> spring.jpa.hibernate.naming.strategy=org.hibernate.cfg.ImprovedNamingStrategy
+> spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+> Entity Field값과 db의 coloumn값을 일치시기키 위함.
