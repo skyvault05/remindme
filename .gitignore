@@ -243,5 +243,5 @@ hs_err_pid*
 
 .idea
 
-#src/main/resources/application-oauth2.yml
-#src/main/resources/application-db.yml
+src/main/resources/application-oauth2.yml
+src/main/resources/application-db.yml
