@@ -19,3 +19,8 @@
 > spring.jpa.hibernate.naming.strategy=org.hibernate.cfg.ImprovedNamingStrategy
 > spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 > Entity Field값과 db의 coloumn값을 일치시기키 위함.
+
+## git
+> 아이디 비밀번호 보호를 위해 파일은 두고 변화 언트래킹
+> git update-index --assume-unchanged src/main/resources/application-db.yml
+> git update-index --assume-unchanged src/main/resources/application-oauth2.yml
