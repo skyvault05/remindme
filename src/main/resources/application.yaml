@@ -3,5 +3,6 @@ spring:
     include: oauth2, db
 
 logging:
-  level.org.hibernate: debug
+  level:
+    org.hibernate: debug
 
