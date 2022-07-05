@@ -5,8 +5,11 @@
 * jpa 2.6.6
 * mysql-connector-java 8.0.29
 * log4j 2.17.1
-* spring-security-oauth2-autoconfigure 2.6.8
 * spring-boot-starter-oauth2-client 2.7.0
+* spring-security-oauth2-autoconfigure 2.6.8
+* spring-security-test 5.7.2
+* spring-boot-test-autoconfigure 2.7.1
+
 ## Database
 * mysql 8.0.29
 

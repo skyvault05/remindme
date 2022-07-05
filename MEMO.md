@@ -1,21 +1,5 @@
-##Login 구현
-`public class SpringSecurity extends WebSecurityConfigurerAdapter`
-* @EnableWebSecurity로 SpringSecurity설정들 활성화
-* Configure 메소드를 @Override하여 Requset Url에 대한 Permission설정 및 로그인(로그인 로직을 담당하는 UserService의 구현체를 콜백함수로 할당) 로그아웃 설정.
-
-`public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User>`
-* userRequest 파라미터로 User정보 load.
-<details><summary>Parameter List</summary>
-
-1. registrationId: 로그인 서비스 종류
-2.  userNameAttributesName: 로그인 진행 시 Key가 되는 Field값.
-3.  attributes: OAuth2UserService를 통해 가져온 Attributes를 담은 Custom Class
-</details>
-
-* delegate객체를 만들어서 API 서버에 요청하는것과 같은 무거운 역할 대행.
-
 ## log4j
-log4j 2.17.1 이상 버전을 사용해야 함(보안이슈)
+log4j 2.17.1 이상 버전을 사용해야 함(보안이슈),
 spring-boot-starter-web에 내장 logging 모듈이 있기 때문에 의존성 제거를 해야함.
 
 ## 지양해야 할 Annotations
@@ -47,4 +31,39 @@ SpringBoot 1.5와 2.X의 설정을 똑같은 방식으로 하기 위한 라이�
 ## Serializable
 Java의 Object또는 Data를 자바 외부 시스템에서도 사용할 수 있게 Byte형식으로 변환
 
-# Exception 구현.
+##Google Login 구현
+`public class SpringSecurity extends WebSecurityConfigurerAdapter`
+* @EnableWebSecurity로 SpringSecurity설정들 활성화
+* Configure 메소드를 @Override하여 Requset Url에 대한 Permission설정 및 로그인(로그인 로직을 담당하는 UserService의 구현체를 콜백함수로 할당) 로그아웃 설정.
+
+`public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User>`
+
+__loadUser 메소드를 @Override__(로그인 구현)
+
+* userRequest 파라미터로 User정보 load.
+
+<details><summary>Parameter List</summary>
+
+1. registrationId: 로그인 서비스 종류
+2.  userNameAttributesName: 로그인 진행 시 Key가 되는 Field값.
+3.  attributes: OAuth2UserService를 통해 가져온 Attributes를 담은 Custom Class
+</details>
+
+* delegate객체를 만들어서 API 서버에 요청하는것과 같은 무거운 역할 대행.(DefaultOAuth2UserService)
+* DefaultOAuth2UserService(delegate)객체로 userRequest를 parameter로 OAuth2User 객체 반환.
+* OAuth2UserRequest와 OAuth2User객체로 Custom객체인 OAuthAttributes생성
+```
+OAuthAttributes attributes = OAuthAttributes
+                .of(registrationId, userNameAttributesName, oAuth2User.getAttributes());
+```
+
+* OAuthAttributes로 User를 반환 및 업데이트하는 saveOrUpdate 메소드 생성
+
+* Session정보를 SessionUser객체로 바꿔 세션에 저장.(나중에 세션 저장소를 radis로 변환 예정)
+
+* return __DefaultOAuth2User(Collection<? extends GrantedAuthority> authorities, Map<String, Object> attributes, String nameAttributeKey)__
+  SimpleGrantedAuthority(Role)객체를 여러개 생성하지 않게 Singleton으로 생성
+
+
+
+# Exception 구현. SpringSecurity Role을 이용한 테스트 세팅. @LoginCheck Annotation 만들기. LoginSession Radis(Cache서버 데이터 lifetime)로 저장하기.
