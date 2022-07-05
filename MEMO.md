@@ -31,6 +31,9 @@ SpringBoot 1.5와 2.X의 설정을 똑같은 방식으로 하기 위한 라이�
 ## Serializable
 Java의 Object또는 Data를 자바 외부 시스템에서도 사용할 수 있게 Byte형식으로 변환
 
+## SpringBoot Defendency의 Explicit Version
+버전 명시 하는걸 지양해야함. SpringBoot에서 관리하는 compatible 버전을 자동으로 가져오게 하는 걸 추천.
+
 ##Google Login 구현
 `public class SpringSecurity extends WebSecurityConfigurerAdapter`
 * @EnableWebSecurity로 SpringSecurity설정들 활성화
@@ -39,7 +42,7 @@ Java의 Object또는 Data를 자바 외부 시스템에서도 사용할 수 있�
 `public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User>`
 
 __loadUser 메소드를 @Override__(로그인 구현)
-
+> loadUer를 @Override하는 이유? Entity에 유저정보 저장 및 업데이트, 세션에 유저정보 저장.
 * userRequest 파라미터로 User정보 load.
 
 <details><summary>Parameter List</summary>
@@ -49,8 +52,7 @@ __loadUser 메소드를 @Override__(로그인 구현)
 3.  attributes: OAuth2UserService를 통해 가져온 Attributes를 담은 Custom Class
 </details>
 
-* delegate객체를 만들어서 API 서버에 요청하는것과 같은 무거운 역할 대행.(DefaultOAuth2UserService)
-* DefaultOAuth2UserService(delegate)객체로 userRequest를 parameter로 OAuth2User 객체 반환.
+* delegate객체를 만들어서 DefaultOAuth2UserService클래스의 loadUser 메소드에 userRequest를 parameter로 OAuth2User 객체 반환.(회원정보를 받아오기 위한 prameter들 받기)
 * OAuth2UserRequest와 OAuth2User객체로 Custom객체인 OAuthAttributes생성
 ```
 OAuthAttributes attributes = OAuthAttributes
@@ -64,6 +66,17 @@ OAuthAttributes attributes = OAuthAttributes
 * return __DefaultOAuth2User(Collection<? extends GrantedAuthority> authorities, Map<String, Object> attributes, String nameAttributeKey)__
   SimpleGrantedAuthority(Role)객체를 여러개 생성하지 않게 Singleton으로 생성
 
+## @AutoConfigureMockMvc
+테스트 클래스에 @Controller, @RestController, @Service, @Repository Bean을 생성해 메모리에 올림
+@WebMvcTest는 컨트롤러만 올리니 @SpringBootTest와 @AutoConfigureMockMvc두개를 함께 사용하는 것이 좋음.
+
+## JPA Auditing 활성화
+`Application.java`
+클래스에 @EnableJpaAuditing 추가
+
+## CreatedDate와 ModifiedDate를 관리하기 위한 BaseTimeEntity를 생성
 
 
-# Exception 구현. SpringSecurity Role을 이용한 테스트 세팅. @LoginCheck Annotation 만들기. LoginSession Radis(Cache서버 데이터 lifetime)로 저장하기.
+
+# Exception 구현. @LoginCheck Annotation 만들기 or AOP로 로그인체크. LoginSession Radis(Cache서버 데이터 lifetime)로 저장하기. API인 만큼 주석 달기.
+# 각 일정들을 효율적으로 select 하기 위한 db index 조사.
