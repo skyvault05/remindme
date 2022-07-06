@@ -1,4 +1,4 @@
-package com.skyvault05.remindme.config;
+package com.skyvault05.remindme.config.jpa;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
