@@ -74,9 +74,18 @@ OAuthAttributes attributes = OAuthAttributes
 `Application.java`
 클래스에 @EnableJpaAuditing 추가
 
+## Redis로 Http세션 저장
+Redis client로 Lettuce를 사용.
+Spring Session Data Redis 라이브러리로 Http Session을 Redis에 저장.
+spring:session:sessions:6f6b2447-4bbf-4908-8905-327aae68fa15
+
 ## CreatedDate와 ModifiedDate를 관리하기 위한 BaseTimeEntity를 생성
 
 
 
 # Exception 구현. @LoginCheck Annotation 만들기 or AOP로 로그인체크. LoginSession Radis(Cache서버 데이터 lifetime)로 저장하기. API인 만큼 주석 달기.
 # 각 일정들을 효율적으로 select 하기 위한 db index 조사.
+# Redis.conf 파일로 설정하기
+# mysql allowPublicKeyRetrieval 조사
+# 세션 만료시간 지정하기
+
