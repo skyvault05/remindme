@@ -1,6 +1,6 @@
 package com.skyvault05.remindme.config.security;
 
-import com.skyvault05.remindme.domain.Role;
+import com.skyvault05.remindme.domain.UserRole;
 import com.skyvault05.remindme.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,7 +19,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/", "/login").permitAll()
-                    .antMatchers("/api/v1/**").hasRole(Role.USER.name())
+                    .antMatchers("/api/v1/**").hasRole(UserRole.USER.name())
                     .anyRequest().authenticated()
                 .and()
                     .logout()

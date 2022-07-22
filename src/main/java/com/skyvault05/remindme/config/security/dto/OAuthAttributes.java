@@ -1,6 +1,6 @@
 package com.skyvault05.remindme.config.security.dto;
 
-import com.skyvault05.remindme.domain.Role;
+import com.skyvault05.remindme.domain.UserRole;
 import com.skyvault05.remindme.domain.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -42,10 +42,10 @@ public class OAuthAttributes {
 
     public User toEntity() {
         return User.builder()
-                .name(name)
-                .email(email)
-                .picture(picture)
-                .role(Role.GUEST)
+                .userName(name)
+                .userEmail(email)
+                .userPicture(picture)
+                .userRole(UserRole.GUEST)
                 .build();
     }
 }

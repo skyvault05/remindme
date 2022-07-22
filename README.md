@@ -10,6 +10,9 @@
 * spring-security-test 5.7.2
 * spring-boot-test-autoconfigure 2.7.1
 
+* spring-boot-starter-data-redis
+* spring-session-data-redis
+
 ## Database
 * mysql 8.0.29
 

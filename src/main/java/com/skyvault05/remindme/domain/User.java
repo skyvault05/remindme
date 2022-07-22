@@ -4,52 +4,62 @@ package com.skyvault05.remindme.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
+@DynamicInsert
+@DynamicUpdate
 @Getter
 @NoArgsConstructor
-@Setter
 public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userId;
 
     @Column(nullable = false)
-    private String name;
+    private String userName;
 
     @Column(nullable = false)
-    private String email;
+    private String userEmail;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role role;
+    private UserRole userRole;
 
     @Column
-    private String picture;
+    private String userPicture;
+
+    @Column
+    @ColumnDefault("1")
+    private Integer status;
+
+    @OneToOne(mappedBy = "user")
+    private Friend friend;
+
+
 
     @Builder
-    public User(String name, String email, String picture, Role role){
-        this.name = name;
-        this.email = email;
-        this.picture = picture;
-        this.role = role;
+    public User(String userName, String userEmail, String userPicture, UserRole userRole, Integer status){
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPicture = userPicture;
+        this.userRole = userRole;
+        this.status = status;
     }
 
     public User update(String name, String picture){
-        this.name = name;
-        this.picture = picture;
+        this.userName = name;
+        this.userPicture = picture;
 
         return this;
     }
 
     public String getRoleKey(){
-        return this.role.getKey();
+        return this.userRole.getKey();
     }
 }

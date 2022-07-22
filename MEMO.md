@@ -81,6 +81,7 @@ spring:session:sessions:6f6b2447-4bbf-4908-8905-327aae68fa15
 
 ## CreatedDate와 ModifiedDate를 관리하기 위한 BaseTimeEntity를 생성
 
+## @Converter와 implements AttributeConverter를 사용해 List<User>를 db 컬럼으로 사용
 
 
 # Exception 구현. @LoginCheck Annotation 만들기 or AOP로 로그인체크. LoginSession Radis(Cache서버 데이터 lifetime)로 저장하기. API인 만큼 주석 달기.
