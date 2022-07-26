@@ -1,14 +1,19 @@
 package com.skyvault05.remindme.domain;
 
+import com.skyvault05.remindme.utils.converter.UserListConverter;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
+@DynamicInsert
+@DynamicUpdate
 @NoArgsConstructor
 public class Schedule extends BaseTimeEntity {
     @Id
@@ -19,9 +24,9 @@ public class Schedule extends BaseTimeEntity {
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany
-    @JoinColumn(name = "userId")
-    private List<User> members;
+    @Column
+    @Convert(converter = UserListConverter.class)
+    private List<User> member;
 
     @Column
     @NotNull
@@ -50,10 +55,10 @@ public class Schedule extends BaseTimeEntity {
     private Integer status;
 
     @Builder
-    public Schedule(List<User> members, String title, String description,
+    public Schedule(List<User> member, String title, String description,
                     LocalDateTime startDate, LocalDateTime endTime, String intervalType,
                     String intervalValue, List<Reply> replys, Integer status){
-        this.members = members;
+        this.member = member;
         this.title = title;
         this.description = description;
         this.startDate = startDate;

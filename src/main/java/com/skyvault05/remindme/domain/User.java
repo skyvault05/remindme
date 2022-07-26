@@ -36,9 +36,9 @@ public class User extends BaseTimeEntity {
 
     @Column
     @ColumnDefault("1")
-    private Integer status;
+    private Integer userStatus;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     private Friend friend;
 
 
@@ -49,7 +49,7 @@ public class User extends BaseTimeEntity {
         this.userEmail = userEmail;
         this.userPicture = userPicture;
         this.userRole = userRole;
-        this.status = status;
+        this.userStatus = status;
     }
 
     public User update(String name, String picture){

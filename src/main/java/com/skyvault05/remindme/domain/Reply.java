@@ -1,8 +1,15 @@
 package com.skyvault05.remindme.domain;
 
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 
 @Entity
+@DynamicInsert
+@DynamicUpdate
+@NoArgsConstructor
 public class Reply extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

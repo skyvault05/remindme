@@ -1,4 +1,4 @@
-package com.skyvault05.remindme.utils;
+package com.skyvault05.remindme.utils.converter;
 
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.repository.UserRepository;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @Converter
 @RequiredArgsConstructor
-public class FriendListConverter implements AttributeConverter<List<User>, String> {
+public class UserListConverter implements AttributeConverter<List<User>, String> {
     private static final String SPLIT_CHAR=",";
 
     private final UserRepository userRepository;
