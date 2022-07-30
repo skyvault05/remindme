@@ -1,19 +1,24 @@
 package com.skyvault05.remindme.domain;
 
 
+import com.skyvault05.remindme.utils.converter.UserListConverter;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @DynamicInsert
 @DynamicUpdate
 @Getter
+@Setter
 @NoArgsConstructor
 public class User extends BaseTimeEntity {
 
@@ -27,27 +32,27 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private String userEmail;
 
+    @Column
+    private String userPicture;
+
+    @Column
+    @Convert(converter = UserListConverter.class)
+    private List<User> userFriend;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole userRole;
 
     @Column
-    private String userPicture;
-
-    @Column
     @ColumnDefault("1")
     private Integer userStatus;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
-    private Friend friend;
-
-
-
     @Builder
-    public User(String userName, String userEmail, String userPicture, UserRole userRole, Integer status){
+    public User(String userName, String userEmail, String userPicture, List<User> userFriend, UserRole userRole, Integer status){
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPicture = userPicture;
+        this.userFriend = userFriend == null ? new LinkedList<>() : userFriend;
         this.userRole = userRole;
         this.userStatus = status;
     }

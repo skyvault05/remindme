@@ -20,25 +20,29 @@ public class UserListConverter implements AttributeConverter<List<User>, String>
 
     @Override
     public String convertToDatabaseColumn(List<User> attribute) {
+        if (attribute.isEmpty()) return null;
+
         List<String> stringList = new LinkedList<>();
         for(User user : attribute){
             stringList.add(user.getUserId().toString());
         }
 
-        return stringList != null ? String.join(SPLIT_CHAR, stringList) : "";
+        return String.join(SPLIT_CHAR, stringList);
     }
 
     @Override
     public List<User> convertToEntityAttribute(String dbData) {
+        if (dbData == null) return new LinkedList<>();
+
         String[] userIdArray = dbData.split(",");
         List<User> userList = new LinkedList<>();
 
         for(String userId : userIdArray) {
-            User tempUser = userRepository.findById(Long.getLong(userId)).orElse(null);
+            User tempUser = userRepository.findById(Long.parseLong(userId)).orElse(null);
             userList.add(tempUser);
         }
 
-        return userList.get(0) != null ? userList : Collections.emptyList();
+        return userList;
     }
 }
 

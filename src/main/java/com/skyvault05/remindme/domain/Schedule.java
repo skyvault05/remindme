@@ -1,19 +1,26 @@
 package com.skyvault05.remindme.domain;
 
+import com.skyvault05.remindme.utils.converter.ReplyListConverter;
 import com.skyvault05.remindme.utils.converter.UserListConverter;
 import com.sun.istack.NotNull;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
 @DynamicInsert
 @DynamicUpdate
+@Setter
+@Getter
 @NoArgsConstructor
 public class Schedule extends BaseTimeEntity {
     @Id
@@ -22,50 +29,52 @@ public class Schedule extends BaseTimeEntity {
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private User user;
+    private User scheduleUser;
 
     @Column
     @Convert(converter = UserListConverter.class)
-    private List<User> member;
+    private List<User> scheduleMember;
 
     @Column
     @NotNull
-    private String title;
+    private String scheduleTitle;
 
     @Column
-    private String description;
+    private String scheduleDescription;
 
     @Column
-    private LocalDateTime startDate;
+    private LocalDateTime scheduleStartDate;
 
     @Column
-    private LocalDateTime endTime;
+    private LocalDateTime scheduleEndDate;
 
     @Column
-    private String intervalType;
+    private String scheduleIntervalType;
 
     @Column
-    private String intervalValue;
-
-    @OneToMany
-    @JoinColumn(name = "replyId")
-    private List<Reply> replys;
+    private String scheduleIntervalValue;
 
     @Column
-    private Integer status;
+    @Convert(converter = ReplyListConverter.class)
+    private List<ScheduleReply> scheduleReply;
+
+    @Column
+    @ColumnDefault("1")
+    private Integer scheduleStatus;
 
     @Builder
-    public Schedule(List<User> member, String title, String description,
-                    LocalDateTime startDate, LocalDateTime endTime, String intervalType,
-                    String intervalValue, List<Reply> replys, Integer status){
-        this.member = member;
-        this.title = title;
-        this.description = description;
-        this.startDate = startDate;
-        this.endTime = endTime;
-        this.intervalType = intervalType;
-        this.intervalValue = intervalValue;
-        this.replys = replys;
-        this.status = status;
+    public Schedule(User scheduleUser, List<User> scheduleMember, String scheduleTitle, String scheduleDescription,
+                    LocalDateTime scheduleStartDate, LocalDateTime scheduleEndDate, String scheduleIntervalType,
+                    String scheduleIntervalValue, List<ScheduleReply> scheduleReply, Integer scheduleStatus){
+        this.scheduleUser = scheduleUser;
+        this.scheduleMember = scheduleMember == null ? new LinkedList<>() : scheduleMember;
+        this.scheduleTitle = scheduleTitle;
+        this.scheduleDescription = scheduleDescription;
+        this.scheduleStartDate = scheduleStartDate;
+        this.scheduleEndDate = scheduleEndDate;
+        this.scheduleIntervalType = scheduleIntervalType;
+        this.scheduleIntervalValue = scheduleIntervalValue;
+        this.scheduleReply = scheduleReply == null ? new LinkedList<>() : scheduleReply;
+        this.scheduleStatus = scheduleStatus;
     }
 }
