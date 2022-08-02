@@ -1,4 +1,4 @@
-package com.skyvault05.remindme.service;
+package com.skyvault05.remindme.config.security.service;
 import com.skyvault05.remindme.config.security.dto.OAuthAttributes;
 import com.skyvault05.remindme.config.security.dto.SessionUser;
 import com.skyvault05.remindme.domain.User;

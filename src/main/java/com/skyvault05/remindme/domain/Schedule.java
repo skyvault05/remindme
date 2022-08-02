@@ -48,14 +48,15 @@ public class Schedule extends BaseTimeEntity {
     @Column
     private LocalDateTime scheduleEndDate;
 
-    @Column
-    private String scheduleIntervalType;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ScheduleIntervalType scheduleIntervalType;
 
     @Column
     private String scheduleIntervalValue;
 
-    @Column
-    @Convert(converter = ReplyListConverter.class)
+    @OneToMany
+    @JoinColumn(name = "shceduleReplyId")
     private List<ScheduleReply> scheduleReply;
 
     @Column
@@ -64,7 +65,7 @@ public class Schedule extends BaseTimeEntity {
 
     @Builder
     public Schedule(User scheduleUser, List<User> scheduleMember, String scheduleTitle, String scheduleDescription,
-                    LocalDateTime scheduleStartDate, LocalDateTime scheduleEndDate, String scheduleIntervalType,
+                    LocalDateTime scheduleStartDate, LocalDateTime scheduleEndDate, ScheduleIntervalType scheduleIntervalType,
                     String scheduleIntervalValue, List<ScheduleReply> scheduleReply, Integer scheduleStatus){
         this.scheduleUser = scheduleUser;
         this.scheduleMember = scheduleMember == null ? new LinkedList<>() : scheduleMember;

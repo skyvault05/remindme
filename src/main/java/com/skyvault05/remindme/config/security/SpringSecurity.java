@@ -1,7 +1,7 @@
 package com.skyvault05.remindme.config.security;
 
 import com.skyvault05.remindme.domain.UserRole;
-import com.skyvault05.remindme.service.CustomOAuth2UserService;
+import com.skyvault05.remindme.config.security.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

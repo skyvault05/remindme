@@ -86,6 +86,8 @@ User<List> 와 String(1,2,3,4)으로 자동 변환하여 DB <-> Entity간의 연
 
 ## Swagger(OpenApi-ui)적용.
 
+## Mapper이용해 DTO와 Entity간의 변환
+
 
 # Exception 구현. @LoginCheck Annotation 만들기 or AOP로 로그인체크.
 # 각 일정들을 효율적으로 select 하기 위한 db index 조사.

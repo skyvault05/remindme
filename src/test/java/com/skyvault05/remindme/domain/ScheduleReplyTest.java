@@ -27,7 +27,7 @@ public class ScheduleReplyTest {
         Schedule schedule = scheduleRepository.findById(1L).orElse(null);
         ScheduleReply scheduleReply = ScheduleReply.builder()
                 .scheduleReplyUser(user)
-                .schedule(schedule)
+                .scheduleId(schedule)
                 .scheduleReplyDescription("description")
                 .build();
 

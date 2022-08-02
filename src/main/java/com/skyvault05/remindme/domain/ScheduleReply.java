@@ -27,7 +27,7 @@ public class ScheduleReply extends BaseTimeEntity{
 
     @ManyToOne
     @JoinColumn(name = "scheduleId")
-    private Schedule schedule;
+    private Schedule scheduleId;
 
     @Column
     private String scheduleReplyDescription;
@@ -37,10 +37,10 @@ public class ScheduleReply extends BaseTimeEntity{
     private Integer scheduleReplyStatus;
 
     @Builder
-    public ScheduleReply (User scheduleReplyUser, Schedule schedule,
+    public ScheduleReply (User scheduleReplyUser, Schedule scheduleId,
                           String scheduleReplyDescription, Integer scheduleReplyStatus){
         this.scheduleReplyUser = scheduleReplyUser;
-        this.schedule = schedule;
+        this.scheduleId = scheduleId;
         this.scheduleReplyDescription = scheduleReplyDescription;
         this.scheduleReplyStatus = scheduleReplyStatus;
     }

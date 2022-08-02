@@ -34,7 +34,7 @@ public class ScheduleTest {
                 .scheduleDescription("description")
                 .scheduleStartDate(startDate)
                 .scheduleEndDate(endDate)
-                .scheduleIntervalType("month")
+                .scheduleIntervalType(ScheduleIntervalType.MONTHLY)
                 .scheduleIntervalValue("11")
                 .scheduleUser(user)
                 .build();

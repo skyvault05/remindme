@@ -1,6 +1,6 @@
 package com.skyvault05.remindme.domain;
 
-
+import com.skyvault05.remindme.dto.UserInListDto;
 import com.skyvault05.remindme.utils.converter.UserListConverter;
 import lombok.Builder;
 import lombok.Getter;
@@ -37,7 +37,7 @@ public class User extends BaseTimeEntity {
 
     @Column
     @Convert(converter = UserListConverter.class)
-    private List<User> userFriend;
+    private List<UserInListDto> userFriend;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -48,19 +48,19 @@ public class User extends BaseTimeEntity {
     private Integer userStatus;
 
     @Builder
-    public User(String userName, String userEmail, String userPicture, List<User> userFriend, UserRole userRole, Integer status){
+    public User(Long userId, String userName, String userEmail, String userPicture, List<UserInListDto> userFriend, UserRole userRole, Integer userStatus){
+        this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPicture = userPicture;
         this.userFriend = userFriend == null ? new LinkedList<>() : userFriend;
         this.userRole = userRole;
-        this.userStatus = status;
+        this.userStatus = userStatus;
     }
 
     public User update(String name, String picture){
         this.userName = name;
         this.userPicture = picture;
-
         return this;
     }
 
