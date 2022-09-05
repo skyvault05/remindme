@@ -1,7 +1,3 @@
-## log4j
-log4j 2.17.1 이상 버전을 사용해야 함(보안이슈),
-spring-boot-starter-web에 내장 logging 모듈이 있기 때문에 의존성 제거를 해야함.
-
 ## 지양해야 할 Annotations
 @AllArgsConstructor
 * 두 개의 같은 타입 인스턴스 멤버를 선언한 상황에서 개발자가 선언된 인스턴스 멤버의 순서를 바꾸면, 개발자도 인식하지 못하는 사이에 lombok이 생성자의 파라미터 순서를 필드 선언 순서에 따라 변경하게 된다. 이때, IDE가 제공해주는 리팩토링은 전혀 동작하지 않고, 두 필드가 동일 타입이기 때문에 기존 소스에서도 오류가 발생하지 않아 아무런 문제없이 동작하는 것으로 보이지만, 실제로 입력된 값이 바뀌어 들어가는 상황이 발생한다.
@@ -88,6 +84,7 @@ User<List> 와 String(1,2,3,4)으로 자동 변환하여 DB <-> Entity간의 연
 
 ## Mapper이용해 DTO와 Entity간의 변환
 
+## Slf4J + LogBack으로 로그 구현
 
 # Exception 구현. @LoginCheck Annotation 만들기 or AOP로 로그인체크.
 # 각 일정들을 효율적으로 select 하기 위한 db index 조사.

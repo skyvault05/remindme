@@ -39,7 +39,7 @@ public class ScheduleTest {
                 .scheduleUser(user)
                 .build();
 
-        schedule.getScheduleMember().add(user2);
+//        schedule.getScheduleMember().add(user2);
 
         scheduleRepository.save(schedule);
     }

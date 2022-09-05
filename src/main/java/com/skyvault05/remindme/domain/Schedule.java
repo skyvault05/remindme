@@ -1,5 +1,7 @@
 package com.skyvault05.remindme.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.skyvault05.remindme.dto.UserInListDto;
 import com.skyvault05.remindme.utils.converter.ReplyListConverter;
 import com.skyvault05.remindme.utils.converter.UserListConverter;
 import com.sun.istack.NotNull;
@@ -33,7 +35,7 @@ public class Schedule extends BaseTimeEntity {
 
     @Column
     @Convert(converter = UserListConverter.class)
-    private List<User> scheduleMember;
+    private List<UserInListDto> scheduleMember;
 
     @Column
     @NotNull
@@ -43,9 +45,14 @@ public class Schedule extends BaseTimeEntity {
     private String scheduleDescription;
 
     @Column
+    private String scheduleImage;
+
+    @Column
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime scheduleStartDate;
 
     @Column
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime scheduleEndDate;
 
     @Enumerated(EnumType.STRING)
@@ -63,13 +70,16 @@ public class Schedule extends BaseTimeEntity {
     @ColumnDefault("1")
     private Integer scheduleStatus;
 
+
     @Builder
-    public Schedule(User scheduleUser, List<User> scheduleMember, String scheduleTitle, String scheduleDescription,
-                    LocalDateTime scheduleStartDate, LocalDateTime scheduleEndDate, ScheduleIntervalType scheduleIntervalType,
-                    String scheduleIntervalValue, List<ScheduleReply> scheduleReply, Integer scheduleStatus){
+    public Schedule(User scheduleUser, List<UserInListDto> scheduleMember, String scheduleTitle, String scheduleImage,
+                    String scheduleDescription, LocalDateTime scheduleStartDate, LocalDateTime scheduleEndDate,
+                    ScheduleIntervalType scheduleIntervalType, String scheduleIntervalValue,
+                    List<ScheduleReply> scheduleReply, Integer scheduleStatus){
         this.scheduleUser = scheduleUser;
         this.scheduleMember = scheduleMember == null ? new LinkedList<>() : scheduleMember;
         this.scheduleTitle = scheduleTitle;
+        this.scheduleImage = scheduleImage;
         this.scheduleDescription = scheduleDescription;
         this.scheduleStartDate = scheduleStartDate;
         this.scheduleEndDate = scheduleEndDate;

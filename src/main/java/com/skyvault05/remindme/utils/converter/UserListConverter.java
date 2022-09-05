@@ -45,8 +45,6 @@ public class UserListConverter implements AttributeConverter<List<UserInListDto>
                             .userName(tempUser.getUserName())
                             .userEmail(tempUser.getUserEmail())
                             .userPicture(tempUser.getUserPicture())
-                            .userStatus(tempUser.getUserStatus())
-
                             .build();
             userList.add(tempUserInListDto);
         }

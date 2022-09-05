@@ -2,8 +2,12 @@ package com.skyvault05.remindme.controller;
 
 import com.skyvault05.remindme.config.security.dto.SessionUser;
 import com.skyvault05.remindme.domain.User;
+import com.skyvault05.remindme.dto.ScheduleDto;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.UserRepository;
+import com.skyvault05.remindme.utils.exception.TestException;
+import com.sun.media.jfxmedia.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
@@ -11,23 +15,29 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.endpoint.OAuth2AccessTokenResponse;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @RestController
+@Slf4j
 public class TestController {
     @Autowired
     private UserRepository userRepository;
 
     @GetMapping("/test")
-    public String hello(){
+    public String hello(ModelAndView mav){
         return "hello";
     }
+
+    @PostMapping("/v1/addScheduleTest")
+    public ScheduleDto addScheduleTest(@RequestBody ScheduleDto scheduleDto){
+        System.out.println(scheduleDto);
+        return scheduleDto;
+    }
+
 
     @GetMapping("/session")
     public String getSession(HttpServletRequest req){
@@ -62,7 +72,7 @@ public class TestController {
     }
 
     @GetMapping("/v1/tokentest")
-    public String userinfo(HttpServletRequest request, OAuth2AuthenticationToken authentication,
+    public User userinfo(HttpServletRequest request, OAuth2AuthenticationToken authentication,
                            Model model, @RegisteredOAuth2AuthorizedClient("google") OAuth2AuthorizedClient authorizedClien,
                            OAuth2AccessTokenResponse oAuth2AccessTokenResponse, HttpSession httpSession) {
         OAuth2AccessToken accessToken = authorizedClien.getAccessToken();
@@ -89,9 +99,29 @@ public class TestController {
 //        for(Object obj : oAuth2AccessTokenResponse.getAdditionalParameters().keySet()){
 //            System.out.println(obj.toString());
 //        }
+        log.info("hi");
+
+        User returnUser = userRepository.findById(4L).orElse(null);
 
 
+        return returnUser;
+    }
 
-        return "userinfo";
+    @GetMapping("/causeerror")
+    void causeError(){
+        throw new TestException();
+    }
+
+    @ExceptionHandler(TestException.class)
+    public ModelAndView handleError(HttpServletRequest req, Exception ex) {
+        log.error("Request: " + req.getRequestURL() + " raised " + ex);
+
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("exception", ex);
+        System.out.println(ex.getMessage());
+        mav.addObject("url", req.getRequestURL());
+        System.out.println(req.getRequestURL());
+        mav.setViewName("error");
+        return mav;
     }
 }
