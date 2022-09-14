@@ -7,6 +7,8 @@ import com.skyvault05.remindme.mapper.ScheduleMapper;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.service.ScheduleService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +19,13 @@ import java.util.List;
 @RequestMapping(path = "${api}/schedule")
 @RequiredArgsConstructor
 public class ScheduleController {
-    private final UserRepository userRepository;
-    private final ScheduleRepository scheduleRepository;
     private final ScheduleService scheduleService;
+    private final ScheduleMapper scheduleMapper;
 
+    @Operation(summary = "스케쥴 입력")
     @PostMapping("/insertSchedule")
     public Schedule insertSchedule(@RequestBody ScheduleDto scheduleDto, HttpSession session) {
-        Schedule schedule = ScheduleMapper.scheduleDtoToSchedule(scheduleDto);
+        Schedule schedule = scheduleMapper.scheduleDtoToSchedule(scheduleDto);
         Schedule newSchedule = scheduleService.insertSchedule(schedule, session);
 
         return newSchedule;

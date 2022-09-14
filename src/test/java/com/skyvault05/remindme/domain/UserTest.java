@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.mapper.UserMapper;
 import com.skyvault05.remindme.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -28,13 +29,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@RequiredArgsConstructor
 public class UserTest {
-    @Autowired
     private UserRepository userRepository;
-    @Autowired
     private MockMvc mockMvc;
-    @Autowired
     private ObjectMapper objectMapper;
+    private UserMapper userMapper;
 
     @Test
     public void userForTest(){
@@ -48,7 +48,7 @@ public class UserTest {
             for(long j=0; j<i; j++){
                 User friend = userRepository.findById(j).orElse(null);
 
-                if(friend != null) user.getUserFriend().add(UserMapper.userToUserInListDto(friend));
+                if(friend != null) user.getUserFriend().add(userMapper.userToUserInListDto(friend));
             }
             userRepository.save(user);
         }
@@ -91,7 +91,7 @@ public class UserTest {
         MultiValueMap<String, String> info = new LinkedMultiValueMap<>();
         User user = userRepository.findById(3L).orElse(null);
         user.getCreatedDate();
-        UserDto userDto = UserMapper.userToUserDto(user);
+        UserDto userDto = userMapper.userToUserDto(user);
 
         String content = objectMapper.writeValueAsString(userDto);
 

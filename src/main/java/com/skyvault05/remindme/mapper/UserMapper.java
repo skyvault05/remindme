@@ -5,7 +5,7 @@ import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.dto.UserInListDto;
 
 public class UserMapper {
-    public static User userDtoToUser(UserDto userDTO){
+    public User userDtoToUser(UserDto userDTO){
         User user = User.builder()
                 .userId(userDTO.getUserId())
                 .userName(userDTO.getUserName())
@@ -19,7 +19,7 @@ public class UserMapper {
         return user;
     }
 
-    public static UserDto userToUserDto(User user){
+    public UserDto userToUserDto(User user){
         UserDto userDto = UserDto.builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())
@@ -33,7 +33,7 @@ public class UserMapper {
         return userDto;
     }
 
-    public static UserInListDto userToUserInListDto(User user){
+    public UserInListDto userToUserInListDto(User user){
         UserInListDto userInListDto = UserInListDto.builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())

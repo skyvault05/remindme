@@ -20,27 +20,23 @@ public class ScheduleReply extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long scheduleReplyId;
-
     @ManyToOne
     @JoinColumn(name = "userId")
     private User scheduleReplyUser;
-
     @ManyToOne
     @JoinColumn(name = "scheduleId")
-    private Schedule scheduleId;
-
+    private Schedule schedule;
     @Column
     private String scheduleReplyDescription;
-
     @Column
     @ColumnDefault("1")
     private Integer scheduleReplyStatus;
 
     @Builder
-    public ScheduleReply (User scheduleReplyUser, Schedule scheduleId,
+    public ScheduleReply (User scheduleReplyUser, Schedule schedule,
                           String scheduleReplyDescription, Integer scheduleReplyStatus){
         this.scheduleReplyUser = scheduleReplyUser;
-        this.scheduleId = scheduleId;
+        this.schedule = schedule;
         this.scheduleReplyDescription = scheduleReplyDescription;
         this.scheduleReplyStatus = scheduleReplyStatus;
     }

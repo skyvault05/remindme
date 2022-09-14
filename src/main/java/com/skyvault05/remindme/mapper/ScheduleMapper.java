@@ -4,7 +4,7 @@ import com.skyvault05.remindme.domain.Schedule;
 import com.skyvault05.remindme.dto.ScheduleDto;
 
 public class ScheduleMapper {
-    public static Schedule scheduleDtoToSchedule(ScheduleDto scheduleDto){
+    public Schedule scheduleDtoToSchedule(ScheduleDto scheduleDto){
         Schedule schedule = Schedule.builder()
                 .scheduleTitle(scheduleDto.getScheduleTitle())
                 .scheduleDescription(scheduleDto.getScheduleDescription())
