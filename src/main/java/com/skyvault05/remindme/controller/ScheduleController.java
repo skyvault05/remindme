@@ -19,22 +19,22 @@ import java.util.List;
 @RequestMapping(path = "${api}/schedule")
 @RequiredArgsConstructor
 public class ScheduleController {
-    private final ScheduleService scheduleService;
-    private final ScheduleMapper scheduleMapper;
-
-    @Operation(summary = "스케쥴 입력")
-    @PostMapping("/insertSchedule")
-    public Schedule insertSchedule(@RequestBody ScheduleDto scheduleDto, HttpSession session) {
-        Schedule schedule = scheduleMapper.scheduleDtoToSchedule(scheduleDto);
-        Schedule newSchedule = scheduleService.insertSchedule(schedule, session);
-
-        return newSchedule;
-    }
-
-    @GetMapping("/getMySchedule")
-    public List<Schedule> getMySchedule(HttpSession session){
-        return scheduleService.getMySchedule(session);
-    }
+//    private final ScheduleService scheduleService;
+//    private final ScheduleMapper scheduleMapper;
+//
+//    @Operation(summary = "스케쥴 입력")
+//    @PostMapping("/insertSchedule")
+//    public Schedule insertSchedule(@RequestBody ScheduleDto scheduleDto, HttpSession session) {
+//        Schedule schedule = scheduleMapper.scheduleDtoToSchedule(scheduleDto);
+//        Schedule newSchedule = scheduleService.insertSchedule(schedule, session);
+//
+//        return newSchedule;
+//    }
+//
+//    @GetMapping("/getMySchedule")
+//    public List<Schedule> getMySchedule(HttpSession session){
+//        return scheduleService.getMySchedule(session);
+//    }
 
 //    @ExceptionHandler(Exception.class)
 //    public void handleException(Exception ex){

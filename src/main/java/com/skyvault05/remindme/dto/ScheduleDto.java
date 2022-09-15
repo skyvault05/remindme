@@ -20,7 +20,7 @@ import java.util.List;
 public class ScheduleDto {
     private Long scheduleId;
     private User scheduleUser;
-    private List<UserInListDto> scheduleMember;
+//    private List<UserInListDto> scheduleMember;
     @Schema(example = "스케쥴 제목", required = true)
     private String scheduleTitle;
     @Schema(example = "스케쥴 썸네일 이미지")
@@ -32,7 +32,7 @@ public class ScheduleDto {
     @Schema(example = "스케쥴 반복 기준")
     private String scheduleIntervalValue;
     @Schema(example = "댓글 목록")
-    private List<ScheduleReplyDto> scheduleReply;
+    private List<ScheduleReplyDto> scheduleReplyDto;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime scheduleEndDate;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")

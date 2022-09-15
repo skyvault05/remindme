@@ -3,7 +3,9 @@ package com.skyvault05.remindme.mapper;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.dto.UserInListDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper {
     public User userDtoToUser(UserDto userDTO){
         User user = User.builder()

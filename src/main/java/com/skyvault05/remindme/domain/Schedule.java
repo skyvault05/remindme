@@ -33,9 +33,8 @@ public class Schedule extends BaseTimeEntity {
     @JoinColumn(name = "userId")
     private User scheduleUser;
 
-    @Column
-    @Convert(converter = UserListConverter.class)
-    private List<UserInListDto> scheduleMember;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "schedule")
+    private List<ScheduleMember> scheduleMember;
 
     @Column
     @NotNull
@@ -62,8 +61,7 @@ public class Schedule extends BaseTimeEntity {
     @Column
     private String scheduleIntervalValue;
 
-    @OneToMany
-    @JoinColumn(name = "shceduleReplyId")
+    @OneToMany(mappedBy = "schedule")
     private List<ScheduleReply> scheduleReply;
 
     @Column
@@ -72,12 +70,11 @@ public class Schedule extends BaseTimeEntity {
 
 
     @Builder
-    public Schedule(User scheduleUser, List<UserInListDto> scheduleMember, String scheduleTitle, String scheduleImage,
-                    String scheduleDescription, LocalDateTime scheduleStartDate, LocalDateTime scheduleEndDate,
-                    ScheduleIntervalType scheduleIntervalType, String scheduleIntervalValue,
-                    List<ScheduleReply> scheduleReply, Integer scheduleStatus){
+    public Schedule(User scheduleUser, String scheduleTitle, String scheduleImage,
+                    String scheduleDescription, LocalDateTime scheduleStartDate,
+                    LocalDateTime scheduleEndDate, ScheduleIntervalType scheduleIntervalType,
+                    String scheduleIntervalValue, Integer scheduleStatus){
         this.scheduleUser = scheduleUser;
-        this.scheduleMember = scheduleMember == null ? new LinkedList<>() : scheduleMember;
         this.scheduleTitle = scheduleTitle;
         this.scheduleImage = scheduleImage;
         this.scheduleDescription = scheduleDescription;
@@ -85,7 +82,6 @@ public class Schedule extends BaseTimeEntity {
         this.scheduleEndDate = scheduleEndDate;
         this.scheduleIntervalType = scheduleIntervalType;
         this.scheduleIntervalValue = scheduleIntervalValue;
-        this.scheduleReply = scheduleReply == null ? new LinkedList<>() : scheduleReply;
         this.scheduleStatus = scheduleStatus;
     }
 }

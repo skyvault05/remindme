@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -29,11 +30,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-@RequiredArgsConstructor
 public class UserTest {
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
     private MockMvc mockMvc;
+    @Autowired
     private ObjectMapper objectMapper;
+    @Autowired
     private UserMapper userMapper;
 
     @Test
@@ -81,7 +85,7 @@ public class UserTest {
 
     @Test
     public void readUser(){
-        User user = userRepository.findById(1L).orElse(null);
+        User user = userRepository.findById(3L).orElse(null);
         System.out.println(user.getUserFriend());
     }
 

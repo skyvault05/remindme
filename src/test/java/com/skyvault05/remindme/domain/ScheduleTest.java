@@ -37,10 +37,18 @@ public class ScheduleTest {
                 .scheduleIntervalType(ScheduleIntervalType.MONTHLY)
                 .scheduleIntervalValue("11")
                 .scheduleUser(user)
+                .scheduleImage("scheduleImage.webp")
                 .build();
 
 //        schedule.getScheduleMember().add(user2);
 
         scheduleRepository.save(schedule);
+    }
+
+    @Test
+    public void readSchedule(){
+        Schedule schedule = scheduleRepository.findById(1L).orElse(null);
+        System.out.println(schedule);
+
     }
 }
