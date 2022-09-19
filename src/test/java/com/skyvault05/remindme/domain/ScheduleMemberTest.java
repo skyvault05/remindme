@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -36,17 +35,4 @@ public class ScheduleMemberTest {
         scheduleMemberRepository.save(scheduleMember);
 
     }
-
-    @Test
-    public void readScheduleMember(){
-        Schedule schedule = scheduleRepository.findById(1L).orElse(null);
-        System.out.println(schedule.getScheduleMember().size());
-
-        System.out.print("Members: ");
-        for(ScheduleMember scheduleMember : schedule.getScheduleMember()){
-            System.out.print(" " + scheduleMember.getMember().getUserName() + ",");
-        }
-        System.out.println();
-    }
-
 }

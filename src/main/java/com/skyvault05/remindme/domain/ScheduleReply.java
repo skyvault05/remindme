@@ -19,25 +19,26 @@ import javax.persistence.*;
 public class ScheduleReply extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long scheduleReplyId;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "userId")
-    private User scheduleReplyUser;
+    private User user;
     @ManyToOne
-    @JoinColumn(name = "scheduleId")
+    @JoinColumn(name = "schedule")
     private Schedule schedule;
     @Column
-    private String scheduleReplyDescription;
+    private String description;
     @Column
     @ColumnDefault("1")
-    private Integer scheduleReplyStatus;
+    private Integer status;
 
     @Builder
-    public ScheduleReply (User scheduleReplyUser, Schedule schedule,
-                          String scheduleReplyDescription, Integer scheduleReplyStatus){
-        this.scheduleReplyUser = scheduleReplyUser;
+    public ScheduleReply (Long id, User user, Schedule schedule,
+                          String description, Integer status){
+        this.id = id;
+        this.user = user;
         this.schedule = schedule;
-        this.scheduleReplyDescription = scheduleReplyDescription;
-        this.scheduleReplyStatus = scheduleReplyStatus;
+        this.description = description;
+        this.status = status;
     }
 }

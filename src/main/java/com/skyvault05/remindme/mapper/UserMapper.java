@@ -1,47 +1,85 @@
 package com.skyvault05.remindme.mapper;
 
+import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.UserDto;
-import com.skyvault05.remindme.dto.UserInListDto;
+import com.skyvault05.remindme.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
+import java.util.List;
+
 @Component
+@RequiredArgsConstructor
 public class UserMapper {
-    public User userDtoToUser(UserDto userDTO){
+//    private final UserMapper userMapper;
+    private final UserRepository userRepository;
+
+    public User dtoToEntity(UserDto userDTO){
         User user = User.builder()
-                .userId(userDTO.getUserId())
-                .userName(userDTO.getUserName())
-                .userEmail(userDTO.getUserEmail())
-                .userPicture(userDTO.getUserPicture())
-                .userFriend(userDTO.getUserFriend())
-                .userRole(userDTO.getUserRole())
-                .userStatus(userDTO.getUserStatus())
+                .id(userDTO.getId())
+                .name(userDTO.getName())
+                .email(userDTO.getEmail())
+                .picture(userDTO.getPicture())
+//                .friends(userMapper.dtoListToEntityList(userDTO.getFriends()))
+                .role(userDTO.getRole())
+                .status(userDTO.getStatus())
                 .build();
 
         return user;
     }
 
-    public UserDto userToUserDto(User user){
+    public UserDto entityToDto(User user){
         UserDto userDto = UserDto.builder()
-                .userId(user.getUserId())
-                .userName(user.getUserName())
-                .userEmail(user.getUserEmail())
-                .userPicture(user.getUserPicture())
-                .userFriend(user.getUserFriend())
-                .userRole(user.getUserRole())
+                .id(user.getId())
+                .name(user.getName())
+                .email(user.getEmail())
+                .picture(user.getPicture())
+//                .friends(userMapper.entityListToDtoList(user.getFriends()))
+                .role(user.getRole())
                 .createdDate(user.getCreatedDate())
                 .modifiedDate(user.getModifiedDate())
+                .status(user.getStatus())
                 .build();
         return userDto;
     }
 
-    public UserInListDto userToUserInListDto(User user){
-        UserInListDto userInListDto = UserInListDto.builder()
-                .userId(user.getUserId())
-                .userName(user.getUserName())
-                .userEmail(user.getUserEmail())
-                .userPicture(user.getUserPicture())
-                .build();
-        return userInListDto;
+    public List<User> dtoListToEntityList(List<UserDto> list){
+        List<User> entityList = new LinkedList<>();
+        for(UserDto userDto : list){
+            User user = userRepository.findById(userDto.getId()).orElse(null);
+            entityList.add(user);
+        }
+        return entityList;
+    }
+    public List<UserDto> entityListToDtoList(List<User> list){
+        List<UserDto> dtoList = new LinkedList<>();
+
+        for(User user : list){
+            UserDto userDto = UserDto
+                    .builder()
+                    .id(user.getId())
+                    .name(user.getName())
+                    .email(user.getEmail())
+                    .picture(user.getPicture())
+                    .role(user.getRole())
+                    .createdDate(user.getCreatedDate())
+                    .modifiedDate(user.getModifiedDate())
+                    .status(user.getStatus())
+                    .build();
+
+            dtoList.add(userDto);
+        }
+        return dtoList;
+    }
+
+    public List<User> memberListToUserList(List<ScheduleMember> memberList){
+        List<User> userList = new LinkedList<>();
+
+        for(ScheduleMember scheduleMember : memberList){
+            userList.add(scheduleMember.getMember());
+        }
+        return userList;
     }
 }

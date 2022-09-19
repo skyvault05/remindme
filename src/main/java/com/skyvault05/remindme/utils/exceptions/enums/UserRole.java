@@ -1,4 +1,4 @@
-package com.skyvault05.remindme.domain;
+package com.skyvault05.remindme.utils.exceptions.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

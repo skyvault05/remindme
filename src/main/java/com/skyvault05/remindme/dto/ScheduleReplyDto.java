@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ScheduleReplyDto {
-    private Long scheduleReplyId;
-    private UserDto scheduleReplyUser;
-    private Long scheduleId;
-    private String scheduleReplyDescription;
+    private Long id;
+    private UserDto user;
+    private Long schedule;
+    private String description;
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
-    private Integer scheduleReplyStatus;
+    private Integer status;
 }

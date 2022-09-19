@@ -1,9 +1,7 @@
 package com.skyvault05.remindme.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.skyvault05.remindme.dto.UserInListDto;
-import com.skyvault05.remindme.utils.converter.ReplyListConverter;
-import com.skyvault05.remindme.utils.converter.UserListConverter;
+import com.skyvault05.remindme.utils.exceptions.enums.ScheduleIntervalType;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +13,6 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -27,61 +24,62 @@ import java.util.List;
 public class Schedule extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long scheduleId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "userId")
-    private User scheduleUser;
+    private User user;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "schedule")
-    private List<ScheduleMember> scheduleMember;
+    private List<ScheduleMember> members;
 
     @Column
     @NotNull
-    private String scheduleTitle;
+    private String title;
 
     @Column
-    private String scheduleDescription;
+    private String description;
 
     @Column
-    private String scheduleImage;
-
-    @Column
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
-    private LocalDateTime scheduleStartDate;
+    private String thumbnail;
 
     @Column
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
-    private LocalDateTime scheduleEndDate;
+    private LocalDateTime startDate;
+
+    @Column
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    private LocalDateTime endDate;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ScheduleIntervalType scheduleIntervalType;
+    private ScheduleIntervalType intervalType;
 
     @Column
-    private String scheduleIntervalValue;
+    private String intervalValue;
 
     @OneToMany(mappedBy = "schedule")
-    private List<ScheduleReply> scheduleReply;
+    private List<ScheduleReply> scheduleReplies;
 
     @Column
     @ColumnDefault("1")
-    private Integer scheduleStatus;
+    private Integer status;
 
 
     @Builder
-    public Schedule(User scheduleUser, String scheduleTitle, String scheduleImage,
-                    String scheduleDescription, LocalDateTime scheduleStartDate,
-                    LocalDateTime scheduleEndDate, ScheduleIntervalType scheduleIntervalType,
-                    String scheduleIntervalValue, Integer scheduleStatus){
-        this.scheduleUser = scheduleUser;
-        this.scheduleTitle = scheduleTitle;
-        this.scheduleImage = scheduleImage;
-        this.scheduleDescription = scheduleDescription;
-        this.scheduleStartDate = scheduleStartDate;
-        this.scheduleEndDate = scheduleEndDate;
-        this.scheduleIntervalType = scheduleIntervalType;
-        this.scheduleIntervalValue = scheduleIntervalValue;
-        this.scheduleStatus = scheduleStatus;
+    public Schedule(Long id, User user, String title,
+                    String thumbnail, String description, LocalDateTime startDate,
+                    LocalDateTime endDate, ScheduleIntervalType intervalType,
+                    String intervalValue, Integer status){
+        this.id = id;
+        this.user = user;
+        this.title = title;
+        this.description = description;
+        this.thumbnail = thumbnail;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.intervalType = intervalType;
+        this.intervalValue = intervalValue;
+        this.status = status;
     }
 }

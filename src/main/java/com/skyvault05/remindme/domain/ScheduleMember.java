@@ -19,14 +19,14 @@ public class ScheduleMember {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long scheduleMemberId;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "scheduleId")
+    @JoinColumn(name = "schedule")
     private Schedule schedule;
 
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "member")
     private User member;
 
     @Builder

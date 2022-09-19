@@ -4,12 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.mapper.UserMapper;
 import com.skyvault05.remindme.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -18,13 +17,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import javax.servlet.http.Cookie;
-import java.util.Collections;
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(MockitoExtension.class)
@@ -44,15 +39,15 @@ public class UserTest {
     public void userForTest(){
         for(long i=1; i < 10 ; i++){
             User user = User.builder()
-                    .userEmail("email@email.com" + i)
-                    .userName("name" + i)
-                    .userPicture("pic" + i)
-                    .userRole(UserRole.USER)
+                    .email("email@email.com" + i)
+                    .name("name" + i)
+                    .picture("pic" + i)
+                    .role(UserRole.USER)
                     .build();
             for(long j=0; j<i; j++){
                 User friend = userRepository.findById(j).orElse(null);
 
-                if(friend != null) user.getUserFriend().add(userMapper.userToUserInListDto(friend));
+                if(friend != null) user.getFriends().add(friend);
             }
             userRepository.save(user);
         }
@@ -62,10 +57,9 @@ public class UserTest {
     @WithMockUser(roles = "USER")
     public void saveUser(){
         User user = User.builder()
-                .userEmail("email@email.com")
-                .userName("name")
-                .userPicture("pic")
-                .userRole(UserRole.USER)
+                .email("email@email.com")
+                .name("name")
+                .picture("pic")
                 .build();
         userRepository.save(user);
     }
@@ -73,7 +67,7 @@ public class UserTest {
     @Test
     public void updateUser(){
         User user = userRepository.findById(1L).orElse(null);
-        user.setUserName("updateUserName");
+        user.setName("updateUserName");
         userRepository.save(user);
     }
 
@@ -86,7 +80,7 @@ public class UserTest {
     @Test
     public void readUser(){
         User user = userRepository.findById(3L).orElse(null);
-        System.out.println(user.getUserFriend());
+        System.out.println(user.getFriends());
     }
 
     @Test
@@ -95,7 +89,7 @@ public class UserTest {
         MultiValueMap<String, String> info = new LinkedMultiValueMap<>();
         User user = userRepository.findById(3L).orElse(null);
         user.getCreatedDate();
-        UserDto userDto = userMapper.userToUserDto(user);
+        UserDto userDto = userMapper.entityToDto(user);
 
         String content = objectMapper.writeValueAsString(userDto);
 

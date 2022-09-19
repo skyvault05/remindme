@@ -1,7 +1,6 @@
 package com.skyvault05.remindme.domain;
 
-import com.skyvault05.remindme.dto.UserInListDto;
-import com.skyvault05.remindme.utils.converter.UserListConverter;
+import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,6 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -24,47 +22,46 @@ public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     @Column(nullable = false)
-    private String userName;
+    private String name;
 
     @Column(nullable = false)
-    private String userEmail;
+    private String email;
 
     @Column
-    private String userPicture;
+    private String picture;
 
-    @Column
-    @Convert(converter = UserListConverter.class)
-    private List<UserInListDto> userFriend;
+    @OneToMany(mappedBy = "user")
+    private List<Friend> friends;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserRole userRole;
+    private UserRole role;
 
     @Column
     @ColumnDefault("1")
-    private Integer userStatus;
+    private Integer status;
 
     @Builder
-    public User(Long userId, String userName, String userEmail, String userPicture, List<UserInListDto> userFriend, UserRole userRole, Integer userStatus){
-        this.userId = userId;
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.userPicture = userPicture;
-        this.userFriend = userFriend == null ? new LinkedList<>() : userFriend;
-        this.userRole = userRole;
-        this.userStatus = userStatus;
+    public User(Long id, String name, String email, String picture, List<Friend> friends, UserRole role, Integer status){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.picture = picture;
+        this.friends = friends;
+        this.role = role;
+        this.status = status;
     }
 
     public User update(String name, String picture){
-        this.userName = name;
-        this.userPicture = picture;
+        this.name = name;
+        this.picture = picture;
         return this;
     }
 
     public String getRoleKey(){
-        return this.userRole.getKey();
+        return this.role.getKey();
     }
 }

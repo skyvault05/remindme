@@ -3,6 +3,7 @@ package com.skyvault05.remindme.domain;
 import com.skyvault05.remindme.repository.ScheduleReplyRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
+import com.skyvault05.remindme.utils.exceptions.enums.ScheduleIntervalType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -30,14 +31,14 @@ public class ScheduleTest {
         LocalDateTime startDate = LocalDateTime.of(2022, 8, 22, 5, 22);
         LocalDateTime endDate = LocalDateTime.of(2022, 9, 11, 2, 15);
         Schedule schedule = Schedule.builder()
-                .scheduleTitle("title")
-                .scheduleDescription("description")
-                .scheduleStartDate(startDate)
-                .scheduleEndDate(endDate)
-                .scheduleIntervalType(ScheduleIntervalType.MONTHLY)
-                .scheduleIntervalValue("11")
-                .scheduleUser(user)
-                .scheduleImage("scheduleImage.webp")
+                .title("title")
+                .description("description")
+                .startDate(startDate)
+                .endDate(endDate)
+                .intervalType(ScheduleIntervalType.MONTHLY)
+                .intervalValue("11")
+                .user(user)
+                .thumbnail("scheduleImage.webp")
                 .build();
 
 //        schedule.getScheduleMember().add(user2);

@@ -14,8 +14,8 @@ public class UserController {
 
     @PostMapping("/v1/addFriend/{userName}")
     public User addFriend(User user, @PathVariable String userName){
-        User newFriend = userRepository.findByUserName(userName).orElse(null);
-        System.out.println(newFriend.getUserEmail());
+        User newFriend = userRepository.findByName(userName).orElse(null);
+        System.out.println(newFriend.getEmail());
 
         return null;
     }

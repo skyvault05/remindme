@@ -27,9 +27,9 @@ public class ScheduleReplyTest {
         User user = userRepository.findById(2L).orElse(null);
         Schedule schedule = scheduleRepository.findById(1L).orElse(null);
         ScheduleReply scheduleReply = ScheduleReply.builder()
-                .scheduleReplyUser(user)
+                .user(user)
                 .schedule(schedule)
-                .scheduleReplyDescription("description")
+                .description("description")
                 .build();
 
         scheduleReplyRepository.save(scheduleReply);
@@ -40,9 +40,9 @@ public class ScheduleReplyTest {
     @Transactional
     public void readScheduleReply(){
         Schedule schedule = scheduleRepository.findById(1L).orElse(null);
-        System.out.println(schedule.getScheduleReply().size());
-        for(ScheduleReply scheduleReply : schedule.getScheduleReply()){
-            System.out.println(scheduleReply.getScheduleReplyId()+":"+scheduleReply.getScheduleReplyDescription());
+        System.out.println(schedule.getScheduleReplies().size());
+        for(ScheduleReply scheduleReply : schedule.getScheduleReplies()){
+            System.out.println(scheduleReply.getId()+":"+scheduleReply.getDescription());
         }
     }
 }

@@ -1,8 +1,8 @@
 package com.skyvault05.remindme.config.security.dto;
 
 import com.skyvault05.remindme.domain.User;
-import com.skyvault05.remindme.domain.UserRole;
-import com.skyvault05.remindme.dto.UserInListDto;
+import com.skyvault05.remindme.dto.UserDto;
+import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
 import lombok.Getter;
 
 import java.io.Serializable;
@@ -14,17 +14,15 @@ public class SessionUser implements Serializable {
     private String name;
     private String email;
     private String picture;
-    private List<UserInListDto> friend;
     private UserRole userRole;
     private Integer userStatus;
 
     public SessionUser(User user){
-        this.userId = user.getUserId();
-        this.name = user.getUserName();
-        this.email = user.getUserEmail();
-        this.picture = user.getUserPicture();
-        this.friend = user.getUserFriend();
-        this.userRole = user.getUserRole();
-        this.userStatus = user.getUserStatus();
+        this.userId = user.getId();
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.picture = user.getPicture();
+        this.userRole = user.getRole();
+        this.userStatus = user.getStatus();
     }
 }
