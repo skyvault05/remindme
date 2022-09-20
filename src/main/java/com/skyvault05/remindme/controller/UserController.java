@@ -16,7 +16,6 @@ public class UserController {
     public User addFriend(User user, @PathVariable String userName){
         User newFriend = userRepository.findByName(userName).orElse(null);
         System.out.println(newFriend.getEmail());
-
         return null;
     }
 }

@@ -23,23 +23,17 @@ public class User extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(nullable = false)
     private String name;
-
     @Column(nullable = false)
     private String email;
-
     @Column
     private String picture;
-
     @OneToMany(mappedBy = "user")
     private List<Friend> friends;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole role;
-
     @Column
     @ColumnDefault("1")
     private Integer status;

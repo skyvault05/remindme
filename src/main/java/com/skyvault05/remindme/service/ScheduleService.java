@@ -20,7 +20,7 @@ public class ScheduleService{
     private final UserRepository userRepository;
     public Schedule insertSchedule(Schedule schedule, HttpSession session){
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        Long userId = sessionUser.getUserId();
+        Long userId = sessionUser.getId();
         System.out.println(userId);
         User user = userRepository.findById(userId).orElse(null);
         System.out.println(user);
@@ -32,7 +32,7 @@ public class ScheduleService{
 
     public List<Schedule> getMySchedule(HttpSession session){
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        User user = userRepository.findById(sessionUser.getUserId()).orElse(null);
+        User user = userRepository.findById(sessionUser.getId()).orElse(null);
         return null;
     }
 }

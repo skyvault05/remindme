@@ -17,26 +17,27 @@ public class ScheduleReplyMapper {
     private final ScheduleRepository scheduleRepository;
     private final ScheduleReplyMapper scheduleReplyMapper;
     private final UserMapper userMapper;
+    private final ScheduleMapper scheduleMapper;
 
     public ScheduleReply dtoToEntity(ScheduleReplyDto scheduleReplyDto){
-        Schedule schedule = scheduleRepository.findById(scheduleReplyDto.getSchedule()).orElse(null);
-        ScheduleReply scheduleReply = ScheduleReply
-                .builder()
-                .id(scheduleReplyDto.getId())
-                .user(userMapper.dtoToEntity(scheduleReplyDto.getUser()))
-                .schedule(schedule)
-                .description(scheduleReplyDto.getDescription())
-                .build();
+        ScheduleReply scheduleReply = scheduleReplyRepository.findById(scheduleReplyDto.getId()).orElse(new ScheduleReply());
+
+        if(scheduleReplyDto.getUser() != null) scheduleReply.setUser(userMapper.dtoToEntity(scheduleReplyDto.getUser()));
+        if(scheduleReplyDto.getSchedule() != null) scheduleReply.setSchedule(scheduleMapper.dtoToEntity(scheduleReplyDto.getSchedule()));
+        if(scheduleReplyDto.getDescription() != null) scheduleReply.setDescription(scheduleReplyDto.getDescription());
+        if(scheduleReplyDto.getStatus() != null) scheduleReply.setStatus(scheduleReplyDto.getStatus());
+
         return scheduleReply;
     }
 
     public ScheduleReplyDto entityToDto(ScheduleReply scheduleReply){
-        UserDto scheduleReplyUser = userMapper.entityToDto(scheduleReply.getUser());
+        UserDto userDto = userMapper.entityToDto(scheduleReply.getUser());
+
         return ScheduleReplyDto
                 .builder()
                 .id(scheduleReply.getId())
-                .user(scheduleReplyUser)
-                .schedule(scheduleReply.getSchedule().getId())
+                .user(userDto)
+                .schedule(scheduleMapper.entityToDto(scheduleReply.getSchedule()))
                 .description(scheduleReply.getDescription())
                 .createdDate(scheduleReply.getCreatedDate())
                 .modifiedDate(scheduleReply.getModifiedDate())
@@ -59,8 +60,8 @@ public class ScheduleReplyMapper {
         List<ScheduleReply> newList = new LinkedList<>();
 
         for(ScheduleReplyDto dto : scheduleReplyDto){
-            ScheduleReply scheduleReply = scheduleReplyMapper.dtoToEntity(dto);
-            newList.add(scheduleReply);
+            ScheduleReply scheduleReply = scheduleReplyRepository.findById(dto.getId()).orElse(null);
+            if(scheduleReply != null) newList.add(scheduleReply);
         }
 
         return newList;

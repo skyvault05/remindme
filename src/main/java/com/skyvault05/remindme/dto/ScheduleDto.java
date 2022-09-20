@@ -17,7 +17,9 @@ import java.util.List;
 @ToString
 public class ScheduleDto {
     private Long id;
+    @Schema(example = "작성자")
     private UserDto user;
+    @Schema(example = "스케쥴에 포함된 멤버들")
     private List<UserDto> members;
     @Schema(example = "스케쥴 제목", required = true)
     private String title;
@@ -32,9 +34,11 @@ public class ScheduleDto {
     @Schema(example = "댓글 목록")
     private List<ScheduleReplyDto> scheduleReplies;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
-    private LocalDateTime endDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @Schema(example = "스케쥴 시작 날짜")
     private LocalDateTime startDate;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @Schema(example = "스케쥴 종료 날짜")
+    private LocalDateTime endDate;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime createdDate;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")

@@ -1,42 +1,42 @@
 package com.skyvault05.remindme.mapper;
 
+
+import com.skyvault05.remindme.domain.Friend;
 import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 public class UserMapper {
-//    private final UserMapper userMapper;
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public User dtoToEntity(UserDto userDTO){
-        User user = User.builder()
-                .id(userDTO.getId())
-                .name(userDTO.getName())
-                .email(userDTO.getEmail())
-                .picture(userDTO.getPicture())
-//                .friends(userMapper.dtoListToEntityList(userDTO.getFriends()))
-                .role(userDTO.getRole())
-                .status(userDTO.getStatus())
-                .build();
+    public User dtoToEntity(UserDto userDto){
+        User user = userRepository.findById(userDto.getId()).orElse(null);
+
+        if(userDto.getName() != null) user.setName(userDto.getName());
+        if(userDto.getEmail() != null)user.setEmail(userDto.getEmail());
+        if(userDto.getPicture() != null)user.setPicture(userDto.getPicture());
+        if(userDto.getRole() != null)user.setRole(userDto.getRole());
+        if(userDto.getStatus() != null)user.setStatus(userDto.getStatus());
 
         return user;
     }
 
     public UserDto entityToDto(User user){
+        UserMapper userMapper = new UserMapper();
         UserDto userDto = UserDto.builder()
                 .id(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
                 .picture(user.getPicture())
-//                .friends(userMapper.entityListToDtoList(user.getFriends()))
+                .friends(userMapper.entityListToDtoList(userMapper.friendListToEntityList(user.getFriends())))
                 .role(user.getRole())
                 .createdDate(user.getCreatedDate())
                 .modifiedDate(user.getModifiedDate())
@@ -74,11 +74,20 @@ public class UserMapper {
         return dtoList;
     }
 
-    public List<User> memberListToUserList(List<ScheduleMember> memberList){
+    public List<User> memberListToEntityList(List<ScheduleMember> memberList){
         List<User> userList = new LinkedList<>();
 
         for(ScheduleMember scheduleMember : memberList){
             userList.add(scheduleMember.getMember());
+        }
+        return userList;
+    }
+
+    public List<User> friendListToEntityList(List<Friend> friends){
+        List<User> userList = new LinkedList<>();
+
+        for(Friend friend : friends){
+            userList.add(friend.getUser());
         }
         return userList;
     }
