@@ -1,12 +1,10 @@
 package com.skyvault05.remindme.config.security.dto;
 
 import com.skyvault05.remindme.domain.User;
-import com.skyvault05.remindme.dto.UserDto;
-import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
+import com.skyvault05.remindme.utils.enums.UserRole;
 import lombok.Getter;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Getter
 public class SessionUser implements Serializable {

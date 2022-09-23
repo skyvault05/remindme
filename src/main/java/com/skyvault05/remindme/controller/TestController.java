@@ -9,7 +9,6 @@ import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.utils.exceptions.TestException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -117,8 +116,8 @@ public class TestController {
     }
 
     @GetMapping("/causeerror")
-    void causeError(){
-        throw new TestException();
+    void causeError() throws RuntimeException{
+        throw new TestException("TestException Message");
     }
 
     @GetMapping("/sessiontest")
@@ -129,16 +128,4 @@ public class TestController {
         return sessionUser;
     }
 
-    @ExceptionHandler(TestException.class)
-    public ModelAndView handleError(HttpServletRequest req, Exception ex) {
-        log.error("Request: " + req.getRequestURL() + " raised " + ex);
-
-        ModelAndView mav = new ModelAndView();
-        mav.addObject("exception", ex);
-        System.out.println(ex.getMessage());
-        mav.addObject("url", req.getRequestURL());
-        System.out.println(req.getRequestURL());
-        mav.setViewName("error");
-        return mav;
-    }
 }

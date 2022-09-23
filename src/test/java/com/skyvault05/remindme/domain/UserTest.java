@@ -3,8 +3,9 @@ package com.skyvault05.remindme.domain;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.mapper.UserMapper;
+import com.skyvault05.remindme.repository.FriendRepository;
 import com.skyvault05.remindme.repository.UserRepository;
-import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
+import com.skyvault05.remindme.utils.enums.UserRole;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -14,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
@@ -34,6 +36,8 @@ public class UserTest {
     private ObjectMapper objectMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private FriendRepository friendRepository;
 
     @Test
     public void userForTest(){
@@ -44,12 +48,23 @@ public class UserTest {
                     .picture("pic" + i)
                     .role(UserRole.USER)
                     .build();
-            for(long j=0; j<i; j++){
-                User friend = userRepository.findById(j).orElse(null);
 
-                if(friend != null) user.getFriends().add(friend);
-            }
             userRepository.save(user);
+        }
+    }
+
+    @Test
+    public void friendsForTest(){
+        for(long j=1; j<9; j++){
+            User user = userRepository.findById(j).orElse(null);
+            User friendUser = userRepository.findById(j+1).orElse(null);
+            Friend friend = Friend
+                    .builder()
+                    .user(user)
+                    .friend(friendUser)
+                    .build();
+
+            friendRepository.save(friend);
         }
     }
 

@@ -1,6 +1,6 @@
 package com.skyvault05.remindme.domain;
 
-import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
+import com.skyvault05.remindme.utils.enums.UserRole;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +28,8 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private String email;
     @Column
+    private String nickname;
+    @Column
     private String picture;
     @OneToMany(mappedBy = "user")
     private List<Friend> friends;
@@ -39,10 +41,11 @@ public class User extends BaseTimeEntity {
     private Integer status;
 
     @Builder
-    public User(Long id, String name, String email, String picture, List<Friend> friends, UserRole role, Integer status){
+    public User(Long id, String name, String email, String nickname, String picture, List<Friend> friends, UserRole role, Integer status){
         this.id = id;
         this.name = name;
         this.email = email;
+        this.nickname = nickname;
         this.picture = picture;
         this.friends = friends;
         this.role = role;

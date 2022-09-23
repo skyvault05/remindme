@@ -1,8 +1,7 @@
 package com.skyvault05.remindme.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.skyvault05.remindme.utils.exceptions.enums.ScheduleIntervalType;
-import com.skyvault05.remindme.domain.User;
+import com.skyvault05.remindme.utils.enums.ScheduleIntervalType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 

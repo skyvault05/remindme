@@ -1,6 +1,6 @@
 package com.skyvault05.remindme.config.security.dto;
 
-import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
+import com.skyvault05.remindme.utils.enums.UserRole;
 import com.skyvault05.remindme.domain.User;
 import lombok.Builder;
 import lombok.Getter;

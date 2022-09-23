@@ -1,7 +1,7 @@
 package com.skyvault05.remindme.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.skyvault05.remindme.utils.exceptions.enums.ScheduleIntervalType;
+import com.skyvault05.remindme.utils.enums.ScheduleIntervalType;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;

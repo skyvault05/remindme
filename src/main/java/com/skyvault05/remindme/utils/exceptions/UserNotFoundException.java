@@ -1,0 +1,11 @@
+package com.skyvault05.remindme.utils.exceptions;
+
+public class UserNotFoundException extends RuntimeException{
+    public UserNotFoundException(){
+        super();
+    }
+
+    public UserNotFoundException(String msg){
+        super(msg);
+    }
+}

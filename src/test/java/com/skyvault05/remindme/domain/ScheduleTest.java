@@ -3,7 +3,7 @@ package com.skyvault05.remindme.domain;
 import com.skyvault05.remindme.repository.ScheduleReplyRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
-import com.skyvault05.remindme.utils.exceptions.enums.ScheduleIntervalType;
+import com.skyvault05.remindme.utils.enums.ScheduleIntervalType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;

@@ -86,7 +86,14 @@ User<List> 와 String(1,2,3,4)으로 자동 변환하여 DB <-> Entity간의 연
 
 ## Slf4J + LogBack으로 로그 구현
 
-# Exception 구현. @LoginCheck Annotation 만들기 or AOP로 로그인체크.
+
+
+## @RestControllerAdvice로 ExceptionHandling
+
+@ResponseStatus로 에러 특정하기
+
+
+
 # 각 일정들을 효율적으로 select 하기 위한 db index 조사.
 # mysql allowPublicKeyRetrieval 조사
 

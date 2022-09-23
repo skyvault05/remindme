@@ -1,7 +1,7 @@
 package com.skyvault05.remindme.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.skyvault05.remindme.utils.exceptions.enums.UserRole;
+import com.skyvault05.remindme.utils.enums.UserRole;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
