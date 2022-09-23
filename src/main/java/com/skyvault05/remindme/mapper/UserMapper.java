@@ -6,6 +6,7 @@ import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.UserRepository;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@NoArgsConstructor
 public class UserMapper {
     @Autowired
     private UserRepository userRepository;
@@ -54,6 +56,8 @@ public class UserMapper {
         return entityList;
     }
     public List<UserDto> entityListToDtoList(List<User> list){
+        if(list == null)return null;
+
         List<UserDto> dtoList = new LinkedList<>();
 
         for(User user : list){
@@ -75,6 +79,8 @@ public class UserMapper {
     }
 
     public List<User> memberListToEntityList(List<ScheduleMember> memberList){
+        if(memberList == null)return null;
+
         List<User> userList = new LinkedList<>();
 
         for(ScheduleMember scheduleMember : memberList){

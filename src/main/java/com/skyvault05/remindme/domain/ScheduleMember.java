@@ -1,9 +1,11 @@
 package com.skyvault05.remindme.domain;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -29,10 +31,16 @@ public class ScheduleMember {
     @JoinColumn(name = "member")
     private User member;
 
+    @Column(nullable = false)
+    @ColumnDefault("false")
+    private Boolean acceptance;
+
+
     @Builder
-    ScheduleMember(Schedule schedule, User member){
+    ScheduleMember(Schedule schedule, User member, Boolean acceptance){
         this.schedule = schedule;
         this.member = member;
+        this.acceptance = acceptance;
     }
 
 }

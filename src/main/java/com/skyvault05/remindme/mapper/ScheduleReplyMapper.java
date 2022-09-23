@@ -7,17 +7,24 @@ import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.ScheduleReplyRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
-@RequiredArgsConstructor
+@Component
 public class ScheduleReplyMapper {
-    private final ScheduleReplyRepository scheduleReplyRepository;
-    private final ScheduleRepository scheduleRepository;
-    private final ScheduleReplyMapper scheduleReplyMapper;
-    private final UserMapper userMapper;
-    private final ScheduleMapper scheduleMapper;
+    @Autowired
+    private ScheduleReplyRepository scheduleReplyRepository;
+    @Autowired
+    private ScheduleRepository scheduleRepository;
+    @Autowired
+    private ScheduleReplyMapper scheduleReplyMapper;
+    @Autowired
+    private UserMapper userMapper;
+    @Autowired
+    private ScheduleMapper scheduleMapper;
 
     public ScheduleReply dtoToEntity(ScheduleReplyDto scheduleReplyDto){
         ScheduleReply scheduleReply = scheduleReplyRepository.findById(scheduleReplyDto.getId()).orElse(new ScheduleReply());
@@ -46,6 +53,8 @@ public class ScheduleReplyMapper {
     }
 
     public List<ScheduleReplyDto> entityListToDtoList(List<ScheduleReply> list){
+        if(list == null)return null;
+
         List<ScheduleReplyDto> newList = new LinkedList<>();
 
         for(ScheduleReply scheduleReply : list){

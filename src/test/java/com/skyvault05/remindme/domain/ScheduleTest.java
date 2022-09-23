@@ -1,5 +1,10 @@
 package com.skyvault05.remindme.domain;
 
+import com.skyvault05.remindme.dto.ScheduleDto;
+import com.skyvault05.remindme.dto.UserDto;
+import com.skyvault05.remindme.mapper.ScheduleMapper;
+import com.skyvault05.remindme.mapper.UserMapper;
+import com.skyvault05.remindme.repository.ScheduleMemberRepository;
 import com.skyvault05.remindme.repository.ScheduleReplyRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
@@ -23,11 +28,14 @@ public class ScheduleTest {
     private ScheduleRepository scheduleRepository;
     @Autowired
     private ScheduleReplyRepository scheduleReplyRepository;
+    @Autowired
+    private ScheduleMemberRepository scheduleMemberRepository;
+    @Autowired
+    private UserMapper userMapper;
 
     @Test
     public void insertSchedule(){
-        User user = userRepository.findById(1L).orElse(null);
-        User user2 = userRepository.findById(2L).orElse(null);
+        User user = userRepository.findById(10L).orElse(null);
         LocalDateTime startDate = LocalDateTime.of(2022, 8, 22, 5, 22);
         LocalDateTime endDate = LocalDateTime.of(2022, 9, 11, 2, 15);
         Schedule schedule = Schedule.builder()
@@ -41,6 +49,7 @@ public class ScheduleTest {
                 .thumbnail("scheduleImage.webp")
                 .build();
 
+
 //        schedule.getScheduleMember().add(user2);
 
         scheduleRepository.save(schedule);
@@ -51,5 +60,20 @@ public class ScheduleTest {
         Schedule schedule = scheduleRepository.findById(1L).orElse(null);
         System.out.println(schedule);
 
+    }
+
+    @Test
+    public void storeScheduleMember(){
+        User user = userRepository.findById(10L).orElse(null);
+        Schedule schedule = scheduleRepository.findById(2L).orElse(null);
+
+        ScheduleMember scheduleMember = ScheduleMember
+                .builder()
+                .member(user)
+                .schedule(schedule)
+                .acceptance(true)
+                .build();
+
+        scheduleMemberRepository.save(scheduleMember);
     }
 }

@@ -30,7 +30,7 @@ public class Schedule extends BaseTimeEntity {
     @JoinColumn(name = "userId")
     private User user;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "schedule")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule")
     private List<ScheduleMember> members;
 
     @Column
