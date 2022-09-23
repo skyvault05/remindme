@@ -31,7 +31,7 @@ public class ScheduleMember {
     @JoinColumn(name = "member")
     private User member;
 
-    @Column(nullable = false)
+    @Column
     @ColumnDefault("false")
     private Boolean acceptance;
 

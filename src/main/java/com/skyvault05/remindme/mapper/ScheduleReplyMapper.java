@@ -1,12 +1,9 @@
 package com.skyvault05.remindme.mapper;
 
-import com.skyvault05.remindme.domain.Schedule;
 import com.skyvault05.remindme.domain.ScheduleReply;
 import com.skyvault05.remindme.dto.ScheduleReplyDto;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.ScheduleReplyRepository;
-import com.skyvault05.remindme.repository.ScheduleRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +14,6 @@ import java.util.List;
 public class ScheduleReplyMapper {
     @Autowired
     private ScheduleReplyRepository scheduleReplyRepository;
-    @Autowired
-    private ScheduleRepository scheduleRepository;
     @Autowired
     private ScheduleReplyMapper scheduleReplyMapper;
     @Autowired

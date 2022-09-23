@@ -28,6 +28,7 @@ public class ScheduleService{
     private final ScheduleRepository scheduleRepository;
     private final UserRepository userRepository;
     private final ScheduleMemberRepository scheduleMemberRepository;
+    private final ScheduleMemberService scheduleMemberService;
     private final ScheduleMapper scheduleMapper;
 
     @Transactional
@@ -36,11 +37,13 @@ public class ScheduleService{
 
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
         Long userId = sessionUser.getId();
-        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException());
+        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
         Schedule newSchedule = scheduleRepository.save(schedule);
 
         ScheduleDto newScheduleDto = scheduleMapper.entityToDto(newSchedule);
+
+        scheduleMemberService.addMyself(newSchedule);
 
         return newScheduleDto;
     }
@@ -49,7 +52,7 @@ public class ScheduleService{
         List<ScheduleDto> myScheduleDtos= new LinkedList<>();
 
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException());
+        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
         List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findALlByMember(user);
 

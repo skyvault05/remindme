@@ -32,15 +32,12 @@ public class ScheduleMapper {
     public Schedule dtoToEntity(ScheduleDto scheduleDto){
         Schedule schedule = (scheduleDto.getId() != null) ?
                 scheduleRepository.findById(scheduleDto.getId()).orElse(null) : new Schedule();
-//        Schedule scheduledd = scheduleRepository.findById(scheduleDto.getId()).orElse(new Schedule());
-
 
         if(scheduleDto.getUser() != null){
             schedule.setUser(userMapper.dtoToEntity(scheduleDto.getUser()));
         }else {
             SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
-            Long userId = sessionUser.getId();
-            User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException());
+            User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
             schedule.setUser(user);
         }
