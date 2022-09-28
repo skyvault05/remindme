@@ -1,4 +1,4 @@
-package com.skyvault05.remindme.mapper;
+package com.skyvault05.remindme.utils.mapper;
 
 import com.skyvault05.remindme.config.security.dto.SessionUser;
 import com.skyvault05.remindme.domain.Schedule;
@@ -7,12 +7,14 @@ import com.skyvault05.remindme.dto.ScheduleDto;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
+import com.skyvault05.remindme.utils.exceptions.ScheduleNotFoundException;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
+import java.util.LinkedList;
 import java.util.List;
 
 @Component
@@ -26,12 +28,14 @@ public class ScheduleMapper {
     @Autowired
     private UserMapper userMapper;
     @Autowired
+    private ScheduleMapper scheduleMapper;
+    @Autowired
     private HttpSession httpSession;
 
     @Transactional
     public Schedule dtoToEntity(ScheduleDto scheduleDto){
         Schedule schedule = (scheduleDto.getId() != null) ?
-                scheduleRepository.findById(scheduleDto.getId()).orElse(null) : new Schedule();
+                scheduleRepository.findById(scheduleDto.getId()).orElseThrow(() -> new ScheduleNotFoundException("해당 스케쥴을 찾을 수 없습니다.")) : new Schedule();
 
         if(scheduleDto.getUser() != null){
             schedule.setUser(userMapper.dtoToEntity(scheduleDto.getUser()));
@@ -72,6 +76,20 @@ public class ScheduleMapper {
                 .endDate(schedule.getEndDate())
                 .status(schedule.getStatus())
                 .build();
+
+        scheduleDto.deleteUnnecessaryFields();
+
         return scheduleDto;
+    }
+
+    public List<ScheduleDto> entityListToDtoList(List<Schedule> list){
+        List<ScheduleDto> scheduleDtos = new LinkedList<>();
+
+        for(Schedule schedule : list){
+            ScheduleDto dto = scheduleMapper.entityToDto(schedule);
+            scheduleDtos.add(dto);
+        }
+
+        return scheduleDtos;
     }
 }

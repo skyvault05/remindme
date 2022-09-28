@@ -1,5 +1,7 @@
 package com.skyvault05.remindme.domain;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +25,7 @@ public class ScheduleReply extends BaseTimeEntity{
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "schedule")
     private Schedule schedule;
     @Column

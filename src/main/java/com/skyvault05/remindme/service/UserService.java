@@ -2,7 +2,7 @@ package com.skyvault05.remindme.service;
 
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.UserDto;
-import com.skyvault05.remindme.mapper.UserMapper;
+import com.skyvault05.remindme.utils.mapper.UserMapper;
 import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import lombok.RequiredArgsConstructor;

@@ -1,11 +1,11 @@
 package com.skyvault05.remindme.controller;
 
-import com.skyvault05.remindme.domain.Schedule;
 import com.skyvault05.remindme.dto.ScheduleDto;
-import com.skyvault05.remindme.mapper.ScheduleMapper;
+import com.skyvault05.remindme.dto.ScheduleReplyDto;
 import com.skyvault05.remindme.service.ScheduleService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -14,20 +14,31 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "${api}/schedule")
 @RequiredArgsConstructor
+@Slf4j
 public class ScheduleController {
     private final ScheduleService scheduleService;
-    private final ScheduleMapper scheduleMapper;
 
-    @Operation(summary = "스케쥴 추가 및 업데이트")
+    @Operation(summary = "Schedule 추가 및 업데이트")
     @PostMapping("/storeSchedule")
-    public ScheduleDto storeSchedule(@RequestBody ScheduleDto scheduleDto, HttpSession session) {
-        ScheduleDto newScheduleDto = scheduleService.storeSchedule(scheduleDto, session);
+    public ScheduleDto storeSchedule(@RequestBody ScheduleDto scheduleDto) {
+        ScheduleDto newScheduleDto = scheduleService.storeSchedule(scheduleDto);
+        log.info(newScheduleDto.getUser() + " : " +"Schedule " + scheduleDto + " stored.");
 
         return newScheduleDto;
     }
+    @Operation(summary = "내가 포함된 Schedule 리스트")
+    @GetMapping("/getSchedules")
+    public List<ScheduleDto> getSchedules(HttpSession session){
+        return scheduleService.getSchedules(session);
+    }
 
-    @GetMapping("/getMySchedule")
-    public List<ScheduleDto> getMySchedule(HttpSession session){
+    @Operation(summary = "내가 등록한 Schedule 리스트")
+    @GetMapping("/getMySchedules")
+    public List<ScheduleDto> getMySchedules(HttpSession session){
         return scheduleService.getMySchedules(session);
     }
+
+//    @Operation(summary = "Schedule 삭제")
+//    @DeleteMapping("/deleteSchedule")
+//    public
 }

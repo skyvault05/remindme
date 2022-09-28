@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,11 +19,11 @@ public class ScheduleMemberService {
     private final UserRepository userRepository;
     private final ScheduleMemberRepository scheduleMemberRepository;
 
-    public void addMyself(Schedule schedule){
+    public Boolean addMyself(Schedule schedule){
         SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
         User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
-        if(scheduleMemberRepository.findByScheduleAndMember(schedule, user) != null) return;
+        if(scheduleMemberRepository.findByScheduleAndMember(schedule, user) != null) return false;
 
 
             ScheduleMember scheduleMember = ScheduleMember
@@ -34,5 +33,7 @@ public class ScheduleMemberService {
                 .build();
 
         scheduleMemberRepository.save(scheduleMember);
+
+        return true;
     }
 }

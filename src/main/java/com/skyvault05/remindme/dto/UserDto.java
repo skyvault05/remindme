@@ -17,6 +17,8 @@ public class UserDto {
     private Long id;
     @Schema(example = "유저 이름")
     private String name;
+    @Schema(example = "유저 닉네임")
+    private String nickname;
     @Schema(example = "유저 이메일")
     private String email;
     @Schema(example = "프로필 사진 주소")
@@ -31,4 +33,12 @@ public class UserDto {
     private LocalDateTime modifiedDate;
     @Schema(example = "유저 상태코드")
     private Integer status;
+
+    public void deleteUnnecessaryFields(){
+        this.name = null;
+        this.email = null;
+        this.friends = null;
+        this.role = null;
+        this.modifiedDate = null;
+    }
 }

@@ -5,7 +5,7 @@ import com.skyvault05.remindme.domain.Schedule;
 import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.ScheduleDto;
-import com.skyvault05.remindme.mapper.ScheduleMapper;
+import com.skyvault05.remindme.utils.mapper.ScheduleMapper;
 import com.skyvault05.remindme.repository.ScheduleMemberRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
@@ -32,39 +32,40 @@ public class ScheduleService{
     private final ScheduleMapper scheduleMapper;
 
     @Transactional
-    public ScheduleDto storeSchedule(ScheduleDto scheduleDto, HttpSession session){
+    public ScheduleDto storeSchedule(ScheduleDto scheduleDto){
         Schedule schedule = scheduleMapper.dtoToEntity(scheduleDto);
 
-        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        Long userId = sessionUser.getId();
-        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
-
         Schedule newSchedule = scheduleRepository.save(schedule);
-
         ScheduleDto newScheduleDto = scheduleMapper.entityToDto(newSchedule);
-
         scheduleMemberService.addMyself(newSchedule);
 
         return newScheduleDto;
     }
 
-    public List<ScheduleDto> getMySchedules(HttpSession session){
+    public List<ScheduleDto> getSchedules(HttpSession session){
         List<ScheduleDto> myScheduleDtos= new LinkedList<>();
 
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
         User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
-
         List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findALlByMember(user);
 
         Set<ScheduleDto> scheduleDtoSet = new HashSet<>();
-
         for(ScheduleMember scheduleMember : scheduleMemberList){
             ScheduleDto scheduleDto = scheduleMapper.entityToDto(scheduleMember.getSchedule());
             scheduleDtoSet.add(scheduleDto);
         }
-
         myScheduleDtos.addAll(scheduleDtoSet);
 
         return myScheduleDtos;
+    }
+
+    public List<ScheduleDto> getMySchedules(HttpSession session) {
+        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
+        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+
+        List<Schedule> schedules = scheduleRepository.findAllByUser(user);
+        List<ScheduleDto> scheduleDtos = scheduleMapper.entityListToDtoList(schedules);
+
+        return scheduleDtos;
     }
 }

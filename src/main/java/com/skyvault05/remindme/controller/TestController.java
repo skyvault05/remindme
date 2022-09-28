@@ -4,9 +4,9 @@ import com.skyvault05.remindme.config.security.dto.SessionUser;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.ScheduleDto;
 import com.skyvault05.remindme.dto.UserDto;
-import com.skyvault05.remindme.mapper.UserMapper;
+import com.skyvault05.remindme.utils.mapper.UserMapper;
 import com.skyvault05.remindme.repository.UserRepository;
-import com.skyvault05.remindme.utils.exceptions.TestException;
+import com.skyvault05.remindme.service.TestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
@@ -28,6 +28,7 @@ public class TestController {
     private final HttpSession httpSession;
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final TestService testService;
 
 
     @GetMapping("/test")
@@ -116,8 +117,8 @@ public class TestController {
     }
 
     @GetMapping("/causeerror")
-    void causeError() throws RuntimeException{
-        throw new TestException("TestException Message");
+    void causeError(){
+        testService.throwError();
     }
 
     @GetMapping("/sessiontest")

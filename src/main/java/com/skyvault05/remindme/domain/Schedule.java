@@ -1,6 +1,8 @@
 package com.skyvault05.remindme.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.skyvault05.remindme.utils.enums.ScheduleIntervalType;
 import com.sun.istack.NotNull;
 import lombok.Builder;
@@ -25,42 +27,31 @@ public class Schedule extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule")
+    @OneToMany
     private List<ScheduleMember> members;
-
     @Column
     @NotNull
     private String title;
-
     @Column
     private String description;
-
     @Column
     private String thumbnail;
-
     @Column
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime startDate;
-
     @Column
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime endDate;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ScheduleIntervalType intervalType;
-
     @Column
     private String intervalValue;
-
-    @OneToMany(mappedBy = "schedule")
+    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ScheduleReply> scheduleReplies;
-
     @Column
     @ColumnDefault("1")
     private Integer status;

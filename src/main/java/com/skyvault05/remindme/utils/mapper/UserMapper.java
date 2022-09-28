@@ -1,4 +1,4 @@
-package com.skyvault05.remindme.mapper;
+package com.skyvault05.remindme.utils.mapper;
 
 
 import com.skyvault05.remindme.domain.Friend;
@@ -6,6 +6,7 @@ import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.UserRepository;
+import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,9 +21,10 @@ public class UserMapper {
     private UserRepository userRepository;
 
     public User dtoToEntity(UserDto userDto){
-        User user = userRepository.findById(userDto.getId()).orElse(null);
+        User user = userRepository.findById(userDto.getId()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
 
         if(userDto.getName() != null) user.setName(userDto.getName());
+        if(userDto.getNickname() != null) user.setNickname(userDto.getNickname());
         if(userDto.getEmail() != null)user.setEmail(userDto.getEmail());
         if(userDto.getPicture() != null)user.setPicture(userDto.getPicture());
         if(userDto.getRole() != null)user.setRole(userDto.getRole());
@@ -36,6 +38,7 @@ public class UserMapper {
         UserDto userDto = UserDto.builder()
                 .id(user.getId())
                 .name(user.getName())
+                .nickname(user.getNickname())
                 .email(user.getEmail())
                 .picture(user.getPicture())
                 .friends(userMapper.entityListToDtoList(userMapper.friendListToEntityList(user.getFriends())))
@@ -50,7 +53,7 @@ public class UserMapper {
     public List<User> dtoListToEntityList(List<UserDto> list){
         List<User> entityList = new LinkedList<>();
         for(UserDto userDto : list){
-            User user = userRepository.findById(userDto.getId()).orElse(null);
+            User user = userRepository.findById(userDto.getId()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
             entityList.add(user);
         }
         return entityList;
@@ -65,6 +68,7 @@ public class UserMapper {
                     .builder()
                     .id(user.getId())
                     .name(user.getName())
+                    .nickname(user.getNickname())
                     .email(user.getEmail())
                     .picture(user.getPicture())
                     .role(user.getRole())
@@ -72,6 +76,8 @@ public class UserMapper {
                     .modifiedDate(user.getModifiedDate())
                     .status(user.getStatus())
                     .build();
+
+            userDto.deleteUnnecessaryFields();
 
             dtoList.add(userDto);
         }

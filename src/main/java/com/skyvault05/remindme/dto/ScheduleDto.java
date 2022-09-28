@@ -26,11 +26,11 @@ public class ScheduleDto {
     private String thumbnail;
     @Schema(example = "스케쥴 설명")
     private String description;
-    @Schema(example = "스케쥴 반복 형태 ex)ONCE, WEEKLY, MONTHLY", required = true)
+    @Schema(example = "스케쥴 반복 형태 ex) ONCE, WEEKLY, MONTHLY", required = true)
     private ScheduleIntervalType intervalType;
     @Schema(example = "스케쥴 반복 기준")
     private String intervalValue;
-    @Schema(example = "댓글 목록")
+//    @Schema(example = "댓글 목록") //swagger 에러로 인해 임시 삭제. ScheduleReplyDto의 example로 이 항목이 덮어씌워짐.
     private List<ScheduleReplyDto> scheduleReplies;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     @Schema(example = "스케쥴 시작 날짜")
@@ -44,4 +44,9 @@ public class ScheduleDto {
     private LocalDateTime modifiedDate;
     @Schema(example = "스케쥴 상태코드")
     private Integer status;
+
+    public void deleteUnnecessaryFields(){
+        this.user.deleteUnnecessaryFields();
+        this.modifiedDate = null;
+    }
 }

@@ -94,6 +94,23 @@ User<List> 와 String(1,2,3,4)으로 자동 변환하여 DB <-> Entity간의 연
 
 
 
+
+
+## Swagger에서 @Schema 에러 있음
+
+List에 관련된 example이 DTO 자체의 example로 덮어씌워짐.
+
+```java
+@Schema(exmaple = "xxx")
+private List<DTO> aaa;
+```
+
+
+
+
+
+
+
 # 각 일정들을 효율적으로 select 하기 위한 db index 조사.
 # mysql allowPublicKeyRetrieval 조사
 

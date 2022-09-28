@@ -1,4 +1,4 @@
-package com.skyvault05.remindme.controller;
+package com.skyvault05.remindme.controller.exceptionHandler;
 
 import com.skyvault05.remindme.utils.exceptions.TestException;
 import lombok.extern.slf4j.Slf4j;

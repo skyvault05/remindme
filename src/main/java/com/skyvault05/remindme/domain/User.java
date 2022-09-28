@@ -31,7 +31,7 @@ public class User extends BaseTimeEntity {
     private String nickname;
     @Column
     private String picture;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Friend> friends;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

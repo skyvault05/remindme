@@ -1,9 +1,6 @@
 package com.skyvault05.remindme.domain;
 
-import com.skyvault05.remindme.dto.ScheduleDto;
-import com.skyvault05.remindme.dto.UserDto;
-import com.skyvault05.remindme.mapper.ScheduleMapper;
-import com.skyvault05.remindme.mapper.UserMapper;
+import com.skyvault05.remindme.utils.mapper.UserMapper;
 import com.skyvault05.remindme.repository.ScheduleMemberRepository;
 import com.skyvault05.remindme.repository.ScheduleReplyRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;

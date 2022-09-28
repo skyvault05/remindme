@@ -18,7 +18,7 @@ public class ScheduleReplyDto {
     private UserDto user;
     @Schema(example = "원본 스케쥴")
     private ScheduleDto schedule;
-    @Schema(example = "내용")
+    @Schema(example = "내용", required = true)
     private String description;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime createdDate;
@@ -26,4 +26,10 @@ public class ScheduleReplyDto {
     private LocalDateTime modifiedDate;
     @Schema(example = "스케쥴 댓글 상태코드")
     private Integer status;
+
+    public void deleteUnnecessaryFields(){
+        this.user.deleteUnnecessaryFields();
+        this.schedule.deleteUnnecessaryFields();
+        this.modifiedDate = null;
+    }
 }
