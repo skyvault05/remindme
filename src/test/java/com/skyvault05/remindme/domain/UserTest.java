@@ -59,8 +59,8 @@ public class UserTest {
             User friendUser = userRepository.findById(j+1).orElse(null);
             Friend friend = Friend
                     .builder()
-                    .user(user)
-                    .friend(friendUser)
+                    .user(user.getId())
+                    .friend(friendUser.getId())
                     .build();
 
             friendRepository.save(friend);

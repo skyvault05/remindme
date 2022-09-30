@@ -27,9 +27,8 @@ public class Schedule extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
+    @Column
+    private Long user;
     @OneToMany
     private List<ScheduleMember> members;
     @Column
@@ -58,7 +57,7 @@ public class Schedule extends BaseTimeEntity {
 
 
     @Builder
-    public Schedule(Long id, User user, String title,
+    public Schedule(Long id, Long user, String title,
                     String thumbnail, String description, LocalDateTime startDate,
                     LocalDateTime endDate, ScheduleIntervalType intervalType,
                     String intervalValue, Integer status){

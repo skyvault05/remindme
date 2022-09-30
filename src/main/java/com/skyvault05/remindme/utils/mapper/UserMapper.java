@@ -4,12 +4,14 @@ package com.skyvault05.remindme.utils.mapper;
 import com.skyvault05.remindme.domain.Friend;
 import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
+import com.skyvault05.remindme.dto.SimpleUserDto;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -41,13 +43,23 @@ public class UserMapper {
                 .nickname(user.getNickname())
                 .email(user.getEmail())
                 .picture(user.getPicture())
-                .friends(userMapper.entityListToDtoList(userMapper.friendListToEntityList(user.getFriends())))
+                .friends(userMapper.entityListToSimpleDtoList(userMapper.friendListToEntityList(user.getFriends())))
                 .role(user.getRole())
                 .createdDate(user.getCreatedDate())
                 .modifiedDate(user.getModifiedDate())
                 .status(user.getStatus())
                 .build();
         return userDto;
+    }
+
+    public SimpleUserDto entityToSimpleDto(User user){
+        return SimpleUserDto
+                .builder()
+                .id(user.getId())
+                .nickname(user.getNickname())
+                .picture(user.getPicture())
+                .status(user.getStatus())
+                .build();
     }
 
     public List<User> dtoListToEntityList(List<UserDto> list){
@@ -77,8 +89,6 @@ public class UserMapper {
                     .status(user.getStatus())
                     .build();
 
-            userDto.deleteUnnecessaryFields();
-
             dtoList.add(userDto);
         }
         return dtoList;
@@ -90,17 +100,38 @@ public class UserMapper {
         List<User> userList = new LinkedList<>();
 
         for(ScheduleMember scheduleMember : memberList){
-            userList.add(scheduleMember.getMember());
+            User member = userRepository.findById(scheduleMember.getMember()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다"));
+            userList.add(member);
         }
         return userList;
     }
 
     public List<User> friendListToEntityList(List<Friend> friends){
+        if(friends == null)return null;
         List<User> userList = new LinkedList<>();
 
         for(Friend friend : friends){
-            userList.add(friend.getUser());
+            User friendEntity = userRepository.findById(friend.getUser()).orElseThrow(() -> new UserNotFoundException("해당 친구를 찾을 수 없습니다."));
+            userList.add(friendEntity);
         }
         return userList;
+    }
+
+    public List<SimpleUserDto> entityListToSimpleDtoList(List<User> list) {
+        List<SimpleUserDto> simpleUserDtos = new LinkedList<>();
+
+        for(User user : list){
+            SimpleUserDto simpleUserDto = SimpleUserDto
+                    .builder()
+                    .id(user.getId())
+                    .nickname(user.getNickname())
+                    .picture(user.getPicture())
+                    .status(user.getStatus())
+                    .build();
+
+            simpleUserDtos.add(simpleUserDto);
+        }
+
+        return simpleUserDtos;
     }
 }

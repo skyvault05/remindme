@@ -17,9 +17,9 @@ import java.util.List;
 public class ScheduleDto {
     private Long id;
     @Schema(example = "작성자")
-    private UserDto user;
+    private SimpleUserDto user;
     @Schema(example = "스케쥴에 포함된 멤버들")
-    private List<UserDto> members;
+    private List<SimpleUserDto> members;
     @Schema(example = "스케쥴 제목", required = true)
     private String title;
     @Schema(example = "스케쥴 썸네일 이미지")
@@ -44,9 +44,4 @@ public class ScheduleDto {
     private LocalDateTime modifiedDate;
     @Schema(example = "스케쥴 상태코드")
     private Integer status;
-
-    public void deleteUnnecessaryFields(){
-        this.user.deleteUnnecessaryFields();
-        this.modifiedDate = null;
-    }
 }

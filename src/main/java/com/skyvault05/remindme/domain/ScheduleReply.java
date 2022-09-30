@@ -22,12 +22,10 @@ public class ScheduleReply extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = true)
-    @JoinColumn(name = "schedule")
-    private Schedule schedule;
+    @Column
+    private Long user;
+    @Column
+    private Long schedule;
     @Column
     private String description;
     @Column
@@ -35,7 +33,7 @@ public class ScheduleReply extends BaseTimeEntity{
     private Integer status;
 
     @Builder
-    public ScheduleReply (Long id, User user, Schedule schedule,
+    public ScheduleReply (Long id, Long user, Long schedule,
                           String description, Integer status){
         this.id = id;
         this.user = user;

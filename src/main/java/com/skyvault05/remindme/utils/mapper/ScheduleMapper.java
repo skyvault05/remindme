@@ -4,6 +4,8 @@ import com.skyvault05.remindme.config.security.dto.SessionUser;
 import com.skyvault05.remindme.domain.Schedule;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.ScheduleDto;
+import com.skyvault05.remindme.dto.SimpleScheduleDto;
+import com.skyvault05.remindme.dto.SimpleUserDto;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
@@ -38,12 +40,12 @@ public class ScheduleMapper {
                 scheduleRepository.findById(scheduleDto.getId()).orElseThrow(() -> new ScheduleNotFoundException("해당 스케쥴을 찾을 수 없습니다.")) : new Schedule();
 
         if(scheduleDto.getUser() != null){
-            schedule.setUser(userMapper.dtoToEntity(scheduleDto.getUser()));
+            schedule.setUser(scheduleDto.getUser().getId());
         }else {
             SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
             User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
-            schedule.setUser(user);
+            schedule.setUser(user.getId());
         }
         if(scheduleDto.getTitle() != null)schedule.setTitle(scheduleDto.getTitle());
         if(scheduleDto.getDescription() != null)schedule.setDescription(schedule.getDescription());
@@ -58,13 +60,14 @@ public class ScheduleMapper {
     }
 
     public ScheduleDto entityToDto(Schedule schedule){
-        UserDto userDto = userMapper.entityToDto(schedule.getUser());
-        List<UserDto> members = userMapper.entityListToDtoList(userMapper.memberListToEntityList(schedule.getMembers()));
+        User user = userRepository.findById(schedule.getUser()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
+        SimpleUserDto simpleUserDto = userMapper.entityToSimpleDto(user);
+        List<SimpleUserDto> members = userMapper.entityListToSimpleDtoList(userMapper.memberListToEntityList(schedule.getMembers()));
 
         ScheduleDto scheduleDto = ScheduleDto
                 .builder()
                 .id(schedule.getId())
-                .user(userDto)
+                .user(simpleUserDto)
                 .members(members)
                 .title(schedule.getTitle())
                 .description(schedule.getDescription())
@@ -77,10 +80,12 @@ public class ScheduleMapper {
                 .status(schedule.getStatus())
                 .build();
 
-        scheduleDto.deleteUnnecessaryFields();
-
         return scheduleDto;
     }
+
+//    public SimpleScheduleDto entityToSimpleDto(Schedule schedule){
+//
+//    }
 
     public List<ScheduleDto> entityListToDtoList(List<Schedule> list){
         List<ScheduleDto> scheduleDtos = new LinkedList<>();
@@ -91,5 +96,19 @@ public class ScheduleMapper {
         }
 
         return scheduleDtos;
+    }
+
+
+    public SimpleScheduleDto entityToSimpleDto(Schedule schedule) {
+        User user = userRepository.findById(schedule.getUser()).orElseThrow(() -> new UserNotFoundException("글쓴이를 찾을 수 없습니다."));
+
+        return SimpleScheduleDto
+                .builder()
+                .id(schedule.getId())
+                .user(userMapper.entityToSimpleDto(user))
+                .title(schedule.getTitle())
+                .thumbnail(schedule.getThumbnail())
+                .status(schedule.getStatus())
+                .build();
     }
 }

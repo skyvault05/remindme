@@ -19,20 +19,14 @@ public class Friend extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "user")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "friend")
-    private User friend;
-
+    @Column
+    private Long user;
+    @Column
+    private Long friend;
     @Builder
-    public Friend(Long id, User user, User friend){
+    public Friend(Long id, Long user, Long friend){
         this.id = id;
         this.user = user;
         this.friend = friend;
-
     }
 }

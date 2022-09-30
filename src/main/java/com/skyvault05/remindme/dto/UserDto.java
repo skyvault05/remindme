@@ -24,7 +24,7 @@ public class UserDto {
     @Schema(example = "프로필 사진 주소")
     private String picture;
     @Schema(example = "유저 친구목록")
-    private List<UserDto> friends;
+    private List<SimpleUserDto> friends;
     @Schema(example = "유저 역할")
     private UserRole role;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
@@ -33,12 +33,4 @@ public class UserDto {
     private LocalDateTime modifiedDate;
     @Schema(example = "유저 상태코드")
     private Integer status;
-
-    public void deleteUnnecessaryFields(){
-        this.name = null;
-        this.email = null;
-        this.friends = null;
-        this.role = null;
-        this.modifiedDate = null;
-    }
 }

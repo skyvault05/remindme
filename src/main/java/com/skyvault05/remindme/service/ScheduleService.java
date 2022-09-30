@@ -5,6 +5,7 @@ import com.skyvault05.remindme.domain.Schedule;
 import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.ScheduleDto;
+import com.skyvault05.remindme.utils.exceptions.ScheduleNotFoundException;
 import com.skyvault05.remindme.utils.mapper.ScheduleMapper;
 import com.skyvault05.remindme.repository.ScheduleMemberRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;
@@ -47,11 +48,12 @@ public class ScheduleService{
 
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
         User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
-        List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findALlByMember(user);
+        List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findALlByMember(user.getId());
 
         Set<ScheduleDto> scheduleDtoSet = new HashSet<>();
         for(ScheduleMember scheduleMember : scheduleMemberList){
-            ScheduleDto scheduleDto = scheduleMapper.entityToDto(scheduleMember.getSchedule());
+            Schedule schedule = scheduleRepository.findById(scheduleMember.getSchedule()).orElseThrow(() -> new ScheduleNotFoundException("해당 스케쥴을 찾을 수 없습니다."));
+            ScheduleDto scheduleDto = scheduleMapper.entityToDto(schedule);
             scheduleDtoSet.add(scheduleDto);
         }
         myScheduleDtos.addAll(scheduleDtoSet);

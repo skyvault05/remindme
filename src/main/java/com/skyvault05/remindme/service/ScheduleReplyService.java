@@ -49,7 +49,7 @@ public class ScheduleReplyService {
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
         ScheduleReply scheduleReply = scheduleReplyRepository.findById(id)
                 .orElseThrow(() -> new ScheduleReplyNotFoundException("삭제하려는 댓글이 존재하지 않습니다."));
-        if(!sessionUser.getId().equals(scheduleReply.getUser().getId())) throw new UserNotMatchedException("삭제하려는 댓글의 작성자가 아닙니다.");
+        if(!sessionUser.getId().equals(scheduleReply.getUser())) throw new UserNotMatchedException("삭제하려는 댓글의 작성자가 아닙니다.");
 
         scheduleReply.setSchedule(null);
 

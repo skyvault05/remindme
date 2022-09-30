@@ -23,13 +23,13 @@ public class ScheduleMemberService {
         SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
         User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
-        if(scheduleMemberRepository.findByScheduleAndMember(schedule, user) != null) return false;
+        if(scheduleMemberRepository.findByScheduleAndMember(schedule, user.getId()) != null) return false;
 
 
             ScheduleMember scheduleMember = ScheduleMember
                 .builder()
-                .member(user)
-                .schedule(schedule)
+                .member(user.getId())
+                .schedule(schedule.getId())
                 .build();
 
         scheduleMemberRepository.save(scheduleMember);

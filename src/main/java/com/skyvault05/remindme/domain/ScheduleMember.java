@@ -22,22 +22,15 @@ public class ScheduleMember {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "schedule")
-    private Schedule schedule;
-
-    @ManyToOne
-    @JoinColumn(name = "member")
-    private User member;
-
+    @Column
+    private Long schedule;
+    @Column
+    private Long member;
     @Column
     @ColumnDefault("false")
     private Boolean acceptance;
-
-
     @Builder
-    ScheduleMember(Schedule schedule, User member, Boolean acceptance){
+    ScheduleMember(Long schedule, Long member, Boolean acceptance){
         this.schedule = schedule;
         this.member = member;
         this.acceptance = acceptance;
