@@ -8,19 +8,17 @@ import com.skyvault05.remindme.dto.SimpleUserDto;
 import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class UserMapper {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public User dtoToEntity(UserDto userDto){
         User user = userRepository.findById(userDto.getId()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
@@ -36,14 +34,13 @@ public class UserMapper {
     }
 
     public UserDto entityToDto(User user){
-        UserMapper userMapper = new UserMapper();
         UserDto userDto = UserDto.builder()
                 .id(user.getId())
                 .name(user.getName())
                 .nickname(user.getNickname())
                 .email(user.getEmail())
                 .picture(user.getPicture())
-                .friends(userMapper.entityListToSimpleDtoList(userMapper.friendListToEntityList(user.getFriends())))
+                .friends(entityListToSimpleDtoList(friendListToEntityList(user.getFriends())))
                 .role(user.getRole())
                 .createdDate(user.getCreatedDate())
                 .modifiedDate(user.getModifiedDate())
@@ -95,7 +92,7 @@ public class UserMapper {
     }
 
     public List<User> memberListToEntityList(List<ScheduleMember> memberList){
-        if(memberList == null)return null;
+        if(memberList == null)return new ArrayList<>();
 
         List<User> userList = new LinkedList<>();
 
@@ -111,7 +108,7 @@ public class UserMapper {
         List<User> userList = new LinkedList<>();
 
         for(Friend friend : friends){
-            User friendEntity = userRepository.findById(friend.getUser()).orElseThrow(() -> new UserNotFoundException("해당 친구를 찾을 수 없습니다."));
+            User friendEntity = userRepository.findById(friend.getFriend()).orElseThrow(() -> new UserNotFoundException("해당 친구를 찾을 수 없습니다."));
             userList.add(friendEntity);
         }
         return userList;
@@ -133,5 +130,44 @@ public class UserMapper {
         }
 
         return simpleUserDtos;
+    }
+
+    public ScheduleMember simpleUserDtoToScheduleMember(SimpleUserDto simpleUserDto, Long scheduleId){
+        return ScheduleMember
+                .builder()
+                .schedule(scheduleId)
+                .member(simpleUserDto.getId())
+                .build();
+    }
+
+    public SimpleUserDto scheduleMemberToSimpleDto(ScheduleMember scheduleMember){
+        User user = userRepository.findById(scheduleMember.getMember()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
+        return SimpleUserDto
+                .builder()
+                .id(user.getId())
+                .nickname(user.getNickname())
+                .picture(user.getPicture())
+                .status(user.getStatus())
+                .build();
+    }
+
+    public List<ScheduleMember> simpleDtoListToScheduleMemberList(List<SimpleUserDto> simpleUserDtoList, Long scheduleId){
+        List<ScheduleMember> list = new LinkedList<>();
+
+        for(SimpleUserDto simpleUserDto : simpleUserDtoList){
+            list.add(simpleUserDtoToScheduleMember(simpleUserDto, scheduleId));
+        }
+
+        return list;
+    }
+
+    public List<SimpleUserDto> scheduleMemberListToSimpleDtoList(List<ScheduleMember> scheduleMemberList){
+        List<SimpleUserDto> list = new LinkedList<>();
+
+        for(ScheduleMember scheduleMember : scheduleMemberList){
+            list.add(scheduleMemberToSimpleDto(scheduleMember));
+        }
+
+        return list;
     }
 }

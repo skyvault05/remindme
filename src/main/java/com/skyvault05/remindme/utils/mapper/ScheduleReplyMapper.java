@@ -11,6 +11,7 @@ import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.utils.exceptions.ScheduleNotFoundException;
 import com.skyvault05.remindme.utils.exceptions.ScheduleReplyNotFoundException;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,21 +21,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class ScheduleReplyMapper {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ScheduleRepository scheduleRepository;
-    @Autowired
-    private ScheduleReplyRepository scheduleReplyRepository;
-    @Autowired
-    private ScheduleReplyMapper scheduleReplyMapper;
-    @Autowired
-    private UserMapper userMapper;
-    @Autowired
-    private ScheduleMapper scheduleMapper;
-    @Autowired
-    private HttpSession httpSession;
+    private final UserRepository userRepository;
+    private final ScheduleRepository scheduleRepository;
+    private final ScheduleReplyRepository scheduleReplyRepository;
+    private final UserMapper userMapper;
+    private final ScheduleMapper scheduleMapper;
+    private final HttpSession httpSession;
 
     @Transactional
     public ScheduleReply dtoToEntity(ScheduleReplyDto scheduleReplyDto){

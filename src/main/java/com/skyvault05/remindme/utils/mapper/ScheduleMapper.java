@@ -6,11 +6,11 @@ import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.ScheduleDto;
 import com.skyvault05.remindme.dto.SimpleScheduleDto;
 import com.skyvault05.remindme.dto.SimpleUserDto;
-import com.skyvault05.remindme.dto.UserDto;
 import com.skyvault05.remindme.repository.ScheduleRepository;
 import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.utils.exceptions.ScheduleNotFoundException;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,19 +20,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class ScheduleMapper {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private ScheduleRepository scheduleRepository;
+    private final UserRepository userRepository;
+    private final ScheduleRepository scheduleRepository;
+    private final UserMapper userMapper;
+    private final HttpSession httpSession;
     @Autowired
     private ScheduleReplyMapper scheduleReplyMapper;
-    @Autowired
-    private UserMapper userMapper;
-    @Autowired
-    private ScheduleMapper scheduleMapper;
-    @Autowired
-    private HttpSession httpSession;
 
     @Transactional
     public Schedule dtoToEntity(ScheduleDto scheduleDto){
@@ -47,14 +42,14 @@ public class ScheduleMapper {
 
             schedule.setUser(user.getId());
         }
-        if(scheduleDto.getTitle() != null)schedule.setTitle(scheduleDto.getTitle());
-        if(scheduleDto.getDescription() != null)schedule.setDescription(schedule.getDescription());
-        if(scheduleDto.getThumbnail() != null)schedule.setThumbnail(scheduleDto.getThumbnail());
-        if(scheduleDto.getIntervalType() != null)schedule.setIntervalType(scheduleDto.getIntervalType());
-        if(scheduleDto.getIntervalValue() != null)schedule.setIntervalValue(scheduleDto.getIntervalValue());
-        if(scheduleDto.getStartDate() != null)schedule.setStartDate(scheduleDto.getStartDate());
-        if(scheduleDto.getEndDate() != null)schedule.setEndDate(scheduleDto.getEndDate());
-        if(scheduleDto.getStatus() != null)schedule.setStatus(scheduleDto.getStatus());
+        if(scheduleDto.getTitle() != null) schedule.setTitle(scheduleDto.getTitle());
+        if(scheduleDto.getDescription() != null) schedule.setDescription(schedule.getDescription());
+        if(scheduleDto.getThumbnail() != null) schedule.setThumbnail(scheduleDto.getThumbnail());
+        if(scheduleDto.getIntervalType() != null) schedule.setIntervalType(scheduleDto.getIntervalType());
+        if(scheduleDto.getIntervalValue() != null) schedule.setIntervalValue(scheduleDto.getIntervalValue());
+        if(scheduleDto.getStartDate() != null) schedule.setStartDate(scheduleDto.getStartDate());
+        if(scheduleDto.getEndDate() != null) schedule.setEndDate(scheduleDto.getEndDate());
+        if(scheduleDto.getStatus() != null) schedule.setStatus(scheduleDto.getStatus());
 
         return schedule;
     }
@@ -91,7 +86,7 @@ public class ScheduleMapper {
         List<ScheduleDto> scheduleDtos = new LinkedList<>();
 
         for(Schedule schedule : list){
-            ScheduleDto dto = scheduleMapper.entityToDto(schedule);
+            ScheduleDto dto = entityToDto(schedule);
             scheduleDtos.add(dto);
         }
 

@@ -29,8 +29,8 @@ public class ScheduleMemberTest {
         ScheduleMember scheduleMember =
                 ScheduleMember
                         .builder()
-                        .schedule(schedule)
-                        .member(member)
+                        .schedule(schedule.getId())
+                        .member(member.getId())
                         .build();
         scheduleMemberRepository.save(scheduleMember);
 

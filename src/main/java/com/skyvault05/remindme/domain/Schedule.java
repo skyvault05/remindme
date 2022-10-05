@@ -29,7 +29,8 @@ public class Schedule extends BaseTimeEntity {
     private Long id;
     @Column
     private Long user;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "schedule")
     private List<ScheduleMember> members;
     @Column
     @NotNull

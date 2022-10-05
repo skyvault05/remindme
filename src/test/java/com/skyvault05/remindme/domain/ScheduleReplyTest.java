@@ -16,19 +16,19 @@ import org.springframework.transaction.annotation.Transactional;
 @AutoConfigureMockMvc
 public class ScheduleReplyTest {
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
-    ScheduleRepository scheduleRepository;
+    private ScheduleRepository scheduleRepository;
     @Autowired
-    ScheduleReplyRepository scheduleReplyRepository;
+    private ScheduleReplyRepository scheduleReplyRepository;
 
     @Test
     public void insertScheduleReply(){
         User user = userRepository.findById(2L).orElse(null);
         Schedule schedule = scheduleRepository.findById(1L).orElse(null);
         ScheduleReply scheduleReply = ScheduleReply.builder()
-                .user(user)
-                .schedule(schedule)
+                .user(user.getId())
+                .schedule(schedule.getId())
                 .description("description")
                 .build();
 

@@ -42,7 +42,7 @@ public class ScheduleTest {
                 .endDate(endDate)
                 .intervalType(ScheduleIntervalType.MONTHLY)
                 .intervalValue("11")
-                .user(user)
+                .user(user.getId())
                 .thumbnail("scheduleImage.webp")
                 .build();
 
@@ -54,8 +54,11 @@ public class ScheduleTest {
 
     @Test
     public void readSchedule(){
-        Schedule schedule = scheduleRepository.findById(1L).orElse(null);
+        Schedule schedule = scheduleRepository.findById(16L).orElse(null);
         System.out.println(schedule);
+        for(ScheduleMember scheduleMember : schedule.getMembers()){
+            System.out.println(scheduleMember.getMember() + ":" + scheduleMember.getSchedule());
+        }
 
     }
 
@@ -66,8 +69,8 @@ public class ScheduleTest {
 
         ScheduleMember scheduleMember = ScheduleMember
                 .builder()
-                .member(user)
-                .schedule(schedule)
+                .member(user.getId())
+                .schedule(schedule.getId())
                 .acceptance(true)
                 .build();
 

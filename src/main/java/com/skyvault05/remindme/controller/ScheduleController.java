@@ -1,7 +1,9 @@
 package com.skyvault05.remindme.controller;
 
+import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.dto.ScheduleDto;
 import com.skyvault05.remindme.dto.ScheduleReplyDto;
+import com.skyvault05.remindme.dto.SimpleUserDto;
 import com.skyvault05.remindme.service.ScheduleService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +24,6 @@ public class ScheduleController {
     @PostMapping("/storeSchedule")
     public ScheduleDto storeSchedule(@RequestBody ScheduleDto scheduleDto) {
         ScheduleDto newScheduleDto = scheduleService.storeSchedule(scheduleDto);
-        log.info(newScheduleDto.getUser() + " : " +"Schedule " + scheduleDto + " stored.");
 
         return newScheduleDto;
     }
