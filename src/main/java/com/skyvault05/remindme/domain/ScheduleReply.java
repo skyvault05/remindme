@@ -32,6 +32,10 @@ public class ScheduleReply extends BaseTimeEntity{
     @ColumnDefault("1")
     private Integer status;
 
+    @Column
+    @ColumnDefault("false")
+    private Boolean isDeleted;
+
     @Builder
     public ScheduleReply (Long id, Long user, Long schedule,
                           String description, Integer status){

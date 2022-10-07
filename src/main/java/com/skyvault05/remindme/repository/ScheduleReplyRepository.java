@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ScheduleReplyRepository extends JpaRepository<ScheduleReply, Long> {
     List<ScheduleReply> findAllByUser(User user);
+    Long deleteAllBySchedule(Long schedule);
 }

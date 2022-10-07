@@ -29,6 +29,9 @@ public class ScheduleMember {
     @Column
     @ColumnDefault("false")
     private Boolean acceptance;
+    @Column
+    @ColumnDefault("false")
+    private Boolean isDeleted;
     @Builder
     ScheduleMember(Long schedule, Long member, Boolean acceptance){
         this.schedule = schedule;

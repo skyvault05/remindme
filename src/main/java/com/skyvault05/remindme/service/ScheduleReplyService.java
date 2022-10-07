@@ -13,6 +13,7 @@ import com.skyvault05.remindme.utils.mapper.ScheduleReplyMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -54,5 +55,13 @@ public class ScheduleReplyService {
         scheduleReply.setSchedule(null);
 
         scheduleReplyRepository.delete(scheduleReply);
+    }
+
+    @Transactional
+    public void deleteScheduleReplies(List<ScheduleReply> list){
+        for(ScheduleReply scheduleReply : list){
+            scheduleReply.setIsDeleted(true);
+        }
+        scheduleReplyRepository.saveAll(list);
     }
 }

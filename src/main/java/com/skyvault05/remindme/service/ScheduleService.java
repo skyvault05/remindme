@@ -6,7 +6,9 @@ import com.skyvault05.remindme.domain.ScheduleMember;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.ScheduleDto;
 import com.skyvault05.remindme.dto.SimpleUserDto;
+import com.skyvault05.remindme.repository.ScheduleReplyRepository;
 import com.skyvault05.remindme.utils.exceptions.ScheduleNotFoundException;
+import com.skyvault05.remindme.utils.exceptions.UserNotMatchedException;
 import com.skyvault05.remindme.utils.mapper.ScheduleMapper;
 import com.skyvault05.remindme.repository.ScheduleMemberRepository;
 import com.skyvault05.remindme.repository.ScheduleRepository;
@@ -31,6 +33,8 @@ public class ScheduleService{
     private final ScheduleRepository scheduleRepository;
     private final UserRepository userRepository;
     private final ScheduleMemberRepository scheduleMemberRepository;
+    private final ScheduleReplyRepository scheduleReplyRepository;
+    private final ScheduleReplyService scheduleReplyService;
     private final ScheduleMemberService scheduleMemberService;
     private final ScheduleMapper scheduleMapper;
     private final UserMapper userMapper;
@@ -75,9 +79,24 @@ public class ScheduleService{
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
         User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
-        List<Schedule> schedules = scheduleRepository.findAllByUser(user);
+        List<Schedule> schedules = scheduleRepository.findAllByUser(user.getId());
         List<ScheduleDto> scheduleDtos = scheduleMapper.entityListToDtoList(schedules);
 
         return scheduleDtos;
+    }
+    @Transactional
+    public Boolean deleteSchedule(Long scheduleId, HttpSession session) {
+        Schedule schedule = scheduleRepository.findById(scheduleId).orElseThrow(() -> new ScheduleNotFoundException("삭제하려는 스케쥴을 찾을 수 없습니다."));
+        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
+        if(!schedule.getUser().equals(sessionUser.getId())) {
+            throw new UserNotMatchedException("삭제하려는 스케쥴의 작성자가 아닙니다.");
+        } else {
+            schedule.setIsDeleted(true);
+            scheduleRepository.save(schedule);
+            scheduleReplyService.deleteScheduleReplies(schedule.getScheduleReplies());
+            scheduleMemberService.deleteScheduleMemebers(schedule.getMembers());
+
+            return true;
+        }
     }
 }

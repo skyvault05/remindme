@@ -39,7 +39,9 @@ public class ScheduleController {
         return scheduleService.getMySchedules(session);
     }
 
-//    @Operation(summary = "Schedule 삭제")
-//    @DeleteMapping("/deleteSchedule")
-//    public
+    @Operation(summary = "Schedule 삭제")
+    @DeleteMapping("/deleteSchedule/{scheduleId}")
+    public Boolean deleteSchedule(@PathVariable Long scheduleId, HttpSession session){
+        return scheduleService.deleteSchedule(scheduleId, session);
+    }
 }

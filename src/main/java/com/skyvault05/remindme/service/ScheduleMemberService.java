@@ -53,4 +53,12 @@ public class ScheduleMemberService {
 
         return true;
     }
+
+    @Transactional
+    public void deleteScheduleMemebers(List<ScheduleMember> list){
+        for(ScheduleMember scheduleMember : list){
+            scheduleMember.setIsDeleted(true);
+        }
+        scheduleMemberRepository.saveAll(list);
+    }
 }

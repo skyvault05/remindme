@@ -8,10 +8,7 @@ import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -39,7 +36,7 @@ public class UserController {
     }
 
     @Operation(summary = "친구 삭제하기.")
-    @PostMapping("/deleteFriend/{nickname}")
+    @DeleteMapping("/deleteFriend/{nickname}")
     public UserDto deleteFriend(@PathVariable String nickname, HttpSession session){
         UserDto newUserDto = userService.deleteFriend(session, nickname);
 

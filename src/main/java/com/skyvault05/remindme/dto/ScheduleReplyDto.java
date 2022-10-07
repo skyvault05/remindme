@@ -17,7 +17,7 @@ public class ScheduleReplyDto {
     @Schema(example = "작성자")
     private SimpleUserDto user;
     @Schema(example = "스케쥴")
-    private SimpleScheduleDto schedule;
+    private Long schedule;
     @Schema(example = "내용", required = true)
     private String description;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")

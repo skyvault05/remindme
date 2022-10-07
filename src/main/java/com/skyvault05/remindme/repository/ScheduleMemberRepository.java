@@ -12,5 +12,6 @@ public interface ScheduleMemberRepository extends JpaRepository<ScheduleMember, 
     List<ScheduleMember> findAllByMember(Long member);
     List<ScheduleMember> findAllBySchedule(Long schedule);
     Optional<ScheduleMember> findByScheduleAndMember(Long schedule, Long member);
+    Long deleteAllBySchedule(Long schedule);
 
 }

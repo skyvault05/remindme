@@ -24,10 +24,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ScheduleReplyMapper {
     private final UserRepository userRepository;
-    private final ScheduleRepository scheduleRepository;
     private final ScheduleReplyRepository scheduleReplyRepository;
     private final UserMapper userMapper;
-    private final ScheduleMapper scheduleMapper;
     private final HttpSession httpSession;
 
     @Transactional
@@ -43,7 +41,7 @@ public class ScheduleReplyMapper {
 
             scheduleReply.setUser(user.getId());
         }
-        if(scheduleReplyDto.getSchedule() != null) scheduleReply.setSchedule(scheduleReplyDto.getSchedule().getId());
+        if(scheduleReplyDto.getSchedule() != null) scheduleReply.setSchedule(scheduleReplyDto.getSchedule());
         if(scheduleReplyDto.getDescription() != null) scheduleReply.setDescription(scheduleReplyDto.getDescription());
         if(scheduleReplyDto.getStatus() != null) scheduleReply.setStatus(scheduleReplyDto.getStatus());
 
@@ -53,14 +51,12 @@ public class ScheduleReplyMapper {
     public ScheduleReplyDto entityToDto(ScheduleReply scheduleReply){
         User user = userRepository.findById(scheduleReply.getUser()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
         SimpleUserDto simpleUserDto = userMapper.entityToSimpleDto(user);
-        Schedule schedule = scheduleRepository.findById(scheduleReply.getSchedule()).orElseThrow(() -> new ScheduleNotFoundException("해당 스케쥴을 찾을 수 없습니다."));
-        SimpleScheduleDto scheduleDto = scheduleMapper.entityToSimpleDto(schedule);
 
         return ScheduleReplyDto
                 .builder()
                 .id(scheduleReply.getId())
                 .user(simpleUserDto)
-                .schedule(scheduleDto)
+                .schedule(scheduleReply.getSchedule())
                 .description(scheduleReply.getDescription())
                 .createdDate(scheduleReply.getCreatedDate())
                 .modifiedDate(scheduleReply.getModifiedDate())
@@ -74,14 +70,13 @@ public class ScheduleReplyMapper {
         List<ScheduleReplyDto> newList = new LinkedList<>();
 
         for(ScheduleReply scheduleReply : list){
-            Schedule schedule = scheduleRepository.findById(scheduleReply.getId()).orElseThrow(() -> new ScheduleReplyNotFoundException("해당 스케쥴을 찾을 수 없습니다."));
-            User user = userRepository.findById(schedule.getUser()).orElseThrow(() -> new UserNotFoundException("스케쥴 작성자를 찾을 수 없습니다."));
+            User user = userRepository.findById(scheduleReply.getUser()).orElseThrow(() -> new UserNotFoundException("스케쥴 작성자를 찾을 수 없습니다."));
 
             ScheduleReplyDto scheduleReplyDto = ScheduleReplyDto
                     .builder()
                     .id(scheduleReply.getId())
                     .user(userMapper.entityToSimpleDto(user))
-                    .schedule(scheduleMapper.entityToSimpleDto(schedule))
+                    .schedule(scheduleReply.getSchedule())
                     .description(scheduleReply.getDescription())
                     .createdDate(scheduleReply.getCreatedDate())
                     .modifiedDate(scheduleReply.getModifiedDate())

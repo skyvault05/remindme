@@ -56,6 +56,10 @@ public class Schedule extends BaseTimeEntity {
     @ColumnDefault("1")
     private Integer status;
 
+    @Column
+    @ColumnDefault("false")
+    private Boolean isDeleted;
+
 
     @Builder
     public Schedule(Long id, Long user, String title,
