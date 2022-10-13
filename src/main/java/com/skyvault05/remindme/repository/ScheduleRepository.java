@@ -10,4 +10,6 @@ import java.util.Optional;
 @Repository
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
     List<Schedule> findAllByUser(Long user);
+    List<Schedule> findAllByUserAndIsDeleted(Long user, Boolean isDeleted);
+    Optional<Schedule> findByIdAndIsDeleted(Long id, Boolean isDeleted);
 }

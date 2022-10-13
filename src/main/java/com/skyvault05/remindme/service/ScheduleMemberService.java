@@ -10,6 +10,7 @@ import com.skyvault05.remindme.repository.UserRepository;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import com.skyvault05.remindme.utils.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class ScheduleMemberService {
     private final HttpSession httpSession;
@@ -39,6 +41,7 @@ public class ScheduleMemberService {
 
         scheduleMemberRepository.save(scheduleMember);
 
+        log.info("스케쥴: "+ schedule.getId() + ", 멤버추가: " + scheduleMember.getMember());
         return true;
     }
 
@@ -49,16 +52,18 @@ public class ScheduleMemberService {
         for(SimpleUserDto simpleUserDto : members){
             ScheduleMember scheduleMember = userMapper.simpleUserDtoToScheduleMember(simpleUserDto, newSchedule.getId());
             scheduleMemberRepository.save(scheduleMember);
+            log.info("스케쥴: "+ newSchedule.getId() + ", 멤버추가: " + simpleUserDto.getId());
         }
+
 
         return true;
     }
 
     @Transactional
     public void deleteScheduleMemebers(List<ScheduleMember> list){
+        scheduleMemberRepository.deleteInBatch(list);
         for(ScheduleMember scheduleMember : list){
-            scheduleMember.setIsDeleted(true);
+            log.info("스케쥴: "+ scheduleMember.getSchedule() + ", 멤버삭제: " + scheduleMember.getMember());
         }
-        scheduleMemberRepository.saveAll(list);
     }
 }

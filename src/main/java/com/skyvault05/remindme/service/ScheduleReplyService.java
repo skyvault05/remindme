@@ -28,9 +28,8 @@ public class ScheduleReplyService {
 
     public List<ScheduleReplyDto> getMyScheduleReplies(HttpSession session){
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
 
-        List<ScheduleReply> scheduleReplies = scheduleReplyRepository.findAllByUser(user);
+        List<ScheduleReply> scheduleReplies = scheduleReplyRepository.findAllByUserAndIsDeleted(sessionUser.getId(), false);
         List<ScheduleReplyDto> scheduleReplyDtos = scheduleReplyMapper.entityListToDtoList(scheduleReplies);
 
         return scheduleReplyDtos;
@@ -42,26 +41,31 @@ public class ScheduleReplyService {
         ScheduleReply newScheduleReply = scheduleReplyRepository.save(scheduleReply);
         ScheduleReplyDto newScheduleReplyDto = scheduleReplyMapper.entityToDto(newScheduleReply);
 
+        log.info("스케쥴: " + scheduleReply.getSchedule() + ", 유저: " + scheduleReply.getUser() + ", 댓글추가: " + scheduleReply.getDescription());
         return newScheduleReplyDto;
 
     }
 
     public void deleteScheduleReply(Long id, HttpSession session) {
         SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        ScheduleReply scheduleReply = scheduleReplyRepository.findById(id)
+        ScheduleReply scheduleReply = scheduleReplyRepository.findByIdAndIsDeleted(id, false)
                 .orElseThrow(() -> new ScheduleReplyNotFoundException("삭제하려는 댓글이 존재하지 않습니다."));
         if(!sessionUser.getId().equals(scheduleReply.getUser())) throw new UserNotMatchedException("삭제하려는 댓글의 작성자가 아닙니다.");
 
-        scheduleReply.setSchedule(null);
+        scheduleReply.setIsDeleted(true);
+        scheduleReplyRepository.save(scheduleReply);
 
-        scheduleReplyRepository.delete(scheduleReply);
+        log.info("스케쥴: " + scheduleReply.getSchedule() + ", 유저: " + scheduleReply.getUser() + ", 댓글삭제: " + scheduleReply.getDescription());
     }
 
     @Transactional
     public void deleteScheduleReplies(List<ScheduleReply> list){
         for(ScheduleReply scheduleReply : list){
             scheduleReply.setIsDeleted(true);
+            log.info("스케쥴: " + scheduleReply.getSchedule() + ", 유저: " + scheduleReply.getUser() + ", 댓글추가: " + scheduleReply.getDescription());
         }
+
         scheduleReplyRepository.saveAll(list);
+
     }
 }

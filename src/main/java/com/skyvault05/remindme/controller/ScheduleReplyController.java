@@ -20,10 +20,7 @@ public class ScheduleReplyController {
     @Operation(summary = "ScheduleReply 저장")
     @PostMapping("/storeScheduleReply")
     public ScheduleReplyDto storeScheduleReply(@RequestBody ScheduleReplyDto scheduleReplyDto){
-        ScheduleReplyDto newScheduleReplyDto = scheduleReplyService.storeScheduleReply(scheduleReplyDto);
-        log.info(newScheduleReplyDto.getUser() + " : " + "ScheduleReplyDto " + newScheduleReplyDto + " stored.");
-
-        return newScheduleReplyDto;
+        return scheduleReplyService.storeScheduleReply(scheduleReplyDto);
     }
 
     @Operation(summary = "내가 작성한 ScheduleReply 리스트")

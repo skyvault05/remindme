@@ -6,8 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface ScheduleReplyRepository extends JpaRepository<ScheduleReply, Long> {
-    List<ScheduleReply> findAllByUser(User user);
+    List<ScheduleReply> findAllByUser(Long user);
+    List<ScheduleReply> findAllByUserAndIsDeleted(Long user, Boolean isDeleted);
+    Optional<ScheduleReply> findByIdAndIsDeleted(Long user, Boolean isDeleted);
     Long deleteAllBySchedule(Long schedule);
+    Optional<ScheduleReply> findScheduleReplyByIdAndIsDeleted(Long id, Boolean isDeleted);
 }
