@@ -47,13 +47,12 @@ public class ScheduleService{
         scheduleMemberService.addMyself(schedule);
         scheduleMemberService.addMembers(schedule, scheduleDto.getMembers());
 
-        log.info(schedule.getUser() + " : " +"Schedule " + schedule + "이 저장되었습니다.");
-
         ScheduleDto newScheduleDto = scheduleMapper.entityToDto(schedule);
         List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findAllBySchedule(schedule.getId());
         List<SimpleUserDto> simpleUserDtoList = userMapper.scheduleMemberListToSimpleDtoList(scheduleMemberList);
         newScheduleDto.setMembers(simpleUserDtoList);
 
+        log.info("스케쥴: " + schedule.getId() + ", 유저: " + schedule.getId() + ", 스케쥴저장: " + schedule.getTitle() + " : " + schedule.getDescription());
         return newScheduleDto;
     }
 
@@ -97,6 +96,7 @@ public class ScheduleService{
             scheduleReplyService.deleteScheduleReplies(schedule.getScheduleReplies());
             scheduleMemberService.deleteScheduleMemebers(schedule.getMembers());
 
+            log.info("스케쥴: " + schedule.getId() + ", 유저: " + schedule.getUser() + "스케쥴 삭제: " + schedule.getTitle() + " : " + schedule.getDescription());
             return true;
         }
     }

@@ -43,7 +43,7 @@ public class UserService {
                 .build();
 
         friendRepository.save(friend);
-        log.info(sessionUser.getEmail() + "님이 " + friendUser.getEmail() + "님을 친구로 추가하였습니다.");
+        log.info("유저: " + friend.getUser() + ", 친구추가: " + friend.getFriend());
 
         User newUser = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
         UserDto newUserDto = userMapper.entityToDto(newUser);
@@ -55,10 +55,10 @@ public class UserService {
         User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
         user.setNickname(nickname);
         userRepository.save(user);
-        log.info(sessionUser.getEmail() + "님의 nickname이 " + nickname + "으로 변경되었습니다.");
 
         UserDto userDto = userMapper.entityToDto(user);
 
+        log.info("유저: " + user.getId() + ", 닉네임설정: " + nickname);
         return userDto;
     }
 
@@ -72,9 +72,11 @@ public class UserService {
         }
 
         friendRepository.delete(friend);
-        log.info(sessionUser.getEmail() + "님이 " + friendUser.getEmail() + "님을 친구에서 삭제하였습니다.");
+
 
         User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("해당 유저를 찾을 수 없습니다."));
+
+        log.info("유저: " + friend.getUser() + ", 친구삭제: " + friend.getFriend());
         return userMapper.entityToDto(user);
     }
 }
