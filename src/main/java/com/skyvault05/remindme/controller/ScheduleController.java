@@ -9,8 +9,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -27,6 +29,14 @@ public class ScheduleController {
 
         return newScheduleDto;
     }
+
+    @Operation(summary = "Thumbnail 이미지 업로드")
+    @PostMapping("/uploadThumbnail")
+    @ResponseBody
+    public String uploadThumbnail(@RequestBody MultipartFile thumbnail) throws IOException {
+        return scheduleService.uploadThumbnail(thumbnail);
+    }
+
     @Operation(summary = "내가 포함된 Schedule 리스트")
     @GetMapping("/getSchedules")
     public List<ScheduleDto> getSchedules(HttpSession session){

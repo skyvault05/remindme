@@ -2,9 +2,4 @@ api: /api/v1
 
 spring:
   profiles:
-    include: oauth2, db
-
-#logging:
-#  level:
-#    org.hibernate: debug
-
+    include: oauth2, db, cloud

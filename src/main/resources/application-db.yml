@@ -1,17 +1,21 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: mysql DB url
-    username: mysql 유저 이름
-    password: mysql 유저 비밀번호
+    url:
+    username:
+    password:
 
-    jpa:
-      hibernate:
-        ddl-auto: update
-        naming:
-          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      show-sql: true
-      database-platform: org.hibernate.dialect.MySQL8Dialect
-      properties:
-        hibernate.enable_lazy_load_on_trans: true
-        hibernate.foramt_sql: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate.enable_lazy_load_on_trans: true
+      hibernate.foramt_sql: true
+
+  redis:
+    host: localhost
+    port:

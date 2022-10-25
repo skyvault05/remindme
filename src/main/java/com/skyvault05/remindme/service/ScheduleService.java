@@ -1,5 +1,7 @@
 package com.skyvault05.remindme.service;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.skyvault05.remindme.config.security.dto.SessionUser;
 import com.skyvault05.remindme.domain.Schedule;
 import com.skyvault05.remindme.domain.ScheduleMember;
@@ -17,14 +19,14 @@ import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import com.skyvault05.remindme.utils.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.io.IOException;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -33,11 +35,13 @@ public class ScheduleService{
     private final ScheduleRepository scheduleRepository;
     private final UserRepository userRepository;
     private final ScheduleMemberRepository scheduleMemberRepository;
-    private final ScheduleReplyRepository scheduleReplyRepository;
     private final ScheduleReplyService scheduleReplyService;
     private final ScheduleMemberService scheduleMemberService;
     private final ScheduleMapper scheduleMapper;
     private final UserMapper userMapper;
+    @Value("${cloud.aws.s3.bucket}")
+    private String bucket;
+    private final AmazonS3 amazonS3;
 
     @Transactional
     public ScheduleDto storeSchedule(ScheduleDto scheduleDto){
@@ -99,5 +103,19 @@ public class ScheduleService{
             log.info("스케쥴: " + schedule.getId() + ", 유저: " + schedule.getUser() + "스케쥴 삭제: " + schedule.getTitle() + " : " + schedule.getDescription());
             return true;
         }
+    }
+
+    public String uploadThumbnail(MultipartFile multipartFile) throws IOException {
+        String s3FileName = UUID.randomUUID() + "-" + multipartFile.getOriginalFilename();
+        String ext = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf(".")+1);
+        String contentType = ext == "jpg" ? "image/jpeg" : "image/" + ext;
+
+        ObjectMetadata objMeta = new ObjectMetadata();
+        objMeta.setContentLength(multipartFile.getInputStream().available());
+        objMeta.setContentType(contentType);
+
+        amazonS3.putObject(bucket, s3FileName, multipartFile.getInputStream(), objMeta);
+
+        return amazonS3.getUrl(bucket, s3FileName).toString();
     }
 }
