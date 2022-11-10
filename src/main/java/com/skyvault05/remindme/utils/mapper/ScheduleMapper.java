@@ -45,6 +45,7 @@ public class ScheduleMapper {
         if(scheduleDto.getThumbnail() != null) schedule.setThumbnail(scheduleDto.getThumbnail());
         if(scheduleDto.getIntervalType() != null) schedule.setIntervalType(scheduleDto.getIntervalType());
         if(scheduleDto.getIntervalValue() != null) schedule.setIntervalValue(scheduleDto.getIntervalValue());
+        if(scheduleDto.getDuration() != null) schedule.setDuration(scheduleDto.getDuration());
         if(scheduleDto.getStartDate() != null) schedule.setStartDate(scheduleDto.getStartDate());
         if(scheduleDto.getEndDate() != null) schedule.setEndDate(scheduleDto.getEndDate());
         if(scheduleDto.getStatus() != null) schedule.setStatus(scheduleDto.getStatus());
@@ -67,9 +68,12 @@ public class ScheduleMapper {
                 .thumbnail(schedule.getThumbnail())
                 .intervalType(schedule.getIntervalType())
                 .intervalValue(schedule.getIntervalValue())
+                .duration(schedule.getDuration())
                 .scheduleReplies(scheduleReplyMapper.entityListToDtoList(schedule.getScheduleReplies()))
                 .startDate(schedule.getStartDate())
                 .endDate(schedule.getEndDate())
+                .createdDate(schedule.getCreatedDate())
+                .modifiedDate(schedule.getModifiedDate())
                 .status(schedule.getStatus())
                 .build();
 

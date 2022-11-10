@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum ScheduleIntervalType {
     ONCE("INTERVALTYPE_ONCE", "한번"),
+    DAILY("INTERVALTYPE_DAILY", "일간"),
     WEEKLY("INTERVALTYPE_WEEKLY", "주간"),
     MONTHLY("INTERVALTYPE_MONTHLY", "월간"),
     ANNUAL("INTERVALTYPE_ANNUAL", "연간");

@@ -49,7 +49,9 @@ public class Schedule extends BaseTimeEntity {
     @Column(nullable = false)
     private ScheduleIntervalType intervalType;
     @Column
-    private String intervalValue;
+    private Integer intervalValue;
+    @Column
+    private String duration;
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ScheduleReply> scheduleReplies;
     @Column
@@ -65,7 +67,7 @@ public class Schedule extends BaseTimeEntity {
     public Schedule(Long id, Long user, String title,
                     String thumbnail, String description, LocalDateTime startDate,
                     LocalDateTime endDate, ScheduleIntervalType intervalType,
-                    String intervalValue, Integer status){
+                    String duration, Integer intervalValue, Integer status){
         this.id = id;
         this.user = user;
         this.title = title;
@@ -75,6 +77,7 @@ public class Schedule extends BaseTimeEntity {
         this.endDate = endDate;
         this.intervalType = intervalType;
         this.intervalValue = intervalValue;
+        this.duration = duration;
         this.status = status;
     }
 }

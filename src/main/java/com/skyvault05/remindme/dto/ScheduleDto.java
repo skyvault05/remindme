@@ -28,19 +28,16 @@ public class ScheduleDto {
     private String description;
     @Schema(example = "스케쥴 반복 형태 ex) ONCE, WEEKLY, MONTHLY", required = true)
     private ScheduleIntervalType intervalType;
-    @Schema(example = "스케쥴 반복 기준")
-    private String intervalValue;
-//    @Schema(example = "댓글 목록") //swagger 에러로 인해 임시 삭제. ScheduleReplyDto의 example로 이 항목이 덮어씌워짐.
+    @Schema(example = "스케쥴 반복 횟수")
+    private Integer intervalValue;
+    @Schema(example = "스케쥴 소요시간")
+    private String duration;
     private List<ScheduleReplyDto> scheduleReplies;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     @Schema(example = "스케쥴 시작 날짜")
     private LocalDateTime startDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     @Schema(example = "스케쥴 종료 날짜")
     private LocalDateTime endDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime createdDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
     private LocalDateTime modifiedDate;
     @Schema(example = "스케쥴 상태코드")
     private Integer status;
