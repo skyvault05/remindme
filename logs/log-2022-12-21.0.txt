@@ -1,0 +1,30 @@
+[WARN ] 01:42:19.156 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h26s85ms).
+[WARN ] 03:44:43.607 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h24s418ms).
+[WARN ] 05:45:38.179 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h24s569ms).
+[WARN ] 05:51:52.769 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m14s590ms).
+[WARN ] 06:18:03.372 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m40s599ms).
+[WARN ] 06:49:35.433 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m26s487ms).
+[WARN ] 07:47:10.634 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m34s722ms).
+[WARN ] 08:05:33.807 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m53s156ms).
+[WARN ] 16:27:11.545 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s823ms), soft-evicting connections from pool.
+[WARN ] 16:27:41.315 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s770ms), soft-evicting connections from pool.
+[WARN ] 16:28:37.137 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=55s822ms).
+[WARN ] 16:46:50.911 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m43s771ms).
+[WARN ] 17:06:31.669 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m40s734ms).
+[WARN ] 17:46:36.394 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m4s725ms).
+[WARN ] 18:50:09.389 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=59m32s965ms).
+[WARN ] 19:03:27.398 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6d456e6f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.514 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@193ef46e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.561 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@67d3dcc3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.600 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@21a3e040 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.651 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7722ea5f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.689 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@19d1ed51 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.728 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@609d0f6c (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.766 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5e8252df (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.805 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3e123b42 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[WARN ] 19:03:27.844 com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@28bff2b4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[INFO ] 19:09:46.300 o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 453 ms
+[WARN ] 20:02:20.924 o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.skyvault05.remindme.dto.ScheduleDto com.skyvault05.remindme.controller.ScheduleController.storeSchedule(com.skyvault05.remindme.dto.ScheduleDto)]
+[INFO ] 20:02:35.374 c.s.r.service.ScheduleMemberService - 스케쥴: 39, 멤버추가: 1
+[INFO ] 20:02:35.416 c.s.remindme.service.ScheduleService - 스케쥴: 39, 유저: 39, 스케쥴저장: 테스트에용~~ : null
+[WARN ] 23:51:41.879 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s826ms), soft-evicting connections from pool.

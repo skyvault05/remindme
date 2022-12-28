@@ -15,4 +15,7 @@ public interface ScheduleReplyRepository extends JpaRepository<ScheduleReply, Lo
     Optional<ScheduleReply> findByIdAndIsDeleted(Long user, Boolean isDeleted);
     Long deleteAllBySchedule(Long schedule);
     Optional<ScheduleReply> findScheduleReplyByIdAndIsDeleted(Long id, Boolean isDeleted);
+    List<ScheduleReply> findAllByScheduleAndIsDeleted(Long schedule, Boolean isDeleted);
+
+
 }

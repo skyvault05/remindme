@@ -1,0 +1,44 @@
+[WARN ] 01:46:31.496 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session e9c6df27-0807-45b7-9f39-4eec0afcaa0c
+[WARN ] 01:46:31.499 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 4030799c-7255-4f26-8c17-091306fa81fb
+[WARN ] 01:46:31.499 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session fd256ee0-0117-4e4f-a136-c56abadbb6cd
+[WARN ] 01:46:31.498 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 43c17de8-a4d3-4788-8cfe-474ef65c13f4
+[WARN ] 01:46:31.497 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session d4127d26-1412-4af7-8dc5-d702261a35d4
+[WARN ] 01:46:31.497 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 3597ddef-1f84-4bae-b1f6-4413ec073702
+[WARN ] 01:46:31.497 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 747c7629-46d7-4bd9-92b4-9a5d5910794f
+[WARN ] 01:46:31.497 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 5a7a520a-7ea4-439c-9e78-4ab80451a692
+[WARN ] 01:46:31.497 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session a69d306a-7c10-435a-b42d-6d595734cf30
+[WARN ] 01:46:31.497 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 75c46d43-a4bb-4a25-8bd7-a40c05b4365a
+[WARN ] 01:46:53.768 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h58m19s718ms).
+[WARN ] 01:59:49.294 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m23s429ms).
+[WARN ] 02:04:38.323 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m19s26ms).
+[WARN ] 02:10:22.347 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m44s5ms).
+[WARN ] 02:42:59.865 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m49s657ms).
+[INFO ] 02:47:42.486 o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 627 ms
+[WARN ] 05:14:27.473 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m26s579ms).
+[WARN ] 05:42:12.266 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m14s770ms).
+[WARN ] 05:58:36.383 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m54s111ms).
+[WARN ] 06:17:09.961 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m33s560ms).
+[WARN ] 06:44:11.133 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m58s379ms).
+[WARN ] 07:00:19.307 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m38s167ms).
+[WARN ] 07:19:27.312 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m7s982ms).
+[WARN ] 08:10:56.344 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50m59s29ms).
+[WARN ] 08:29:15.487 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m49s141ms).
+[WARN ] 09:00:05.589 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=30m20s88ms).
+[WARN ] 09:16:23.793 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m48s198ms).
+[WARN ] 10:17:13.890 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h20s87ms).
+[WARN ] 11:18:01.095 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h17s199ms).
+[WARN ] 12:18:53.222 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h22s114ms).
+[WARN ] 13:19:43.251 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h20s17ms).
+[WARN ] 14:20:33.428 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h20s171ms).
+[WARN ] 15:21:23.559 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h20s127ms).
+[WARN ] 16:22:13.907 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h20s345ms).
+[WARN ] 17:23:04.076 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h20s162ms).
+[WARN ] 18:23:54.202 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h20s114ms).
+[WARN ] 19:05:09.645 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=40m45s437ms).
+[WARN ] 20:08:43.244 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m59s643ms).
+[WARN ] 20:27:11.039 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m57s790ms).
+[WARN ] 20:48:13.856 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m2s789ms).
+[INFO ] 21:25:07.320 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 21:25:07.338 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 21:25:07.343 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 21:25:07.359 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

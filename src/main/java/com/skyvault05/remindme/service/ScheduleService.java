@@ -118,4 +118,14 @@ public class ScheduleService{
 
         return amazonS3.getUrl(bucket, s3FileName).toString();
     }
+
+    public ScheduleDto getSchedule(Long scheduleId, HttpSession session) {
+        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
+        Schedule nullSchedule = Schedule.builder().user(sessionUser.getId()).build();
+        if(scheduleId == null) return scheduleMapper.entityToDto(nullSchedule);
+
+        Schedule schedule = scheduleRepository.findById(scheduleId).orElse(nullSchedule);
+
+        return scheduleMapper.entityToDto(schedule);
+    }
 }

@@ -30,6 +30,14 @@ public class ScheduleController {
         return newScheduleDto;
     }
 
+    @Operation(summary = "단일 Schedule 조회")
+    @GetMapping("/getSchedule/{scheduleId}")
+    public ScheduleDto storeSchedule(@PathVariable Long scheduleId, HttpSession session) {
+        ScheduleDto newScheduleDto = scheduleService.getSchedule(scheduleId, session);
+
+        return newScheduleDto;
+    }
+
     @Operation(summary = "Thumbnail 이미지 업로드")
     @PostMapping("/uploadThumbnail")
     @ResponseBody

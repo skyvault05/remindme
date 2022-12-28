@@ -68,4 +68,9 @@ public class ScheduleReplyService {
         scheduleReplyRepository.saveAll(list);
 
     }
+
+    public List<ScheduleReplyDto> getScheduleRepliesBySchedule(Long scheduleId) {
+        List<ScheduleReply> scheduleReplies = scheduleReplyRepository.findAllByScheduleAndIsDeleted(scheduleId, false);
+        return scheduleReplyMapper.entityListToDtoList(scheduleReplies);
+    }
 }

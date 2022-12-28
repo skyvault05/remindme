@@ -1,0 +1,57 @@
+[INFO ] 00:24:36.112 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 2719 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 00:24:36.126 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 00:24:36.185 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 00:24:36.186 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 00:24:37.634 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 00:24:37.634 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 00:24:37.749 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102ms. Found 5 JPA repository interfaces.
+[INFO ] 00:24:37.768 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 00:24:37.769 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 00:24:37.793 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:24:37.794 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:24:37.795 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:24:37.796 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:24:37.797 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:24:37.797 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+[INFO ] 00:24:38.740 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 00:24:38.846 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2660 ms
+[INFO ] 00:24:39.474 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 00:24:39.516 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 00:24:39.579 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 00:24:39.697 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 00:24:39.780 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 00:24:39.910 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 00:24:40.435 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 00:24:40.455 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 00:24:42.084 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 00:24:42.093 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 00:24:42.146 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 00:24:42.702 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69af2cfa, org.springframework.security.web.context.SecurityContextPersistenceFilter@6a25dda4, org.springframework.security.web.header.HeaderWriterFilter@2369c70, org.springframework.security.web.authentication.logout.LogoutFilter@59ea741c, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@221f1ba2, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@6f19f956, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@32561d01, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6c17b681, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26236925, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2438ccbc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@682ad115, org.springframework.security.web.session.SessionManagementFilter@3b12016c, org.springframework.security.web.access.ExceptionTranslationFilter@af68ace, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22ea6834]
+[INFO ] 00:24:43.565 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 00:24:44.165 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 00:24:44.565 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 00:24:44.580 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 00:24:44.591 com.skyvault05.remindme.Application - Started Application in 9.601 seconds (JVM running for 10.875)
+[INFO ] 00:25:10.389 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 00:25:10.402 o.s.web.servlet.DispatcherServlet - Completed initialization in 13 ms
+[WARN ] 00:45:56.542 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m45s742ms).
+[WARN ] 01:37:10.224 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session c08aaf5d-f3ab-4a9f-b88b-11594840dd7e
+[WARN ] 01:37:10.225 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 079aa254-a7ae-409f-849f-8f17261952f7
+[WARN ] 01:37:10.225 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session be7c47fb-58ff-42b4-a497-27b2680c595c
+[WARN ] 01:37:22.268 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50m55s178ms).
+[WARN ] 01:58:57.200 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m34s934ms).
+[WARN ] 04:05:30.058 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 8ea20e9a-03b1-4f4d-b45d-1d371d8d10df
+[WARN ] 04:05:30.058 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session bf3668c8-65ff-48d5-8a92-1fb4381ec196
+[WARN ] 04:05:37.115 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h9s885ms).
+[WARN ] 06:05:49.431 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h12s315ms).
+[WARN ] 08:06:02.679 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h13s239ms).
+[WARN ] 10:06:11.707 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h9s36ms).
+[WARN ] 12:06:27.220 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h15s514ms).
+[WARN ] 14:06:38.036 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h10s816ms).
+[WARN ] 17:05:47.121 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h59m9s86ms).
+[WARN ] 17:07:57.606 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m40s492ms).
+[WARN ] 17:43:48.195 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m50s438ms).
+[WARN ] 18:56:48.478 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s837ms), soft-evicting connections from pool.
+[WARN ] 19:07:48.868 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m390ms).
+[WARN ] 20:08:20.034 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h31s166ms).
+[WARN ] 22:08:30.328 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h10s288ms).

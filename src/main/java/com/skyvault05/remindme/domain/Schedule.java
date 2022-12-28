@@ -36,6 +36,7 @@ public class Schedule extends BaseTimeEntity {
     @NotNull
     private String title;
     @Column
+    @Lob
     private String description;
     @Column
     private String thumbnail;
@@ -52,12 +53,11 @@ public class Schedule extends BaseTimeEntity {
     private Integer intervalValue;
     @Column
     private String duration;
-    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)
     private List<ScheduleReply> scheduleReplies;
     @Column
     @ColumnDefault("1")
     private Integer status;
-
     @Column
     @ColumnDefault("false")
     private Boolean isDeleted;
