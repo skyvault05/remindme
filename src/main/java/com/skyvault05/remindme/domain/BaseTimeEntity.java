@@ -17,10 +17,10 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseTimeEntity {
     @CreatedDate
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime createdDate;
 
     @LastModifiedDate
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime modifiedDate;
 }

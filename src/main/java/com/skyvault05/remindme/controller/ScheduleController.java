@@ -24,7 +24,7 @@ public class ScheduleController {
 
     @Operation(summary = "Schedule 추가 및 업데이트")
     @PostMapping("/storeSchedule")
-    public ScheduleDto storeSchedule(@RequestBody ScheduleDto scheduleDto) {
+    public ScheduleDto storeSchedule(@RequestBody ScheduleDto scheduleDto) throws IOException {
         ScheduleDto newScheduleDto = scheduleService.storeSchedule(scheduleDto);
 
         return newScheduleDto;

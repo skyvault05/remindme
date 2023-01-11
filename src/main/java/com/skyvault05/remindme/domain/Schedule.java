@@ -41,10 +41,10 @@ public class Schedule extends BaseTimeEntity {
     @Column
     private String thumbnail;
     @Column
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime startDate;
     @Column
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime endDate;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

@@ -1,5 +1,0 @@
-[WARN ] 14:06:13.565 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18h15m20s808ms).
-[WARN ] 17:55:59.721 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h49m46s156ms).
-[INFO ] 17:56:41.662 o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 667 ms
-[WARN ] 20:23:19.211 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m48s219ms).
-[WARN ] 20:32:52.398 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m33s187ms).

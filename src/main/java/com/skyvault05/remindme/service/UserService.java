@@ -79,4 +79,12 @@ public class UserService {
         log.info("유저: " + friend.getUser() + ", 친구삭제: " + friend.getFriend());
         return userMapper.entityToDto(user);
     }
+
+    public UserDto getMyInfo(HttpSession session) {
+        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
+        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("No Such User"));
+        UserDto userDto = userMapper.entityToDto(user);
+
+        return userDto;
+    }
 }

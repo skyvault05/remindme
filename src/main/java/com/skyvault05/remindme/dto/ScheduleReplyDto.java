@@ -20,9 +20,9 @@ public class ScheduleReplyDto {
     private Long schedule;
     @Schema(example = "내용", required = true)
     private String description;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime createdDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime modifiedDate;
     @Schema(example = "스케쥴 댓글 상태코드")
     private Integer status;

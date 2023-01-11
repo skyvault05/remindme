@@ -9,6 +9,7 @@ import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.dto.ScheduleDto;
 import com.skyvault05.remindme.dto.SimpleUserDto;
 import com.skyvault05.remindme.repository.ScheduleReplyRepository;
+import com.skyvault05.remindme.utils.cloud.S3Upload;
 import com.skyvault05.remindme.utils.exceptions.ScheduleNotFoundException;
 import com.skyvault05.remindme.utils.exceptions.UserNotMatchedException;
 import com.skyvault05.remindme.utils.mapper.ScheduleMapper;
@@ -39,13 +40,16 @@ public class ScheduleService{
     private final ScheduleMemberService scheduleMemberService;
     private final ScheduleMapper scheduleMapper;
     private final UserMapper userMapper;
+    private final AmazonS3 amazonS3;
     @Value("${cloud.aws.s3.bucket}")
     private String bucket;
-    private final AmazonS3 amazonS3;
+    private S3Upload s3Upload;
 
     @Transactional
-    public ScheduleDto storeSchedule(ScheduleDto scheduleDto){
+    public ScheduleDto storeSchedule(ScheduleDto scheduleDto) throws IOException {
         Schedule schedule = scheduleMapper.dtoToEntity(scheduleDto);
+
+        if(!scheduleDto.getThumbnailImage().isEmpty()) scheduleDto.setThumbnail(s3Upload.upload(scheduleDto.getThumbnailImage()));
 
         scheduleRepository.save(schedule);
         scheduleMemberService.addMyself(schedule);
@@ -55,6 +59,7 @@ public class ScheduleService{
         List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findAllBySchedule(schedule.getId());
         List<SimpleUserDto> simpleUserDtoList = userMapper.scheduleMemberListToSimpleDtoList(scheduleMemberList);
         newScheduleDto.setMembers(simpleUserDtoList);
+
 
         log.info("스케쥴: " + schedule.getId() + ", 유저: " + schedule.getId() + ", 스케쥴저장: " + schedule.getTitle() + " : " + schedule.getDescription());
         return newScheduleDto;

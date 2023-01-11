@@ -19,6 +19,14 @@ public class UserController {
     private final UserRepository userRepository;
     private final UserService userService;
 
+    @Operation
+    @GetMapping("/getMyInfo")
+    public UserDto getMyInfo(HttpSession session){
+        UserDto userDto = userService.getMyInfo(session);
+
+        return userDto;
+    }
+
     @Operation(summary = "id로 유저 찾기.")
     @PostMapping("/findUser/{id}")
     public UserDto findUser(@PathVariable Long id){

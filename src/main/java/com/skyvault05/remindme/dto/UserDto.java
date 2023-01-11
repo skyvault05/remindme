@@ -27,9 +27,9 @@ public class UserDto {
     private List<SimpleUserDto> friends;
     @Schema(example = "유저 역할")
     private UserRole role;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime createdDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="Asia/Seoul")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="Asia/Seoul")
     private LocalDateTime modifiedDate;
     @Schema(example = "유저 상태코드")
     private Integer status;

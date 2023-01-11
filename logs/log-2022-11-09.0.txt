@@ -1,4 +1,0 @@
-[WARN ] 12:22:53.322 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d1m35s630ms).
-[WARN ] 16:42:13.937 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h19m20s627ms).
-[WARN ] 20:04:08.415 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m23s434ms).
-[WARN ] 22:01:46.050 o.s.s.d.r.RedisIndexedSessionRepository - Unable to publish SessionDestroyedEvent for session 565c3509-9207-4185-a811-ddfdc2ecd121

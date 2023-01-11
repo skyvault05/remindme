@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.skyvault05.remindme.utils.enums.ScheduleIntervalType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,8 +23,10 @@ public class ScheduleDto {
     private List<SimpleUserDto> members;
     @Schema(example = "스케쥴 제목", required = true)
     private String title;
-    @Schema(example = "스케쥴 썸네일 이미지")
+    @Schema(example = "스케쥴 썸네일 이미지 주소")
     private String thumbnail;
+    @Schema(example = "스케쥴 썸네일 이미지 파일. 파일 업로드시 사용.")
+    private MultipartFile ThumbnailImage;
     @Schema(example = "스케쥴 설명")
     private String description;
     @Schema(example = "스케쥴 반복 형태 ex) ONCE, WEEKLY, MONTHLY", required = true)
