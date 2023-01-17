@@ -1,0 +1,715 @@
+[INFO ] 00:28:48.817 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 11660 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 00:28:48.821 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 00:28:48.875 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 00:28:48.876 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 00:28:50.027 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 00:28:50.028 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 00:28:50.149 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 109ms. Found 5 JPA repository interfaces.
+[INFO ] 00:28:50.166 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 00:28:50.168 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 00:28:50.197 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:28:50.198 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:28:50.199 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:28:50.200 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:28:50.200 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:28:50.201 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+[WARN ] 00:28:50.700 o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+[INFO ] 00:28:50.710 o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 00:28:50.724 o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:161)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:545)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.skyvault05.remindme.Application.main(Application.java:9)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.context.ApplicationContextException: Unable to start ServletWebServerApplicationContext due to missing ServletWebServerFactory bean.
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:205)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:177)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:158)
+	... 14 common frames omitted
+[INFO ] 00:34:07.792 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 11705 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 00:34:07.802 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 00:34:07.847 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 00:34:07.848 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 00:34:09.021 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 00:34:09.021 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 00:34:09.142 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 107ms. Found 5 JPA repository interfaces.
+[INFO ] 00:34:09.160 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 00:34:09.162 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 00:34:09.192 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:34:09.193 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:34:09.193 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:34:09.194 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:34:09.195 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 00:34:09.195 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+[INFO ] 00:34:10.174 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 00:34:10.307 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2459 ms
+[INFO ] 00:34:10.972 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 00:34:11.019 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 00:34:11.092 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 00:34:11.202 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 00:34:11.299 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 00:34:11.425 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 00:34:11.957 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 00:34:11.984 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 00:34:13.372 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 00:34:13.388 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 00:34:13.785 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 00:34:14.015 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3209b3c9, org.springframework.security.web.context.SecurityContextPersistenceFilter@34b5f3ad, org.springframework.security.web.header.HeaderWriterFilter@2781086c, org.springframework.security.web.authentication.logout.LogoutFilter@2b8402fa, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@43d4c4b4, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@3d65ae15, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@35a787b4, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@17fcb3fa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e7ea9fb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@eaa2cfd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ac3149d, org.springframework.security.web.session.SessionManagementFilter@4d687b36, org.springframework.security.web.access.ExceptionTranslationFilter@7ffe258c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43c87951]
+[INFO ] 00:34:14.961 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 00:34:15.537 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 00:34:15.952 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 00:34:15.971 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 00:34:15.983 com.skyvault05.remindme.Application - Started Application in 8.834 seconds (JVM running for 9.917)
+[INFO ] 01:37:29.203 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 01:37:29.291 o.s.web.servlet.DispatcherServlet - Completed initialization in 85 ms
+[INFO ] 01:37:45.096 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 01:37:45.109 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 01:37:45.112 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 01:37:45.118 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 03:09:35.148 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 36555 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 03:09:35.151 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 03:09:35.212 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 03:09:35.213 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 03:09:36.428 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:09:36.428 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 03:09:36.558 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 115ms. Found 5 JPA repository interfaces.
+[INFO ] 03:09:36.583 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:09:36.585 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 03:09:36.613 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:09:36.614 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:09:36.614 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:09:36.615 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:09:36.616 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:09:36.616 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+[INFO ] 03:09:37.577 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 03:09:37.763 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2550 ms
+[INFO ] 03:09:38.455 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:09:38.506 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 03:09:38.574 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 03:09:38.692 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 03:09:38.771 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 03:09:38.895 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 03:09:39.398 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 03:09:39.422 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 03:09:40.831 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 03:09:40.846 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:09:41.294 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 03:09:41.543 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23817067, org.springframework.security.web.context.SecurityContextPersistenceFilter@3794170, org.springframework.security.web.header.HeaderWriterFilter@5ae3e1f0, org.springframework.security.web.authentication.logout.LogoutFilter@1a6e8e93, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@498502ef, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2af07b3b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@441b0449, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3ac4588a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8a0fe15, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cba191e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58c47b02, org.springframework.security.web.session.SessionManagementFilter@45b34ae6, org.springframework.security.web.access.ExceptionTranslationFilter@2a9e35e0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6ec5560b]
+[WARN ] 03:09:42.632 o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[INFO ] 03:09:42.643 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:09:42.646 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:09:42.648 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 03:09:42.662 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 03:09:42.818 o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 03:09:42.835 o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO ] 03:12:19.926 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 36870 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 03:12:19.929 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 03:12:19.987 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 03:12:19.987 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 03:12:21.263 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:12:21.264 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 03:12:21.383 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 102ms. Found 5 JPA repository interfaces.
+[INFO ] 03:12:21.400 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:12:21.402 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 03:12:21.432 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:12:21.433 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:12:21.434 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:12:21.434 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:12:21.435 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:12:21.435 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+[INFO ] 03:12:22.470 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 03:12:22.597 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2610 ms
+[INFO ] 03:12:23.181 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:12:23.224 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 03:12:23.286 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 03:12:23.392 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 03:12:23.481 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 03:12:23.605 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 03:12:24.099 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 03:12:24.125 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 03:12:25.504 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 03:12:25.516 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:12:25.985 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 03:12:26.205 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@444a6192, org.springframework.security.web.context.SecurityContextPersistenceFilter@af3ab5d, org.springframework.security.web.header.HeaderWriterFilter@1947023d, org.springframework.security.web.authentication.logout.LogoutFilter@31ff7c22, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@71a2eba6, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4f7ce18b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1e5cb36c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6f9464ff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ff82239, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fc8f425, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26ef160e, org.springframework.security.web.session.SessionManagementFilter@3481b81f, org.springframework.security.web.access.ExceptionTranslationFilter@53dd1d3e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ba21129]
+[INFO ] 03:12:27.263 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 03:12:27.937 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 03:12:28.485 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 03:12:28.500 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 03:12:28.512 com.skyvault05.remindme.Application - Started Application in 9.223 seconds (JVM running for 10.133)
+[INFO ] 03:12:30.963 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 03:12:30.971 o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+[ERROR] 03:13:00.014 o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
+org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:54)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:52)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:273)
+	at org.springframework.data.redis.connection.lettuce.LettuceKeyCommands.convertLettuceAccessException(LettuceKeyCommands.java:809)
+	at org.springframework.data.redis.connection.lettuce.LettuceKeyCommands.del(LettuceKeyCommands.java:128)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.del(DefaultedRedisConnection.java:82)
+	at org.springframework.data.redis.core.RedisTemplate.lambda$delete$2(RedisTemplate.java:713)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:228)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188)
+	at org.springframework.data.redis.core.RedisTemplate.delete(RedisTemplate.java:713)
+	at org.springframework.session.data.redis.RedisSessionExpirationPolicy.cleanExpiredSessions(RedisSessionExpirationPolicy.java:130)
+	at org.springframework.session.data.redis.RedisIndexedSessionRepository.cleanupExpiredSessions(RedisIndexedSessionRepository.java:407)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: io.lettuce.core.RedisCommandExecutionException: MISCONF Redis is configured to save RDB snapshots, but it's currently unable to persist to disk. Commands that may modify the data set are disabled, because this instance is configured to report errors during writes if RDB snapshotting fails (stop-writes-on-bgsave-error option). Please check the Redis logs for details about the RDB error.
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:120)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:111)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:654)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:614)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:565)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	... 1 common frames omitted
+[INFO ] 03:13:42.677 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was localhost/127.0.0.1:6379
+[INFO ] 03:13:42.677 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was localhost/127.0.0.1:6379
+[WARN ] 03:13:42.698 i.l.core.protocol.ConnectionWatchdog - Cannot reconnect to [localhost:6379]: Connection refused: localhost/127.0.0.1:6379
+[WARN ] 03:13:42.698 i.l.core.protocol.ConnectionWatchdog - Cannot reconnect to [localhost:6379]: Connection refused: localhost/127.0.0.1:6379
+[INFO ] 03:13:44.382 i.l.c.protocol.ReconnectionHandler - Reconnected to localhost:6379
+[INFO ] 03:13:44.384 i.l.c.protocol.ReconnectionHandler - Reconnected to localhost:6379
+[INFO ] 03:14:25.082 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:14:25.087 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:14:25.091 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 03:14:25.103 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 03:16:34.579 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 37859 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 03:16:34.582 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 03:16:34.640 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 03:16:34.641 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 03:16:35.890 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:16:35.891 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 03:16:35.997 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 93ms. Found 5 JPA repository interfaces.
+[INFO ] 03:16:36.015 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:16:36.017 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 03:16:36.039 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:16:36.040 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:16:36.041 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:16:36.041 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:16:36.042 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:16:36.042 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+[INFO ] 03:16:37.038 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 03:16:37.157 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2516 ms
+[INFO ] 03:16:37.804 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:16:37.854 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 03:16:37.922 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 03:16:38.034 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 03:16:38.122 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 03:16:38.255 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 03:16:38.756 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 03:16:38.784 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 03:16:40.183 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 03:16:40.195 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:16:40.618 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 03:16:40.803 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c48f319, org.springframework.security.web.context.SecurityContextPersistenceFilter@21ba7b16, org.springframework.security.web.header.HeaderWriterFilter@2aa9547f, org.springframework.security.web.authentication.logout.LogoutFilter@559d8ac8, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@3b6d879c, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@722a514f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3a23882b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6b72596e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64cacf1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7390c221, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@363e74f7, org.springframework.security.web.session.SessionManagementFilter@226e5d6, org.springframework.security.web.access.ExceptionTranslationFilter@70be3971, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c730f65]
+[INFO ] 03:16:41.684 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 03:16:42.246 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 03:16:42.648 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 03:16:42.662 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 03:16:42.674 com.skyvault05.remindme.Application - Started Application in 8.705 seconds (JVM running for 9.662)
+[INFO ] 03:16:50.990 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 03:16:50.999 o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+[INFO ] 03:16:56.203 o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 451 ms
+[INFO ] 03:17:33.462 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:17:33.466 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:17:33.468 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 03:17:33.478 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 03:44:25.345 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 40137 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 03:44:25.348 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 03:44:25.402 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 03:44:25.402 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 03:44:26.688 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:44:26.689 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 03:44:26.818 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 116ms. Found 5 JPA repository interfaces.
+[INFO ] 03:44:26.835 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:44:26.837 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 03:44:26.866 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:26.867 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:26.868 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:26.869 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:26.870 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:26.870 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+[INFO ] 03:44:27.883 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 03:44:28.015 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2613 ms
+[INFO ] 03:44:28.654 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:44:28.705 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 03:44:28.770 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 03:44:28.885 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 03:44:28.982 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 03:44:29.132 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 03:44:29.618 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 03:44:29.648 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 03:44:31.083 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 03:44:31.094 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:44:31.613 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 03:44:31.803 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e71622, org.springframework.security.web.context.SecurityContextPersistenceFilter@6996332c, org.springframework.security.web.header.HeaderWriterFilter@70067acd, org.springframework.security.web.authentication.logout.LogoutFilter@7457c860, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@443e3cf6, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@42926632, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@705c3a76, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@40e42c84, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23ab98ca, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@637fb170, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ac21de4, org.springframework.security.web.session.SessionManagementFilter@322d89bf, org.springframework.security.web.access.ExceptionTranslationFilter@4503fb66, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@555a034a]
+[WARN ] 03:44:32.679 o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[INFO ] 03:44:32.687 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:44:32.690 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:44:32.691 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 03:44:32.698 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 03:44:32.832 o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 03:44:32.841 o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO ] 03:44:48.283 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 40164 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 03:44:48.285 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 03:44:48.326 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 03:44:48.326 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 03:44:49.521 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:44:49.521 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 03:44:49.633 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101ms. Found 5 JPA repository interfaces.
+[INFO ] 03:44:49.656 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:44:49.657 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 03:44:49.683 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:49.684 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:49.685 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:49.685 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:49.686 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:44:49.686 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+[INFO ] 03:44:50.561 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 03:44:50.696 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2370 ms
+[INFO ] 03:44:51.324 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:44:51.369 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 03:44:51.438 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 03:44:51.553 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 03:44:51.643 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 03:44:51.775 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 03:44:52.261 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 03:44:52.289 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 03:44:53.682 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 03:44:53.695 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:44:54.114 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 03:44:54.358 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ff426d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@20752524, org.springframework.security.web.header.HeaderWriterFilter@279a01aa, org.springframework.security.web.authentication.logout.LogoutFilter@2721aa6e, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1bcbef88, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@1a6dcb52, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3290ad39, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@39e5e261, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b2cdfa6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@59105ddb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a83727c, org.springframework.security.web.session.SessionManagementFilter@386e2865, org.springframework.security.web.access.ExceptionTranslationFilter@24c3fd19, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b0bb906]
+[INFO ] 03:44:55.243 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 03:44:55.834 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 03:44:56.284 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 03:44:56.297 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 03:44:56.310 com.skyvault05.remindme.Application - Started Application in 8.614 seconds (JVM running for 9.568)
+[INFO ] 03:45:02.167 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 03:45:02.178 o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+[INFO ] 03:45:03.165 o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 418 ms
+[INFO ] 03:45:34.719 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:45:34.722 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:45:34.724 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 03:45:34.734 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 03:47:55.256 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 40353 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 03:47:55.259 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 03:47:55.304 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 03:47:55.304 o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 03:47:56.500 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:47:56.500 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 03:47:56.601 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 92ms. Found 5 JPA repository interfaces.
+[INFO ] 03:47:56.623 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 03:47:56.624 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 03:47:56.650 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:47:56.651 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:47:56.652 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:47:56.653 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:47:56.653 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 03:47:56.653 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+[INFO ] 03:47:57.610 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 03:47:57.731 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2427 ms
+[INFO ] 03:47:58.365 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:47:58.415 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 03:47:58.487 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 03:47:58.608 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 03:47:58.695 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 03:47:58.828 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 03:47:59.351 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 03:47:59.384 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 03:48:00.766 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 03:48:00.778 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:48:00.833 o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 03:48:01.360 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@724b2ed, org.springframework.security.web.context.SecurityContextPersistenceFilter@24f8de16, org.springframework.security.web.header.HeaderWriterFilter@6f4ab505, org.springframework.security.web.authentication.logout.LogoutFilter@5a8e466c, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5757002, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@3ed0396c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@71bd3f5d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3cb114f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13519da0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5208f24d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76b8a2d8, org.springframework.security.web.session.SessionManagementFilter@744359f3, org.springframework.security.web.access.ExceptionTranslationFilter@4576cda9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e6916b]
+[INFO ] 03:48:02.330 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 03:48:02.903 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 03:48:03.319 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 03:48:03.332 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 03:48:03.343 com.skyvault05.remindme.Application - Started Application in 8.66 seconds (JVM running for 9.39)
+[INFO ] 03:48:18.073 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 03:48:18.082 o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+[INFO ] 03:48:51.407 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 03:48:51.409 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 03:48:51.411 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 03:48:51.420 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 04:01:43.238 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 41534 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 04:01:43.243 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 04:01:44.168 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:01:44.168 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 04:01:44.259 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83ms. Found 5 JPA repository interfaces.
+[INFO ] 04:01:44.272 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:01:44.274 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 04:01:44.293 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:01:44.294 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:01:44.295 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:01:44.296 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:01:44.296 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:01:44.297 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+[INFO ] 04:01:44.919 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 04:01:45.117 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1830 ms
+[INFO ] 04:01:45.606 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:01:45.643 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 04:01:45.684 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 04:01:45.777 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 04:01:45.807 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 04:01:45.919 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 04:01:46.390 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 04:01:46.404 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 04:01:47.460 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 04:01:47.468 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:01:47.920 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@17216605, org.springframework.security.web.context.SecurityContextPersistenceFilter@54247647, org.springframework.security.web.header.HeaderWriterFilter@6aff97d6, org.springframework.security.web.authentication.logout.LogoutFilter@b506ed0, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2e4eda17, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@159ac15f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@26fadd98, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@10a907ec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e0d1dc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@722531ab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59b492ec, org.springframework.security.web.session.SessionManagementFilter@134a8ead, org.springframework.security.web.access.ExceptionTranslationFilter@27c53c32, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@17fbfb02]
+[WARN ] 04:01:48.697 o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[INFO ] 04:01:48.714 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:01:48.716 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:01:48.716 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 04:01:48.783 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 04:01:48.918 o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 04:01:48.925 o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO ] 04:11:33.073 c.s.remindme.ServletInitializer - Starting ServletInitializer on Hyo-Jinui-MBP with PID 42403 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 04:11:33.076 c.s.remindme.ServletInitializer - The following profiles are active: oauth2,db,cloud
+[INFO ] 04:11:34.203 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:11:34.203 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 04:11:34.318 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 105ms. Found 5 JPA repository interfaces.
+[INFO ] 04:11:34.343 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:11:34.345 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 04:11:34.375 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:11:34.376 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:11:34.377 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:11:34.378 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:11:34.379 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:11:34.379 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17ms. Found 0 Redis repository interfaces.
+[INFO ] 04:11:35.084 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 04:11:35.217 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2084 ms
+[INFO ] 04:11:35.852 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:11:35.890 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 04:11:35.943 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 04:11:36.036 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 04:11:36.145 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 04:11:36.278 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 04:11:36.784 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 04:11:36.807 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 04:11:38.098 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 04:11:38.108 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:11:38.698 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5882b202, org.springframework.security.web.context.SecurityContextPersistenceFilter@70f148dc, org.springframework.security.web.header.HeaderWriterFilter@437281c5, org.springframework.security.web.authentication.logout.LogoutFilter@333398f, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@130a6eb9, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@1e92c3b6, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4dd2ef54, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@120df990, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77aea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7708b66a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b506ed0, org.springframework.security.web.session.SessionManagementFilter@24a4e2c5, org.springframework.security.web.access.ExceptionTranslationFilter@96abc76, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@133aacbe]
+[INFO ] 04:11:39.522 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 04:11:40.130 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 04:11:40.574 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 04:11:40.586 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 04:11:40.598 c.s.remindme.ServletInitializer - Started ServletInitializer in 8.835 seconds (JVM running for 9.742)
+[INFO ] 04:11:48.487 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 04:11:48.503 o.s.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+[INFO ] 04:12:16.598 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:12:16.601 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:12:16.601 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 04:12:16.608 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 04:26:09.842 c.s.remindme.ServletInitializer - Starting ServletInitializer on Hyo-Jinui-MBP with PID 43859 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 04:26:09.845 c.s.remindme.ServletInitializer - The following profiles are active: oauth2,db,cloud
+[INFO ] 04:26:10.990 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:26:10.990 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 04:26:11.135 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 133ms. Found 5 JPA repository interfaces.
+[INFO ] 04:26:11.151 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:26:11.154 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 04:26:11.186 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:26:11.187 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:26:11.187 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:26:11.188 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:26:11.189 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:26:11.189 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+[INFO ] 04:26:11.971 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 04:26:12.180 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2284 ms
+[INFO ] 04:26:13.136 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:26:13.209 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 04:26:13.328 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 04:26:13.614 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 04:26:13.697 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 04:26:13.926 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 04:26:14.514 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 04:26:14.538 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 04:26:15.891 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 04:26:15.903 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:26:16.572 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@76ac68b0, org.springframework.security.web.context.SecurityContextPersistenceFilter@5bf4764d, org.springframework.security.web.header.HeaderWriterFilter@4dd2ef54, org.springframework.security.web.authentication.logout.LogoutFilter@5f0f70c7, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@65f3e805, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5e2a6991, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6206b4a7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@f559c74, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23ee2ccf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c14e5a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63917fe1, org.springframework.security.web.session.SessionManagementFilter@359ceb13, org.springframework.security.web.access.ExceptionTranslationFilter@7708b66a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6aff97d6]
+[WARN ] 04:26:17.408 o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+[INFO ] 04:26:17.416 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:26:17.418 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:26:17.419 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 04:26:17.464 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 04:26:17.603 o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 04:26:17.610 o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+[INFO ] 04:27:31.334 c.s.remindme.ServletInitializer - Starting ServletInitializer on Hyo-Jinui-MBP with PID 44088 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 04:27:31.337 c.s.remindme.ServletInitializer - The following profiles are active: oauth2,db,cloud
+[INFO ] 04:27:32.326 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:27:32.326 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 04:27:32.419 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86ms. Found 5 JPA repository interfaces.
+[INFO ] 04:27:32.434 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:27:32.435 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 04:27:32.454 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:27:32.455 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:27:32.456 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:27:32.456 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:27:32.457 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:27:32.457 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+[INFO ] 04:27:33.101 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 04:27:33.209 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1823 ms
+[INFO ] 04:27:33.715 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:27:33.752 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 04:27:33.792 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 04:27:33.888 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 04:27:33.923 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 04:27:34.047 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 04:27:34.519 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 04:27:34.534 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 04:27:35.617 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 04:27:35.625 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:27:36.086 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c9beb51, org.springframework.security.web.context.SecurityContextPersistenceFilter@60deefed, org.springframework.security.web.header.HeaderWriterFilter@2616b618, org.springframework.security.web.authentication.logout.LogoutFilter@7d7ceca8, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@3111631d, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@79ab97fd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5c59a0f7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@133aacbe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31881aa2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c71c889, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2aa5bd48, org.springframework.security.web.session.SessionManagementFilter@7ac058a0, org.springframework.security.web.access.ExceptionTranslationFilter@582a3b19, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40d96578]
+[INFO ] 04:27:36.914 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 04:27:37.422 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 04:27:37.814 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 04:27:37.826 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 04:27:37.837 c.s.remindme.ServletInitializer - Started ServletInitializer in 7.042 seconds (JVM running for 7.648)
+[INFO ] 04:27:57.423 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 04:27:57.430 o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+[INFO ] 04:27:58.720 o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 442 ms
+[INFO ] 04:28:02.093 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:28:02.095 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:28:02.095 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 04:28:02.105 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 04:53:00.475 c.s.remindme.ServletInitializer - Starting ServletInitializer on Hyo-Jinui-MBP with PID 45706 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 04:53:00.479 c.s.remindme.ServletInitializer - The following profiles are active: oauth2,db,cloud
+[INFO ] 04:53:01.541 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:53:01.542 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 04:53:01.627 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 76ms. Found 5 JPA repository interfaces.
+[INFO ] 04:53:01.645 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:53:01.647 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 04:53:01.673 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:53:01.674 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:53:01.675 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:53:01.676 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:53:01.676 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:53:01.677 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15ms. Found 0 Redis repository interfaces.
+[INFO ] 04:53:02.386 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 04:53:02.565 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2043 ms
+[INFO ] 04:53:03.269 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:53:03.319 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 04:53:03.383 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 04:53:03.481 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 04:53:03.597 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 04:53:03.731 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 04:53:04.234 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 04:53:04.280 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 04:53:05.529 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 04:53:05.543 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:53:06.193 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ed18d80, org.springframework.security.web.context.SecurityContextPersistenceFilter@4cc8d70d, org.springframework.security.web.header.HeaderWriterFilter@38811103, org.springframework.security.web.authentication.logout.LogoutFilter@4b28a7bf, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@418f0534, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5f193335, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7d7ceca8, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4c24f3a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@101330ad, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65bd19bf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@783b3aa0, org.springframework.security.web.session.SessionManagementFilter@2becfd4c, org.springframework.security.web.access.ExceptionTranslationFilter@1eb9bf60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69f080ad]
+[INFO ] 04:53:07.066 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 04:53:07.574 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 04:53:07.982 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 04:53:07.996 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 04:53:08.007 c.s.remindme.ServletInitializer - Started ServletInitializer in 8.222 seconds (JVM running for 9.027)
+[INFO ] 04:57:59.301 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:57:59.304 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:57:59.304 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 04:57:59.319 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 05:20:33.302 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 49215 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 05:20:33.307 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 05:20:34.839 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 05:20:34.840 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 05:20:34.991 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 132ms. Found 5 JPA repository interfaces.
+[INFO ] 05:20:35.030 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 05:20:35.034 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 05:20:35.082 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:20:35.084 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:20:35.085 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:20:35.086 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:20:35.087 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:20:35.088 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23ms. Found 0 Redis repository interfaces.
+[INFO ] 05:20:35.954 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 05:20:36.107 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2733 ms
+[INFO ] 05:20:36.733 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 05:20:36.783 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 05:20:36.848 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 05:20:36.966 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 05:20:37.061 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 05:20:37.190 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 05:20:37.672 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 05:20:37.690 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 05:20:39.153 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 05:20:39.166 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 05:20:39.834 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4c176ff1, org.springframework.security.web.context.SecurityContextPersistenceFilter@682e445e, org.springframework.security.web.header.HeaderWriterFilter@4cc8d70d, org.springframework.security.web.authentication.logout.LogoutFilter@437281c5, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2aa5bd48, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@28f154cc, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3d1c933, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@27c53c32, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70fede7d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26c7b1c6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68aec50, org.springframework.security.web.session.SessionManagementFilter@101330ad, org.springframework.security.web.access.ExceptionTranslationFilter@2becfd4c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1537c744]
+[INFO ] 05:20:40.718 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 05:20:41.327 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 05:20:41.725 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 05:20:41.739 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 05:20:41.750 com.skyvault05.remindme.Application - Started Application in 9.555 seconds (JVM running for 10.284)
+[INFO ] 05:20:46.600 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 05:20:46.650 o.s.web.servlet.DispatcherServlet - Completed initialization in 49 ms
+[INFO ] 05:20:59.088 o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 557 ms
+[INFO ] 05:21:35.505 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 05:21:35.507 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 05:21:35.507 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 05:21:35.516 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 05:35:44.030 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 50067 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 05:35:44.033 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 05:35:45.087 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 05:35:45.088 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 05:35:45.169 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74ms. Found 5 JPA repository interfaces.
+[INFO ] 05:35:45.192 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 05:35:45.194 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 05:35:45.220 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:35:45.221 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:35:45.224 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:35:45.225 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:35:45.226 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:35:45.226 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15ms. Found 0 Redis repository interfaces.
+[INFO ] 05:35:45.920 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 05:35:46.047 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1980 ms
+[INFO ] 05:35:46.641 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 05:35:46.688 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 05:35:46.755 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 05:35:46.854 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 05:35:46.964 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 05:35:47.088 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 05:35:47.604 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 05:35:47.623 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 05:35:48.878 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 05:35:48.892 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 05:35:49.505 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b441e56, org.springframework.security.web.context.SecurityContextPersistenceFilter@74123110, org.springframework.security.web.header.HeaderWriterFilter@3111631d, org.springframework.security.web.authentication.logout.LogoutFilter@27c53c32, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@17fbfb02, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5e9bf744, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5f193335, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@267891bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@79ab97fd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2aa5bd48, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a109ff7, org.springframework.security.web.session.SessionManagementFilter@4c7d7430, org.springframework.security.web.access.ExceptionTranslationFilter@3e9beef2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5345dfe8]
+[INFO ] 05:35:50.340 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 05:35:50.952 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 05:35:51.349 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 05:35:51.360 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 05:35:51.371 com.skyvault05.remindme.Application - Started Application in 7.942 seconds (JVM running for 8.696)
+[INFO ] 05:39:51.960 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 05:39:51.964 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 05:39:51.965 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 05:39:51.975 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 05:43:02.858 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 50556 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 05:43:02.861 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 05:43:04.015 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 05:43:04.015 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 05:43:04.142 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 115ms. Found 5 JPA repository interfaces.
+[INFO ] 05:43:04.160 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 05:43:04.163 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 05:43:04.193 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:43:04.194 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:43:04.194 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:43:04.195 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:43:04.196 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 05:43:04.196 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+[INFO ] 05:43:04.924 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 05:43:05.060 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2153 ms
+[INFO ] 05:43:05.705 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 05:43:05.753 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 05:43:05.821 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 05:43:05.935 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 05:43:06.030 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 05:43:06.158 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 05:43:06.687 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 05:43:06.714 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 05:43:08.020 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 05:43:08.034 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 05:43:08.645 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c97721b, org.springframework.security.web.context.SecurityContextPersistenceFilter@489110c2, org.springframework.security.web.header.HeaderWriterFilter@45bbc52f, org.springframework.security.web.authentication.logout.LogoutFilter@204d9edf, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5c1b89ac, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5d14e99e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@632cf7d3, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@283ab206, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ac5b4c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5fb5ad40, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@35fa450f, org.springframework.security.web.session.SessionManagementFilter@3cc9632d, org.springframework.security.web.access.ExceptionTranslationFilter@4c635edc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3360283]
+[INFO ] 05:43:09.523 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 05:43:10.098 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 05:43:10.518 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 05:43:10.532 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 05:43:10.544 com.skyvault05.remindme.Application - Started Application in 8.375 seconds (JVM running for 9.034)
+[INFO ] 05:43:14.066 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 05:43:14.068 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 05:43:14.068 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 05:43:14.076 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

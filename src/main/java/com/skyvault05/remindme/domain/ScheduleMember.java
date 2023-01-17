@@ -1,6 +1,5 @@
 package com.skyvault05.remindme.domain;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

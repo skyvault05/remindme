@@ -41,7 +41,7 @@ public class ScheduleTest {
                 .startDate(startDate)
                 .endDate(endDate)
                 .intervalType(ScheduleIntervalType.MONTHLY)
-                .intervalValue("11")
+                .intervalValue(1)
                 .user(user.getId())
                 .thumbnail("scheduleImage.webp")
                 .build();
