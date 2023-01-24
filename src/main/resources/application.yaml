@@ -1,4 +1,5 @@
 api: /api/v1
+frontEndUrl: http://18.183.67.247:3000
 
 spring:
   profiles:

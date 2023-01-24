@@ -14,8 +14,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .headers().frameOptions().disable() //임시 비활성화
+        http.cors()
                 .and()
                     .authorizeRequests()
                     .antMatchers("/", "/login").permitAll()
