@@ -3,6 +3,7 @@ package com.skyvault05.remindme.config.security;
 import com.skyvault05.remindme.utils.enums.UserRole;
 import com.skyvault05.remindme.config.security.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,6 +15,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class SpringSecurity extends WebSecurityConfigurerAdapter {
+    @Value("${frontEndUrl}")
+    private String frontEndUrl;
     private final CustomOAuth2UserService customOAuth2UserService;
 
     @Override
@@ -45,8 +48,9 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
+//        configuration.addAllowedOrigin("frontEndUrl");
 
-        configuration.addAllowedOrigin("frontEndUrl");
+        configuration.addAllowedOrigin(frontEndUrl);
         configuration.addAllowedHeader("*");
 
 //        configuration.addAllowedOrigin("*");
