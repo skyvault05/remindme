@@ -27,6 +27,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                     .oauth2Login()
                         .defaultSuccessUrl("http://18.183.67.247:3000/", true)
+//                        .defaultSuccessUrl("http://localhost:3000/", true)
                             .userInfoEndpoint()
                                 .userService(customOAuth2UserService);
     }

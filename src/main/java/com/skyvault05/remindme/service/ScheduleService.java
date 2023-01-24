@@ -47,9 +47,12 @@ public class ScheduleService{
 
     @Transactional
     public ScheduleDto storeSchedule(ScheduleDto scheduleDto) throws IOException {
-        Schedule schedule = scheduleMapper.dtoToEntity(scheduleDto);
+        System.out.println(scheduleDto.getThumbnailImage());
+        if(scheduleDto.getThumbnailImage() != null) {
+            scheduleDto.setThumbnail(s3Upload.upload(scheduleDto.getThumbnailImage()));
+        }
 
-        if(!scheduleDto.getThumbnailImage().isEmpty()) scheduleDto.setThumbnail(s3Upload.upload(scheduleDto.getThumbnailImage()));
+        Schedule schedule = scheduleMapper.dtoToEntity(scheduleDto);
 
         scheduleRepository.save(schedule);
         scheduleMemberService.addMyself(schedule);

@@ -1,5 +1,5 @@
-[WARN ] 00:18:56.033 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12h3m21s489ms).
-[ERROR] 00:18:56.084 o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
+[WARN ] 00:33:01.852 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10h49m27s596ms).
+[ERROR] 00:33:07.896 o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
 org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
 	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
 	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
@@ -51,9 +51,19 @@ Caused by: java.io.IOException: Connection reset by peer
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
-[INFO ] 00:18:56.120 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
-[INFO ] 00:18:56.182 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
-[WARN ] 00:20:54.341 o.s.d.r.l.RedisMessageListenerContainer - Unable to unsubscribe from subscriptions
+[INFO ] 00:33:07.972 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
+[INFO ] 00:33:08.054 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
+[INFO ] 01:17:00.699 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
+[INFO ] 01:18:03.400 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
+[INFO ] 01:30:31.381 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 1
+[INFO ] 01:30:31.422 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 2
+[INFO ] 01:30:31.461 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 3
+[INFO ] 01:30:31.497 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 4
+[INFO ] 01:30:31.651 c.s.remindme.service.ScheduleService - 스케쥴: 181, 유저: 181, 스케쥴저장: testShceduleTitle : null
+[INFO ] 01:31:30.330 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
+[INFO ] 01:33:38.804 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
+[INFO ] 01:36:15.213 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
+[WARN ] 02:10:18.157 o.s.d.r.l.RedisMessageListenerContainer - Unable to unsubscribe from subscriptions
 io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
 	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:135)
 	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
@@ -91,9 +101,9 @@ Caused by: java.io.IOException: Connection reset by peer
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.lang.Thread.run(Thread.java:748)
-[INFO ] 00:20:54.546 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
-[INFO ] 00:20:54.599 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
-[INFO ] 00:20:54.635 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-[INFO ] 00:20:54.643 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO ] 00:20:54.644 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-[INFO ] 00:20:54.660 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 02:10:18.204 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
+[INFO ] 02:10:18.312 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
+[INFO ] 02:10:18.476 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 02:10:18.529 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 02:10:18.532 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 02:10:18.550 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
