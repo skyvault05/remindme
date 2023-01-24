@@ -48,8 +48,14 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
 //        configuration.addAllowedOrigin("frontEndUrl");
         configuration.addAllowedOrigin("*");
-        configuration.addAllowedHeader("*");
+
+//        configuration.addAllowedHeader("*");
+        configuration.addAllowedHeader("Content-Type");
+        configuration.addAllowedHeader("x-xsrf-token");
+        configuration.addAllowedHeader("Authorization");
+
         configuration.addAllowedMethod("*");
+
 //        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
