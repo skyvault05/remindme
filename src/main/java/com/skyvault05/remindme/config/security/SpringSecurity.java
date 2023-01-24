@@ -21,8 +21,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().disable()
-                .cors().configurationSource(corsConfigurationSource())
+        http.cors()
                 .and()
                     .authorizeRequests()
                     .antMatchers("/", "/login").permitAll()
@@ -47,7 +46,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
         configuration.addAllowedOrigin("frontEndUrl");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
-//        configuration.setAllowCredentials(true);
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
