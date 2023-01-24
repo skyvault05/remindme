@@ -63,7 +63,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
         configuration.addAllowedMethod("POST");
         configuration.addAllowedMethod("DELETE");
 
-//        configuration.setAllowCredentials(true);
+        configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
