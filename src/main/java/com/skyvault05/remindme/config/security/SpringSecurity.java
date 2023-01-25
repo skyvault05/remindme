@@ -21,10 +21,6 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf().disable()
-//                .headers().frameOptions().disable()
-//          http.cors()
-//                .and()
         http.httpBasic().disable()
                 .cors().configurationSource(corsConfigurationSource())
                 .and()
@@ -38,8 +34,8 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
                         .logoutSuccessUrl("/")
                 .and()
                     .oauth2Login()
-                        .defaultSuccessUrl("http://18.183.67.247:3000/", true)
-//                        .defaultSuccessUrl("http://localhost:3000/", true)
+//                        .defaultSuccessUrl("http://18.183.67.247:3000/", true)
+                        .defaultSuccessUrl("http://localhost:3000/", true)
                             .userInfoEndpoint()
                                 .userService(customOAuth2UserService);
     }

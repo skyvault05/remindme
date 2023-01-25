@@ -1,5 +1,5 @@
-[WARN ] 00:33:01.852 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10h49m27s596ms).
-[ERROR] 00:33:07.896 o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
+[WARN ] 00:53:19.072 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h53s936ms).
+[ERROR] 00:53:24.012 o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
 org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
 	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
 	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
@@ -30,7 +30,7 @@ Caused by: io.lettuce.core.RedisException: java.io.IOException: Connection reset
 	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:135)
 	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
 	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
-	at com.sun.proxy.$Proxy141.smembers(Unknown Source)
+	at com.sun.proxy.$Proxy132.smembers(Unknown Source)
 	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sMembers(LettuceSetCommands.java:243)
 	... 18 common frames omitted
 Caused by: java.io.IOException: Connection reset by peer
@@ -51,24 +51,69 @@ Caused by: java.io.IOException: Connection reset by peer
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
-[INFO ] 00:33:07.972 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
-[INFO ] 00:33:08.054 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
-[INFO ] 01:17:00.699 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
-[INFO ] 01:18:03.400 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
-[INFO ] 01:30:31.381 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 1
-[INFO ] 01:30:31.422 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 2
-[INFO ] 01:30:31.461 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 3
-[INFO ] 01:30:31.497 c.s.r.service.ScheduleMemberService - 스케쥴: 181, 멤버추가: 4
-[INFO ] 01:30:31.651 c.s.remindme.service.ScheduleService - 스케쥴: 181, 유저: 181, 스케쥴저장: testShceduleTitle : null
-[INFO ] 01:31:30.330 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
-[INFO ] 01:33:38.804 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
-[INFO ] 01:36:15.213 c.s.remindme.service.ScheduleService - 스케쥴: 175, 유저: 175, 스케쥴저장: 111 : null
-[WARN ] 02:10:18.157 o.s.d.r.l.RedisMessageListenerContainer - Unable to unsubscribe from subscriptions
+[INFO ] 00:53:24.095 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
+[INFO ] 00:53:24.216 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
+[WARN ] 04:38:44.941 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h45m25s869ms).
+[ERROR] 04:38:56.003 o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
+org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:273)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.convertLettuceAccessException(LettuceSetCommands.java:520)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sMembers(LettuceSetCommands.java:245)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.sMembers(DefaultedRedisConnection.java:791)
+	at org.springframework.data.redis.core.DefaultSetOperations.lambda$members$10(DefaultSetOperations.java:214)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:228)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:96)
+	at org.springframework.data.redis.core.DefaultSetOperations.members(DefaultSetOperations.java:214)
+	at org.springframework.data.redis.core.DefaultBoundSetOperations.members(DefaultBoundSetOperations.java:152)
+	at org.springframework.session.data.redis.RedisSessionExpirationPolicy.cleanExpiredSessions(RedisSessionExpirationPolicy.java:129)
+	at org.springframework.session.data.redis.RedisIndexedSessionRepository.cleanupExpiredSessions(RedisIndexedSessionRepository.java:407)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
+	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:135)
+	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
+	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
+	at com.sun.proxy.$Proxy132.smembers(Unknown Source)
+	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sMembers(LettuceSetCommands.java:243)
+	... 18 common frames omitted
+Caused by: java.io.IOException: Connection reset by peer
+	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
+	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
+	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	... 1 common frames omitted
+[INFO ] 04:38:56.043 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
+[INFO ] 04:38:56.182 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
+[WARN ] 04:48:20.515 o.s.d.r.l.RedisMessageListenerContainer - Unable to unsubscribe from subscriptions
 io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
 	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:135)
 	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
 	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
-	at com.sun.proxy.$Proxy150.unsubscribe(Unknown Source)
+	at com.sun.proxy.$Proxy140.unsubscribe(Unknown Source)
 	at org.springframework.data.redis.connection.lettuce.LettuceSubscription.doUnsubscribe(LettuceSubscription.java:114)
 	at org.springframework.data.redis.connection.lettuce.LettuceSubscription.doClose(LettuceSubscription.java:70)
 	at org.springframework.data.redis.connection.util.AbstractSubscription.close(AbstractSubscription.java:106)
@@ -101,142 +146,46 @@ Caused by: java.io.IOException: Connection reset by peer
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.lang.Thread.run(Thread.java:748)
-[INFO ] 02:10:18.204 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
-[INFO ] 02:10:18.312 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
-[INFO ] 02:10:18.476 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-[INFO ] 02:10:18.529 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO ] 02:10:18.532 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-[INFO ] 02:10:18.550 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-[INFO ] 02:23:30.452 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 83257 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
-[INFO ] 02:23:30.455 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
-[INFO ] 02:23:31.684 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
-[INFO ] 02:23:31.685 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-[INFO ] 02:23:31.795 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 97ms. Found 5 JPA repository interfaces.
-[INFO ] 02:23:31.813 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
-[INFO ] 02:23:31.815 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-[INFO ] 02:23:31.844 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-[INFO ] 02:23:31.845 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-[INFO ] 02:23:31.846 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-[INFO ] 02:23:31.846 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-[INFO ] 02:23:31.847 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
-[INFO ] 02:23:31.847 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
-[INFO ] 02:23:32.607 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-[INFO ] 02:23:32.738 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2232 ms
-[INFO ] 02:23:33.403 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-[INFO ] 02:23:33.452 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-[INFO ] 02:23:33.526 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
-[WARN ] 02:23:33.658 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-[INFO ] 02:23:33.752 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-[INFO ] 02:23:33.892 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-[INFO ] 02:23:34.413 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-[INFO ] 02:23:34.437 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-[INFO ] 02:23:35.930 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-[INFO ] 02:23:35.941 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-[INFO ] 02:23:37.009 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73d62b5, org.springframework.security.web.context.SecurityContextPersistenceFilter@359ceb13, org.springframework.security.web.header.HeaderWriterFilter@7708b66a, org.springframework.security.web.authentication.logout.LogoutFilter@682618e5, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@b506ed0, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@20a3e10c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@c14e5a5, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5e99e2cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5bf4764d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@103c97ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76ac68b0, org.springframework.security.web.session.SessionManagementFilter@4dd2ef54, org.springframework.security.web.access.ExceptionTranslationFilter@6ddc67d0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@27c53c32]
-[INFO ] 02:23:37.967 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-[INFO ] 02:23:38.519 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
-[INFO ] 02:23:38.971 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
-[INFO ] 02:23:38.988 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-[INFO ] 02:23:39.000 com.skyvault05.remindme.Application - Started Application in 9.247 seconds (JVM running for 9.91)
-[INFO ] 02:24:12.551 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-[INFO ] 02:24:12.571 o.s.web.servlet.DispatcherServlet - Completed initialization in 19 ms
-[WARN ] 02:52:26.017 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m51s353ms).
-[WARN ] 03:14:26.641 com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m30s559ms).
-[ERROR] 03:15:00.746 o.s.s.s.TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
-org.springframework.data.redis.RedisSystemException: Redis exception; nested exception is io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
-	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:74)
-	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
-	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
-	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
-	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:273)
-	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.convertLettuceAccessException(LettuceSetCommands.java:520)
-	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sMembers(LettuceSetCommands.java:245)
-	at org.springframework.data.redis.connection.DefaultedRedisConnection.sMembers(DefaultedRedisConnection.java:791)
-	at org.springframework.data.redis.core.DefaultSetOperations.lambda$members$10(DefaultSetOperations.java:214)
-	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:228)
-	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188)
-	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:96)
-	at org.springframework.data.redis.core.DefaultSetOperations.members(DefaultSetOperations.java:214)
-	at org.springframework.data.redis.core.DefaultBoundSetOperations.members(DefaultBoundSetOperations.java:152)
-	at org.springframework.session.data.redis.RedisSessionExpirationPolicy.cleanExpiredSessions(RedisSessionExpirationPolicy.java:129)
-	at org.springframework.session.data.redis.RedisIndexedSessionRepository.cleanupExpiredSessions(RedisIndexedSessionRepository.java:407)
-	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
-	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
-	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:135)
-	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
-	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
-	at com.sun.proxy.$Proxy141.smembers(Unknown Source)
-	at org.springframework.data.redis.connection.lettuce.LettuceSetCommands.sMembers(LettuceSetCommands.java:243)
-	... 18 common frames omitted
-Caused by: java.io.IOException: Connection reset by peer
-	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
-	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
-	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
-	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
-	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
-	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
-	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
-	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	... 1 common frames omitted
-[INFO ] 03:15:00.846 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
-[INFO ] 03:15:00.943 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
-[WARN ] 05:06:22.545 o.s.d.r.l.RedisMessageListenerContainer - Unable to unsubscribe from subscriptions
-io.lettuce.core.RedisException: java.io.IOException: Connection reset by peer
-	at io.lettuce.core.LettuceFutures.awaitOrCancel(LettuceFutures.java:135)
-	at io.lettuce.core.FutureSyncInvocationHandler.handleInvocation(FutureSyncInvocationHandler.java:69)
-	at io.lettuce.core.internal.AbstractInvocationHandler.invoke(AbstractInvocationHandler.java:80)
-	at com.sun.proxy.$Proxy150.unsubscribe(Unknown Source)
-	at org.springframework.data.redis.connection.lettuce.LettuceSubscription.doUnsubscribe(LettuceSubscription.java:114)
-	at org.springframework.data.redis.connection.lettuce.LettuceSubscription.doClose(LettuceSubscription.java:70)
-	at org.springframework.data.redis.connection.util.AbstractSubscription.close(AbstractSubscription.java:106)
-	at org.springframework.data.redis.listener.RedisMessageListenerContainer$SubscriptionTask.cancel(RedisMessageListenerContainer.java:866)
-	at org.springframework.data.redis.listener.RedisMessageListenerContainer.stop(RedisMessageListenerContainer.java:225)
-	at org.springframework.data.redis.listener.RedisMessageListenerContainer.stop(RedisMessageListenerContainer.java:183)
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStop(DefaultLifecycleProcessor.java:238)
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$300(DefaultLifecycleProcessor.java:53)
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.stop(DefaultLifecycleProcessor.java:377)
-	at org.springframework.context.support.DefaultLifecycleProcessor.stopBeans(DefaultLifecycleProcessor.java:210)
-	at org.springframework.context.support.DefaultLifecycleProcessor.onClose(DefaultLifecycleProcessor.java:128)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1022)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:170)
-	at org.springframework.context.support.AbstractApplicationContext$1.run(AbstractApplicationContext.java:949)
-Caused by: java.io.IOException: Connection reset by peer
-	at sun.nio.ch.FileDispatcherImpl.read0(Native Method)
-	at sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:39)
-	at sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:223)
-	at sun.nio.ch.IOUtil.read(IOUtil.java:192)
-	at sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:380)
-	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
-	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
-	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.lang.Thread.run(Thread.java:748)
-[INFO ] 05:06:22.574 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
-[INFO ] 05:06:22.665 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
-[INFO ] 05:06:22.773 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-[INFO ] 05:06:22.808 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-[INFO ] 05:06:22.814 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-[INFO ] 05:06:22.823 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 04:48:20.568 i.l.core.protocol.ConnectionWatchdog - Reconnecting, last destination was /35.78.183.62:6379
+[INFO ] 04:48:20.636 i.l.c.protocol.ReconnectionHandler - Reconnected to 35.78.183.62:6379
+[INFO ] 04:48:20.910 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:48:20.918 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:48:20.919 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 04:48:20.933 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[INFO ] 04:48:26.223 com.skyvault05.remindme.Application - Starting Application on Hyo-Jinui-MBP with PID 25471 (/Users/hyo-jinkim/resume/RemindMe/build/classes/java/main started by hyo-jinkim in /Users/hyo-jinkim/resume/RemindMe)
+[INFO ] 04:48:26.225 com.skyvault05.remindme.Application - The following profiles are active: oauth2,db,cloud
+[INFO ] 04:48:27.325 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:48:27.325 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[INFO ] 04:48:27.441 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 105ms. Found 5 JPA repository interfaces.
+[INFO ] 04:48:27.460 o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+[INFO ] 04:48:27.463 o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[INFO ] 04:48:27.489 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.FriendRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:48:27.490 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleMemberRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:48:27.491 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleReplyRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:48:27.492 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.ScheduleRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:48:27.493 o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.skyvault05.remindme.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[INFO ] 04:48:27.493 o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+[INFO ] 04:48:28.208 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 04:48:28.330 o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2062 ms
+[INFO ] 04:48:28.960 o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 04:48:29.012 o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 04:48:29.077 org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
+[WARN ] 04:48:29.085 o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 04:48:29.288 o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[INFO ] 04:48:29.410 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 04:48:29.911 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 04:48:29.940 org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 04:48:31.106 o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 04:48:31.115 o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 04:48:31.988 o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53d6e959, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c18516, org.springframework.security.web.header.HeaderWriterFilter@6ddd1c51, org.springframework.web.filter.CorsFilter@3caee3a8, org.springframework.security.web.authentication.logout.LogoutFilter@640d604, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@4b7ed03e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@bbb6f0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6b2fdffc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@69a40b3c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d104c9b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77a0dd63, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@251c90f, org.springframework.security.web.session.SessionManagementFilter@15605d83, org.springframework.security.web.access.ExceptionTranslationFilter@492521c4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d2708a7]
+[INFO ] 04:48:32.387 o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 04:48:32.921 o.s.d.r.c.DeferredRepositoryInitializationListener - Triggering deferred initialization of Spring Data repositories…
+[INFO ] 04:48:33.315 o.s.d.r.c.DeferredRepositoryInitializationListener - Spring Data repositories initialized!
+[INFO ] 04:48:33.334 o.s.s.a.ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+[INFO ] 04:48:33.346 com.skyvault05.remindme.Application - Started Application in 7.802 seconds (JVM running for 8.654)
+[INFO ] 04:49:08.397 o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 04:49:08.416 o.s.web.servlet.DispatcherServlet - Completed initialization in 18 ms
+[INFO ] 05:00:47.308 o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] 05:00:47.313 o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 05:00:47.314 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 05:00:47.323 com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
