@@ -37,6 +37,8 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false)
     private UserRole role;
     @Column
+    private String refreshToken;
+    @Column
     @ColumnDefault("1")
     private Integer status;
 

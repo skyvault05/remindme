@@ -22,6 +22,7 @@ public class UserController {
 //    @Operation
     @GetMapping("/getMyInfo")
     public UserDto getMyInfo(HttpSession session){
+        System.out.println("getmyinfo");
         UserDto userDto = userService.getMyInfo(session);
 
         return userDto;
@@ -31,6 +32,13 @@ public class UserController {
     @PostMapping("/findUser/{id}")
     public UserDto findUser(@PathVariable Long id){
         UserDto userDto = userService.findUser(id);
+
+        return userDto;
+    }
+
+    @GetMapping("/findUserByNickname/{nickname}")
+    public UserDto findUserByNickname(@PathVariable String nickname){
+        UserDto userDto = userService.findUserByNickname(nickname);
 
         return userDto;
     }

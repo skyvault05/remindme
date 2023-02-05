@@ -12,6 +12,7 @@ import com.skyvault05.remindme.utils.exceptions.UserNotMatchedException;
 import com.skyvault05.remindme.utils.mapper.ScheduleReplyMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,14 +28,15 @@ public class ScheduleReplyService {
     private final ScheduleReplyMapper scheduleReplyMapper;
 
     public List<ScheduleReplyDto> getMyScheduleReplies(HttpSession session){
-        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        List<ScheduleReply> scheduleReplies = scheduleReplyRepository.findAllByUserAndIsDeleted(sessionUser.getId(), false);
+        List<ScheduleReply> scheduleReplies = scheduleReplyRepository.findAllByUserAndIsDeleted(principal.getId(), false);
         List<ScheduleReplyDto> scheduleReplyDtos = scheduleReplyMapper.entityListToDtoList(scheduleReplies);
 
         return scheduleReplyDtos;
     }
 
+    @Transactional
     public ScheduleReplyDto storeScheduleReply(ScheduleReplyDto scheduleReplyDto) {
         ScheduleReply scheduleReply = scheduleReplyMapper.dtoToEntity(scheduleReplyDto);
 
@@ -47,10 +49,12 @@ public class ScheduleReplyService {
     }
 
     public void deleteScheduleReply(Long id, HttpSession session) {
-        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+
         ScheduleReply scheduleReply = scheduleReplyRepository.findByIdAndIsDeleted(id, false)
                 .orElseThrow(() -> new ScheduleReplyNotFoundException("삭제하려는 댓글이 존재하지 않습니다."));
-        if(!sessionUser.getId().equals(scheduleReply.getUser())) throw new UserNotMatchedException("삭제하려는 댓글의 작성자가 아닙니다.");
+        if(!user.getId().equals(scheduleReply.getUser())) throw new UserNotMatchedException("삭제하려는 댓글의 작성자가 아닙니다.");
 
         scheduleReply.setIsDeleted(true);
         scheduleReplyRepository.save(scheduleReply);

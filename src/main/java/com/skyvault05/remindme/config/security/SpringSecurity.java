@@ -1,13 +1,22 @@
 package com.skyvault05.remindme.config.security;
 
+import com.skyvault05.remindme.config.security.filter.JwtAuthenticationFilter;
+import com.skyvault05.remindme.config.security.handler.JwtAccessDeniedHandler;
+import com.skyvault05.remindme.config.security.repository.CookieAuthorizationRequestRepository;
 import com.skyvault05.remindme.utils.enums.UserRole;
 import com.skyvault05.remindme.config.security.service.CustomOAuth2UserService;
+import com.skyvault05.remindme.utils.exceptions.JwtAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -15,29 +24,50 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class SpringSecurity extends WebSecurityConfigurerAdapter {
-    @Value("${frontEndUrl}")
+    @Value("${frontEnd.Url}")
     private String frontEndUrl;
     private final CustomOAuth2UserService customOAuth2UserService;
+    private final CookieAuthorizationRequestRepository cookieAuthorizationRequestRepository;
+    private final AuthenticationSuccessHandler authenticationSuccessHandler;
+    private final AuthenticationFailureHandler authenticationFailureHandler;
+    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().disable()
-                .cors().configurationSource(corsConfigurationSource())
+        http.authorizeRequests()
+                .antMatchers("/oauth2/**", "/auth/**").permitAll()
+                .antMatchers("/", "/login").permitAll()
+                .antMatchers("/api/v1/**").hasRole(UserRole.USER.name())
+                .anyRequest().authenticated();
+
+        http.cors()                     // CORS on
                 .and()
-                .csrf().disable()
-                    .authorizeRequests()
-                    .antMatchers("/", "/login").permitAll()
-                    .antMatchers("/api/v1/**").hasRole(UserRole.USER.name())
-                    .anyRequest().authenticated()
-                .and()
-                    .logout()
-                        .logoutSuccessUrl("/")
-                .and()
-                    .oauth2Login()
-//                        .defaultSuccessUrl("http://18.183.67.247:3000/", true)
-                        .defaultSuccessUrl("http://localhost:3000/", true)
-                            .userInfoEndpoint()
-                                .userService(customOAuth2UserService);
+                .csrf().disable()           // CSRF off
+                .httpBasic().disable()      // Basic Auth off
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);    // Session off
+
+        http.formLogin().disable()
+                .oauth2Login()
+                    .authorizationEndpoint()
+//                        .baseUri("/oauth2/authorize")
+                        .authorizationRequestRepository(cookieAuthorizationRequestRepository)
+//                    .and()
+//                    .redirectionEndpoint()
+//                        .baseUri("/oauth2/callback/*")
+                    .and()
+                    .userInfoEndpoint()
+                        .userService(customOAuth2UserService)
+                    .and()
+                        .successHandler(authenticationSuccessHandler)
+                        .failureHandler(authenticationFailureHandler);
+
+        http.exceptionHandling()
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint)	// 401
+                .accessDeniedHandler(jwtAccessDeniedHandler);		// 403
+
+        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     //CORS 허용 적용
@@ -45,7 +75,8 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.addAllowedOrigin("http://18.183.67.247:3000");
+//        configuration.addAllowedOrigin("http://18.183.67.247:3000");
+        configuration.addAllowedOrigin("http://localhost:3000");
 
         configuration.addAllowedHeader("Origin");
         configuration.addAllowedHeader("Accept");

@@ -11,6 +11,7 @@ import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import com.skyvault05.remindme.utils.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,8 +28,8 @@ public class ScheduleMemberService {
     private final UserMapper userMapper;
 
     public Boolean addMyself(Schedule schedule){
-        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
-        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
         if(scheduleMemberRepository.findByScheduleAndMember(schedule.getId(), user.getId()).orElse(null) != null) return false;
 

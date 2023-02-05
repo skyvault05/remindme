@@ -1,6 +1,7 @@
 package com.skyvault05.remindme.config.security.service;
 import com.skyvault05.remindme.config.security.dto.OAuthAttributes;
 import com.skyvault05.remindme.config.security.dto.SessionUser;
+import com.skyvault05.remindme.config.security.dto.UserPrincipal;
 import com.skyvault05.remindme.domain.User;
 import com.skyvault05.remindme.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -43,13 +44,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         User user = saveOrUpdate(attributes);
 
-        httpSession.setAttribute("user", new SessionUser(user));
-
-
-        return new DefaultOAuth2User(
-                Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
-                attributes.getAttributes(),
-                attributes.getNameAttributeKey());
+        return UserPrincipal.create(user, attributes.getAttributes());
     }
 
     private User saveOrUpdate(OAuthAttributes attributes) {

@@ -1,6 +1,15 @@
 api: /api/v1
-frontEndUrl: http://18.183.67.247:3000
+frontEnd:
+  Url: http://18.183.67.247:3000
+  domain: 18.183.67.247
+
 
 spring:
   profiles:
     include: oauth2, db, cloud
+
+server:
+  servlet:
+    session:
+      cookie:
+        domain: localhost

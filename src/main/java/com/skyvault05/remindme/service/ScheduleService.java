@@ -21,6 +21,7 @@ import com.skyvault05.remindme.utils.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -71,8 +72,9 @@ public class ScheduleService{
     public List<ScheduleDto> getSchedules(HttpSession session){
         List<ScheduleDto> myScheduleDtos = new LinkedList<>();
 
-        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+
         List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findAllByMember(user.getId());
 
         Set<ScheduleDto> scheduleDtoSet = new HashSet<>();
@@ -88,8 +90,8 @@ public class ScheduleService{
     }
 
     public List<ScheduleDto> getMySchedules(HttpSession session) {
-        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
         List<Schedule> schedules = scheduleRepository.findAllByUserAndIsDeleted(user.getId(), false);
         List<ScheduleDto> scheduleDtos = scheduleMapper.entityListToDtoList(schedules);
@@ -99,8 +101,10 @@ public class ScheduleService{
     @Transactional
     public Boolean deleteSchedule(Long scheduleId, HttpSession session) {
         Schedule schedule = scheduleRepository.findByIdAndIsDeleted(scheduleId, false).orElseThrow(() -> new ScheduleNotFoundException("삭제하려는 스케쥴을 찾을 수 없습니다."));
-        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        if(!schedule.getUser().equals(sessionUser.getId())) {
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+
+        if(!schedule.getUser().equals(user.getId())) {
             throw new UserNotMatchedException("삭제하려는 스케쥴의 작성자가 아닙니다.");
         } else {
             schedule.setIsDeleted(true);
@@ -128,8 +132,10 @@ public class ScheduleService{
     }
 
     public ScheduleDto getSchedule(Long scheduleId, HttpSession session) {
-        SessionUser sessionUser = (SessionUser) session.getAttribute("user");
-        Schedule nullSchedule = Schedule.builder().user(sessionUser.getId()).build();
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+
+        Schedule nullSchedule = Schedule.builder().user(user.getId()).build();
         if(scheduleId == null) return scheduleMapper.entityToDto(nullSchedule);
 
         Schedule schedule = scheduleRepository.findById(scheduleId).orElse(nullSchedule);
