@@ -13,7 +13,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -51,11 +50,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
         http.formLogin().disable()
                 .oauth2Login()
                     .authorizationEndpoint()
-//                        .baseUri("/oauth2/authorize")
                         .authorizationRequestRepository(cookieAuthorizationRequestRepository)
-//                    .and()
-//                    .redirectionEndpoint()
-//                        .baseUri("/oauth2/callback/*")
                     .and()
                     .userInfoEndpoint()
                         .userService(customOAuth2UserService)

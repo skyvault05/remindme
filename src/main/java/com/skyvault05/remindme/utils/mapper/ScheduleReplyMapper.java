@@ -13,6 +13,7 @@ import com.skyvault05.remindme.utils.exceptions.ScheduleReplyNotFoundException;
 import com.skyvault05.remindme.utils.exceptions.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +27,6 @@ public class ScheduleReplyMapper {
     private final UserRepository userRepository;
     private final ScheduleReplyRepository scheduleReplyRepository;
     private final UserMapper userMapper;
-    private final HttpSession httpSession;
 
     @Transactional
     public ScheduleReply dtoToEntity(ScheduleReplyDto scheduleReplyDto){
@@ -36,8 +36,8 @@ public class ScheduleReplyMapper {
         if(scheduleReplyDto.getUser() != null){
             scheduleReply.setUser(scheduleReplyDto.getUser().getId());
         }else {
-            SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
-            User user = userRepository.findById(sessionUser.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
+            User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 
             scheduleReply.setUser(user.getId());
         }

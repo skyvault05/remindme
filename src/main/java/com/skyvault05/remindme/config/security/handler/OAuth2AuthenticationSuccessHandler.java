@@ -1,5 +1,6 @@
 package com.skyvault05.remindme.config.security.handler;
 
+import com.skyvault05.remindme.config.security.dto.UserPrincipal;
 import com.skyvault05.remindme.config.security.repository.CookieAuthorizationRequestRepository;
 import com.skyvault05.remindme.config.security.utils.JwtTokenProvider;
 import com.skyvault05.remindme.utils.cookie.CookieUtil;

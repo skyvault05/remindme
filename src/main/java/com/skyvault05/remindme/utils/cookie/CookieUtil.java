@@ -10,8 +10,6 @@ import java.util.Base64;
 import java.util.Optional;
 
 public class CookieUtil {
-    @Value("${frontEndUrl}")
-    private static String frontEndUrl;
 
     public static Optional<Cookie> getCookie(HttpServletRequest request, String name) {
         Cookie[] cookies = request.getCookies();
@@ -27,7 +25,6 @@ public class CookieUtil {
 
     public static void addCookie(HttpServletResponse response, String name, String value, int maxAge) {
         Cookie cookie = new Cookie(name, value);
-//        cookie.setDomain("18.183.67.247");
         cookie.setPath("/");
         cookie.setHttpOnly(true);
         cookie.setMaxAge(maxAge);
