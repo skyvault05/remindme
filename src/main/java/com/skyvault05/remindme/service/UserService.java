@@ -85,7 +85,7 @@ public class UserService {
         return userMapper.entityToDto(user);
     }
 
-    public UserDto getMyInfo(HttpSession session) {
+    public UserDto getMyInfo() {
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 

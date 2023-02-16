@@ -48,11 +48,6 @@ public class ScheduleService{
 
     @Transactional
     public ScheduleDto storeSchedule(ScheduleDto scheduleDto) throws IOException {
-        System.out.println(scheduleDto.getThumbnailImage());
-        if(scheduleDto.getThumbnailImage() != null) {
-            scheduleDto.setThumbnail(s3Upload.upload(scheduleDto.getThumbnailImage()));
-        }
-
         Schedule schedule = scheduleMapper.dtoToEntity(scheduleDto);
 
         scheduleRepository.save(schedule);
@@ -63,7 +58,6 @@ public class ScheduleService{
         List<ScheduleMember> scheduleMemberList = scheduleMemberRepository.findAllBySchedule(schedule.getId());
         List<SimpleUserDto> simpleUserDtoList = userMapper.scheduleMemberListToSimpleDtoList(scheduleMemberList);
         newScheduleDto.setMembers(simpleUserDtoList);
-
 
         log.info("스케쥴: " + schedule.getId() + ", 유저: " + schedule.getId() + ", 스케쥴저장: " + schedule.getTitle() + " : " + schedule.getDescription());
         return newScheduleDto;
@@ -131,7 +125,7 @@ public class ScheduleService{
         return amazonS3.getUrl(bucket, s3FileName).toString();
     }
 
-    public ScheduleDto getSchedule(Long scheduleId, HttpSession session) {
+    public ScheduleDto getSchedule(Long scheduleId) {
         User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userRepository.findById(principal.getId()).orElseThrow(() -> new UserNotFoundException("세션에 유저 정보가 없습니다"));
 

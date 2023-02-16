@@ -29,8 +29,8 @@ public class ScheduleController {
 
     @Operation(summary = "단일 Schedule 조회")
     @GetMapping("/getSchedule/{scheduleId}")
-    public ScheduleDto storeSchedule(@PathVariable Long scheduleId, HttpSession session) {
-        ScheduleDto newScheduleDto = scheduleService.getSchedule(scheduleId, session);
+    public ScheduleDto getSchedule(@PathVariable Long scheduleId) {
+        ScheduleDto newScheduleDto = scheduleService.getSchedule(scheduleId);
 
         return newScheduleDto;
     }

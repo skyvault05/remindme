@@ -22,9 +22,8 @@ public class UserController {
 
     @Operation(summary = "현재 로그인한 유저 정보 받아오기.")
     @GetMapping("/getMyInfo")
-    public UserDto getMyInfo(HttpSession session){
-        System.out.println("getmyinfo");
-        UserDto userDto = userService.getMyInfo(session);
+    public UserDto getMyInfo(){
+        UserDto userDto = userService.getMyInfo();
 
         return userDto;
     }

@@ -40,8 +40,9 @@ public class ScheduleMapper {
 
             schedule.setUser(user.getId());
         }
+
         if(scheduleDto.getTitle() != null) schedule.setTitle(scheduleDto.getTitle());
-        if(scheduleDto.getDescription() != null) schedule.setDescription(schedule.getDescription());
+        if(scheduleDto.getDescription() != null) schedule.setDescription(scheduleDto.getDescription());
         if(scheduleDto.getThumbnail() != null) schedule.setThumbnail(scheduleDto.getThumbnail());
         if(scheduleDto.getIntervalType() != null) schedule.setIntervalType(scheduleDto.getIntervalType());
         if(scheduleDto.getIntervalValue() != null) schedule.setIntervalValue(scheduleDto.getIntervalValue());
@@ -79,10 +80,6 @@ public class ScheduleMapper {
 
         return scheduleDto;
     }
-
-//    public SimpleScheduleDto entityToSimpleDto(Schedule schedule){
-//
-//    }
 
     public List<ScheduleDto> entityListToDtoList(List<Schedule> list){
         List<ScheduleDto> scheduleDtos = new LinkedList<>();
