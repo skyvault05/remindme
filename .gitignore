@@ -207,6 +207,7 @@ gradle-app.setting
 
 # Log file
 *.log
+*.txt
 logs/*
 
 # BlueJ files
