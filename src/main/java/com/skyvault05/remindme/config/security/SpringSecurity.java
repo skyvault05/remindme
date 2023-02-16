@@ -22,6 +22,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
+
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class SpringSecurity extends WebSecurityConfigurerAdapter {
@@ -78,23 +80,34 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     //CORS 허용 적용
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
+//        CorsConfiguration configuration = new CorsConfiguration();
+//
+//        configuration.addAllowedOrigin("http://ec2-18-183-67-247.ap-northeast-1.compute.amazonaws.com:3000/");
+////        configuration.addAllowedOrigin("http://localhost:3000");
+//
+//        configuration.addAllowedHeader("Origin");
+//        configuration.addAllowedHeader("Accept");
+//        configuration.addAllowedHeader("X-Requested-With");
+//        configuration.addAllowedHeader("Content-Type");
+//        configuration.addAllowedHeader("Access-Control-Request-Method");
+//        configuration.addAllowedHeader("Access-Control-Request-Headers");
+//        configuration.addAllowedHeader("Authorization");
+//
+//        configuration.addAllowedMethod("GET");
+//        configuration.addAllowedMethod("POST");
+//        configuration.addAllowedMethod("DELETE");
+//
+//        configuration.setAllowCredentials(true);
+//
+//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//        source.registerCorsConfiguration("/**", configuration);
+//        return source;
+
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.addAllowedOrigin("http://ec2-18-183-67-247.ap-northeast-1.compute.amazonaws.com:3000/");
-//        configuration.addAllowedOrigin("http://localhost:3000");
-
-        configuration.addAllowedHeader("Origin");
-        configuration.addAllowedHeader("Accept");
-        configuration.addAllowedHeader("X-Requested-With");
-        configuration.addAllowedHeader("Content-Type");
-        configuration.addAllowedHeader("Access-Control-Request-Method");
-        configuration.addAllowedHeader("Access-Control-Request-Headers");
-        configuration.addAllowedHeader("Authorization");
-
-        configuration.addAllowedMethod("GET");
-        configuration.addAllowedMethod("POST");
-        configuration.addAllowedMethod("DELETE");
-
+        configuration.setAllowedMethods(Arrays.asList("HEAD","POST","GET","DELETE","PUT"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
