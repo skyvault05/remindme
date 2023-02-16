@@ -80,8 +80,8 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-//        configuration.addAllowedOrigin("http://18.183.67.247:3000");
-        configuration.addAllowedOrigin("http://localhost:3000");
+        configuration.addAllowedOrigin("http://ec2-18-183-67-247.ap-northeast-1.compute.amazonaws.com:3000/");
+//        configuration.addAllowedOrigin("http://localhost:3000");
 
         configuration.addAllowedHeader("Origin");
         configuration.addAllowedHeader("Accept");

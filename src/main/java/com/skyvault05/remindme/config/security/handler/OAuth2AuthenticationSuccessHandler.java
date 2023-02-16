@@ -28,8 +28,8 @@ import static com.skyvault05.remindme.config.security.repository.CookieAuthoriza
 @RequiredArgsConstructor
 public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
-//    @Value("${app.oauth2.authorizedRedirectUri}")
-    private String redirectUri = "http://localhost:3000/oauth/redirect";
+    @Value("${app.oauth2.authorizedRedirectUri}")
+    private String redirectUri;
     private final JwtTokenProvider tokenProvider;
     private final CookieAuthorizationRequestRepository authorizationRequestRepository;
 
