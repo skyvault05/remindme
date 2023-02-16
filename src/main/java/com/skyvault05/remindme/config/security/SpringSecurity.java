@@ -105,7 +105,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.addAllowedOrigin("http://ec2-18-183-67-247.ap-northeast-1.compute.amazonaws.com:3000/");
+        configuration.addAllowedOrigin("http://ec2-18-183-67-247.ap-northeast-1.compute.amazonaws.com:3000");
         configuration.setAllowedMethods(Arrays.asList("HEAD","POST","GET","DELETE","PUT"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
