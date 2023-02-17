@@ -25,7 +25,6 @@ public class S3Upload {
 
         amazonS3.putObject(bucket, s3FileName, multipartFile.getInputStream(), objMeta);
 
-//        return amazonS3.getUrl(bucket, s3FileName).toString();
-        return amazonS3.getUrl(bucket, s3FileName).toString().replace("https", "http");
+        return amazonS3.getUrl(bucket, s3FileName).toString();
     }
 }
