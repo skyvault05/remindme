@@ -13,3 +13,8 @@
 - 2인 프로젝트.
 - 개발 언어 및 프레임워크: Java(Spring Boot), Java Script(React)
 - React + Spring Boot 구조로 개발하였으며, 저는 Spring Boot Api 서버, 프로젝트 기획, Database 설계, Infrastructure 구축을 담당하였습니다.
+
+
+## 해결할 문제 목록
+* 1+N 문제 QueryDSL적용해서 fetch join으로 해결하기
+* RequestMapping url들을 Rest하게 바꾸기
