@@ -18,3 +18,4 @@
 ## 해결할 문제 목록
 * 1+N 문제 QueryDSL적용해서 fetch join으로 해결하기
 * RequestMapping url들을 Rest하게 바꾸기
+* Https로  전환하기
